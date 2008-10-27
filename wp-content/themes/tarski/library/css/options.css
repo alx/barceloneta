@@ -1,0 +1,92 @@
+/**
+ * Tarski options page
+ * 
+ * Tarski's options page lets users change the way Tarski looks and behaves.
+ * As a fairly involved form-based page with a non-standard layout, a certain
+ * amount of CSS is needed to keep things in order.
+ */
+
+/**
+ * Overall page styling
+ * 
+ * Broad-brush stuff, setting the stage for the form elements. Makes the page
+ * background grey, puts the page title in its place, and sorts out other
+ * header and footer elements.
+ */
+#tarski-options {}
+#tarski-options-header { clear: both; margin: 0.4em 0 0.8em 0; border-bottom: 1px solid #dadada; padding: 0.4em; }
+#tarski-options-header h2 { float: left; margin: 0 0.8em 0 0; border: none; padding: 0; }
+#tarski-save-options, #tarski-info { display: block; padding: 0; }
+#tarski-save-options { float: left; margin: 0; }
+#tarski-info { float: right; margin: 0.8em 0 0 0; }
+.rtl { text-align: right; direction: rtl; }
+
+/**
+ * Positioning
+ * 
+ * The 'span' class is for elements which span the entire page width, while
+ * the 'primary' and 'secondary' classes are for blocks which are floated to
+ * left and right respectively, clearing only those above them and thus
+ * allowing for fairly flexible layouts.
+ */
+.span { clear: both; }
+.clearer { display: block; clear: both; height: 0; visibility: hidden; }
+.primary, .secondary { width: 49.5%; }
+.primary, .rtl .secondary { float: left; clear: left; }
+.secondary, .rtl .primary { float: right; clear: right; }
+
+/**
+ * Form sections and elements
+ * 
+ * Form layouts are a dark art, and these rules let us specify a bit more
+ * precisely than the WordPress defaults do how things should appear.
+ */
+.section label, .section select, #opt-nav-homename { display: block; margin: 0.8em 0; }
+.section { margin: 0 0 0.8em 0; padding: 0.8em 0.8em 0.4em 0.8em; background: #eaf3fa; position: relative; *zoom: 1; }
+.section h3, .section p { margin: 0 0 0.8em 0; }
+.tip { margin: 0.8em 0; border: 1px solid #c6d9e9; border-left-width: 3px; padding: 0.4em; background: #f7fafd; }
+#tarski-options .highlight { background: none; color: #d54e21; }
+#tarski-options .tip p:last-child { margin-bottom: 0; }
+#tarski-headers label { display: inline; }
+#tarski-headers label img { background: #fff; margin: 5px; font-weight: bold; }
+
+/**
+ * Navbar selection node tree
+ * 
+ * The navbar selection tool is an ordered list of pages, whose list elements
+ * may also contain child lists of sub-pages.
+ */
+#navbar-select { clear: both; margin: 0 0 1em 0; padding: 0; }
+#navbar-select ol { margin: 0; padding: 0; }
+#navbar-select li { margin: 0; padding: 0; list-style-type: none; }
+#navbar-select li ol li { padding-left: 1.5em; }
+#navbar-select .nav-page { position: relative; margin: 0 0 0.5em 0; padding: 4px 20px 3px 5px; background-color: #cedeeb; background-repeat:no-repeat; background-position: 5px 6px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
+#navbar-select .nav-page a { text-decoration: none; }
+#navbar-select.js .nav-page { padding-left: 28px; background-image: url('../../images/page_select.png'); }
+#navbar-select .nav-page label { display: inline; margin: 0 0 0.7em 0; }
+#navbar-select .nav-page input { display: block; position: absolute; top: 4px; right: 5px; width: 1em; height: 1em; }
+#navbar-select .nav-page .toggle { display: block; position: absolute; top: 0; left: 0; width: 23px; height: 23px; background: url('../../images/page_select.png') no-repeat 5px -194px; text-indent: -9999em; cursor: pointer; }
+#navbar-select.js .collapsed .nav-page .collapsed-toggle { background-position: 5px -94px; }
+#navbar-select.js li.collapsed ol { display: none; }
+/* Some hacks to work around Internet Explorer bugs */
+#navbar-select, #navbar-select ol, #navbar-select li, #navbar-select .nav-page, #navbar-select .nav-page input { *zoom: 1; }
+#navbar-select .nav-page input { _top: 5px; }
+
+/**
+ * Checkboxes and radio buttons
+ * 
+ * The Tarski options page uses JavaScript to allow the styling of input
+ * elements. It's mainly used to create clickable header image thumbnails
+ * and consequently the styling rules here are fairly minimal, but all the
+ * important classes are listed for possible future reference.
+ */
+label.checkbox_checked {}
+label.checkbox_unchecked {}
+label.radio_checked {}
+label.radio_checked img { border: 2px solid #d54e21; padding: 3px; }
+label.radio_unchecked  {}
+label.radio_unchecked img { border: 1px solid #8ebfd5; padding: 4px; }
+label.radio_unchecked:hover {}
+label.radio_unchecked:hover img { border: 1px solid #d54e21; padding: 4px; }
+label.highlighted { border: 1px solid #333; }
+.crirHidden { position: absolute; left: -9999em; }

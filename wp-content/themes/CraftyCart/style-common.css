@@ -1,0 +1,235 @@
+/*
+	Common Element Styles
+	Code by www.BillionStudio.com
+*/
+
+p {
+	padding: 0 0 20px 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	padding: 0 0 12px;
+}
+
+h1, h2, h3 {
+	font-weight: bold;
+	line-height: 100%;
+}
+
+h4, h5, h6 {
+	font-weight: normal;
+}
+
+h1 { font-size: 220%; }
+h2 { font-size: 220%; }
+h3 { font-size: 160%; }
+h4 { font-size: 140%; }
+h5 { font-size: 120%; }
+h6 { font-size: 100%; }
+
+a, a:visited {
+	color: #00A6CC;
+	text-decoration: none;
+}
+
+a:hover, a:active {
+	color: #DA444F;
+	text-decoration: none;
+}
+
+abbr, acronym {
+	border-bottom: 1px dotted #000;
+	cursor: help;
+}
+
+ul { list-style-type: square; }
+ol { list-style-type: decimal; }
+
+dl { margin-left: 20px; }
+dl dt { font-weight: bold; }
+dl dd { margin-left: 40px; }
+
+blockquote {
+	margin: 0 0 20px 0;
+	padding: 6px 12px 6px 45px;
+	background-color: #fff;
+	border: 1px solid #EAEAEA;
+	border-left-width: 3px;
+	background: #fff url('images/icon-quote.png') no-repeat top left;
+}
+blockquote p {
+	padding: 6px 0;
+}
+blockquote blockquote {
+	background-image: none;
+	padding-left: 12px;
+	margin: 6px 0;
+	background-color: #fff;
+}
+
+code, pre {
+	display: block;
+	white-space: pre;
+	padding: 6px 12px 6px;
+	margin: 0 0 20px 0;
+	background-color: #fff;
+	border: 1px solid #EAEAEA;
+	border-left-width: 3px;
+	font-size: 110%;
+	font-family: "Monaco", monospace;
+}
+p code {
+	display: inline;
+	padding: 3px 6px;
+	margin: 0;
+	border: 0;
+	white-space: normal;
+}
+
+hr {
+	margin: 0 0 20px 0;
+	border: 0;
+	height: 1px;
+	border-bottom: 1px solid #ccc;
+}
+
+/* FORMS
+========================================== */
+form {
+	width: auto;
+}
+
+form input {
+	margin: 6px 0;
+}
+
+table form input {
+	margin: 3px 0;
+}
+
+form table {
+	margin: 12px 0 20px;
+}
+form table th,
+form table td {
+	border: 0;
+	border-collapse: collapse;
+	padding: 6px 12px;
+	text-align: left;
+}
+form table input {
+	margin: 0;
+}
+form table td textarea,
+form table td select {
+	width: 100%;
+	margin: 0;
+}
+
+fieldset {
+	width: auto;
+	border: 0;
+}
+
+label {
+	font-size: 100%;
+	line-height: 100%;
+	white-space: pre;
+	display: block;
+	color: #999;
+	text-align: left;
+	margin: 0 0 6px;
+}
+form p {
+	line-height: 150%;
+	clear: both;
+}
+form p input {
+	display: inline;
+	float: left;
+	clear: both;
+	margin: 0;
+	margin-right: 6px;
+}
+form p label {
+	display: inline;
+	clear: none;
+	padding: 0;
+	margin: 0;
+	white-space: normal;
+}
+
+input, textarea, select, button {
+	margin: 0 0 12px 0;
+}
+
+input.text, textarea.text {
+	padding: 4px 4px;
+	background: #fff url('images/input.png') repeat-x top left;
+	border: 1px solid #CCCCCC;
+	border-top-color: #BDBDBD;
+	border-bottom-color: #DDDDDD;
+}
+
+input.text, textarea.text {
+	width: 230px;
+	font-size: 100%;
+}
+
+textarea.text {
+	width: 345px;
+	height: 60px;
+	padding: 5px;
+	margin-bottom: 6px;
+}
+
+input.button {
+	float: none;
+	clear: both;
+	margin: 3px 0 0 0;
+	padding: 3px 6px;
+	font-size: 100%;
+	font-weight: normal;
+}
+
+textarea.text:focus,
+input.text:focus { outline: none; border-color: #666; }
+
+/* TABLES
+========================================== */
+table {
+	width: auto;
+	margin: 0 0 20px 0;
+}
+
+table caption,
+table tfoot {
+	text-align: center;
+	padding: 3px 0;
+	font-weight: bold;
+	color: #000;
+}
+
+table th {
+	text-align: center;
+	padding: 6px 12px;
+	font-weight: bold;
+	color: #666;
+}
+
+table tr {
+	text-align: center;
+}
+
+table tr.alt th,
+table tr.alt td {
+	background-color: #F7F7F7;
+}
+
+table td {
+	text-align: center;
+	font-size: 1.0em;
+	line-height: 100%;
+	padding: 6px;
+	vertical-align: middle;
+}

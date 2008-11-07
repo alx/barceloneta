@@ -303,7 +303,7 @@ function wpsc_shipping_country_list($selected_country = null) {
 			curl_setopt($ch, CURLOPT_URL, $url); 
 			curl_setopt($ch, CURLOPT_NOPROGRESS, 1); 
 			curl_setopt($ch, CURLOPT_VERBOSE, 1); 
-			curl_setopt($ch, CURLOPT_FOLLOWLOCATION,1); 
+			//curl_setopt($ch, CURLOPT_FOLLOWLOCATION,1); 
 			curl_setopt($ch, CURLOPT_TIMEOUT, 120); 
 			curl_setopt($ch, CURLOPT_USERAGENT, 'osCommerce'); 
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 

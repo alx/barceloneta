@@ -603,4 +603,7 @@ define('TXT_WPSC_YEARS', "Ann&eacute;es");
 define('TXT_WPSC_MEMBERS_SUBSCRIPTION_ENDED', "Votre souscription s\'est termin&eacute;e.");
 define('TXT_WPSC_ACTIVATE_SETTINGS_MEMBERS', 'Options d\'activation: Module des membres');
 define('TXT_WPSC_GOLD_CART', 'caddie Gold');
+
+define('TXT_WPSC_CATEGORISATION_GROUPS_DESCR', 'Groups help your visitors find your products. If you sell t-shirts, hats, and trousers you might want to setup a new group called clothing and then add the categories t-shirts, hats, and trousers to that group. Now you can associate individual products to their respective clothing group categories when you add or edit products.');
+define('TXT_WPSC_CATEGORISATION_DESCR', 'Groupes de produits');
 ?>

@@ -25,7 +25,7 @@ function widget_feevy_init() {
 			if ( !isset($options[$number][$key]) )
 				$options[$number][$key] = $defaults[$key];
 
-		$feevy_url = 'http://www.feevy.com/code/' . $options[$number]['code'] . '/tags/porsmilin';
+		$feevy_url = 'http://www.feevy.com/code/' . $options[$number]['code'];
 		$feevy_url.= '/' . $options[$number]['style'];
 		?>
 		<?php echo $before_widget; ?>

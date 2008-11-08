@@ -61,7 +61,7 @@ function sd_build_html( $id, $alt ) {
 	}
 
 	$output = str_replace("###ID###", $id, DEEZER_HTML);
-	$output = str_replace("###TEXT###", 'En &eacute;coute avec Deezer &raquo; <strong>' . $alt . '</strong>', $output);
+	$output = str_replace("###TEXT###", 'En &eacute;coute avec Deezer &raquo; ' . $alt , $output);
 	// $output = str_replace("###LINK###", '<a href="http://www.deezer.com/track/'. $id .'" rel="nofollow">www.deezer.com/track/' . $id . '</a>', $output);
 
 	return $output;
@@ -72,3 +72,11 @@ function sd_format_deezer( $result ) {
 	return sd_build_html( $deezer[1], $deezer[2] );
 }
 ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>

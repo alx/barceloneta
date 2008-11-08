@@ -6,15 +6,15 @@
 
 		<div class="post" id="post-<?php the_ID(); ?>">
 			<div class="post-title">
-			<p class="post-edit" style="float:right;"><?php edit_post_link('Edit','',''); ?></p>
+			<p class="post-edit" style="float:right;"><?php edit_post_link('Modifier','',''); ?></p>
 			<h2>
-				<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent link to <?php the_title(); ?>">
+				<a href="<?php the_permalink() ?>" rel="bookmark" title="Permalien vers <?php the_title(); ?>">
 				<?php the_title(); ?></a>
 			</h2>
 			</div>
 			
 			<div class="post-content">
-				<?php the_content("Continue reading&hellip;"); ?>
+				<?php the_content("Continue la lecture&hellip;"); ?>
 				<?php link_pages('<p class="pagenav">Page: ', '</p>'); ?>
 			</div>
 		</div>

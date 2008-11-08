@@ -6,7 +6,7 @@
 
 		<div class="post" id="post-<?php the_ID(); ?>">
 			<div class="post-title">
-			<p class="post-edit" style="float:right;"><?php edit_post_link('Edit','',''); ?></p>
+			<p class="post-edit" style="float:right;"><?php edit_post_link('Modifier','',''); ?></p>
 			<h2>
 				<a href="<?php the_permalink() ?>" rel="bookmark" title="Permalien vers <?php the_title(); ?>">
 				<?php the_title(); ?></a>
@@ -15,7 +15,7 @@
 			
 			<div class="post-footer">
 			<h4>
-				<span class="post-date"><?php the_time(); ?></span>
+				<span class="post-date">le <?php the_time('j F Y'); ?></span>
 				<span class="post-comments"><a href="<?php comments_link(); ?>" title="Voir les commentaires">
 				<?php comments_number('Ecrire un commentaire','1 Commentaire','% Commentaires'); ?></a></span>
 				<span class="post-category"><?php the_category(' &middot; '); ?></span>

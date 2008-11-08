@@ -36,7 +36,6 @@ define("DEEZER_HTML", '
 			<param name="wmode" value="transparent" />
 		</object>
 		<br />
-		###LINK###
 	</div>');
 // End edition
 
@@ -63,7 +62,7 @@ function sd_build_html( $id, $alt ) {
 
 	$output = str_replace("###ID###", $id, DEEZER_HTML);
 	$output = str_replace("###TEXT###", 'En &eacute;coute avec Deezer &raquo; <strong>' . $alt . '</strong>', $output);
-	$output = str_replace("###LINK###", '<a href="http://www.deezer.com/track/'. $id .'" rel="nofollow">www.deezer.com/track/' . $id . '</a>', $output);
+	// $output = str_replace("###LINK###", '<a href="http://www.deezer.com/track/'. $id .'" rel="nofollow">www.deezer.com/track/' . $id . '</a>', $output);
 
 	return $output;
 }

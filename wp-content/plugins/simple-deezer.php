@@ -72,11 +72,3 @@ function sd_format_deezer( $result ) {
 	return sd_build_html( $deezer[1], $deezer[2] );
 }
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
-<html>
-	<head>
-		<title></title>
-	</head>
-	<body>
-	</body>
-</html>

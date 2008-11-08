@@ -25,6 +25,7 @@
 			<div class="post-content">
 			<?php the_content("Continuer la lecture..."); ?>
 			</div>
+			<p style="clear:both">&nbsp;</p>
 		</div>
 
 		<?php endwhile; ?>

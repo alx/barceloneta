@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-	<title><?php if (is_home()) { bloginfo('description'); ?> &mdash; <?php } else { wp_title('',true); ?> &mdash; <?php } ?><?php bloginfo('name'); ?></title>
+	<title><?php bloginfo('name'); ?></title>
 	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
 	<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
@@ -11,7 +11,6 @@
 	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/javascript/iehover.js"></script>
 	<?php wp_head(); ?>
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/style-ecommerce.css" type="text/css" media="screen" />
-	<!-- WordPress Theme by Billion Studio www.billionstudio.com -->
 </head>
 
 <body id="top">

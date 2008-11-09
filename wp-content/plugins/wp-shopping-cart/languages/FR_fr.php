@@ -1,7 +1,7 @@
 <?php
 /*
-This is a language file for the WP Shopping Cart plugin version 2.6.5 beta
-Translation to French: semiosys@semiophore.net
+This is a language file for the WP Shopping Cart plugin version 3.6.8 RC1
+Translation to French: semiosys@semiophore.net, alx.girard@gmail.com
 */
 define('TXT_WPSC_IMAGESIZEINFO', 'Note: Si cela reste non rempli, l\'image ne sera pas redimensionn&eacute;e');
 define('TXT_WPSC_RECEIVED', 'Commande re&ccedil;ue');

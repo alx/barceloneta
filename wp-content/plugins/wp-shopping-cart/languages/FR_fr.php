@@ -679,4 +679,13 @@ define('TXT_WPSC_VALUE', 'Valeur');
 define('TXT_WPSC_WEIGHT', 'Poids');
 define('TXT_WPSC_WE_RECOMMEND', 'Nous recommandons');
 define('TXT_WPSC_YOUAREUSING', 'Vous utilisez le style :theme:. WP e-Commerce :versionnumber:.');
+
+define('TXT_WPSC_PRODUCTCOUNT_SINGULAR','produit');
+define('TXT_WPSC_PRODUCTCOUNT_PLURAL','produits');
+define('TXT_WPSC_GROUPCOUNT_SINGULAR','groupe');
+define('TXT_WPSC_GROUPCOUNT_PLURAL','groupes');
+define('TXT_WPSC_SALECOUNT_SINGULAR','vente');
+define('TXT_WPSC_SALECOUNT_PLURAL','ventes');	
+define('TXT_WPSC_PENDINGCOUNT_SINGULAR','transaction');
+define('TXT_WPSC_PENDINGCOUNT_PLURAL','transactions');
 ?>

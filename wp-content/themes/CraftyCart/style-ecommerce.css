@@ -431,7 +431,7 @@ div.producttext p.wpsc_product_price span.pricedisplay {
 #shopping-cart #sliding_cart table a,
 #shopping-cart #sliding_cart table a:visited,
 #shopping-cart #sliding_cart table span.pricedisplay {
-	color: #666;
+	color: #CCC;
 	font-weight: normal;
 	float: none;
 }

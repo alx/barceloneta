@@ -693,7 +693,7 @@ define('TXT_WPSC_SHOWALL','Montrer Tout');
 
 define('TXT_WPSC_ECOMMERCE_SUBSCRIBERS', 'Utilisateur d\'e-Commerce');
 define('TXT_WPSC_USERID', 'ID');
-define('TXT_WPSC_REGISTEREDDATE', 'Date d'\'enregistrement');
+define('TXT_WPSC_REGISTEREDDATE', 'Date d\'enregistrement');
 define('TXT_WPSC_SUSPEND', 'Suspendre');
 define('TXT_WPSC_ACTIVATE', 'Activer');
 ?>

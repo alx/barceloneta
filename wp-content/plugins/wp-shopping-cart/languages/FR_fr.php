@@ -688,4 +688,6 @@ define('TXT_WPSC_SALECOUNT_SINGULAR','vente');
 define('TXT_WPSC_SALECOUNT_PLURAL','ventes');	
 define('TXT_WPSC_PENDINGCOUNT_SINGULAR','transaction');
 define('TXT_WPSC_PENDINGCOUNT_PLURAL','transactions');
+
+define('TXT_WPSC_SHOWALL','Montrer Tout');
 ?>

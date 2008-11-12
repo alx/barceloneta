@@ -735,8 +735,8 @@ img.wp-smiley { border: none; }
 	padding: 0;
 }
 
-#sliding_cart p {
-	color:#CCCCCC;
+div#sliding_cart p {
+	color:#CCC;
 }
 
 /* CREDITS

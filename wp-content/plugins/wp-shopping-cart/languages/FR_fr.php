@@ -696,4 +696,8 @@ define('TXT_WPSC_USERID', 'ID');
 define('TXT_WPSC_REGISTEREDDATE', 'Date d\'enregistrement');
 define('TXT_WPSC_SUSPEND', 'Suspendre');
 define('TXT_WPSC_ACTIVATE', 'Activer');
+
+define('TXT_WPSC_LATEST_PRODUCTS', 'Derniers Produits');
+define('TXT_WPSC_PRICE_RANGE', "Echelle de Prix");
+define('TXT_WPSC_ADMINMENU', 'Menu d\'Administration');
 ?>

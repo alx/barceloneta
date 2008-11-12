@@ -618,10 +618,6 @@ img.wp-smiley { border: none; }
 	color: #fff;
 }
 
-#widgetshoppingcart p {
-	color:#CCCCCC;
-}
-
 #content .sidebar {
 	padding: 12px 20px 12px;
 	margin: 0 0 0px 0;
@@ -737,6 +733,10 @@ img.wp-smiley { border: none; }
 	border: 0;
 	margin: 0;
 	padding: 0;
+}
+
+#sliding_cart p {
+	color:#CCCCCC;
 }
 
 /* CREDITS

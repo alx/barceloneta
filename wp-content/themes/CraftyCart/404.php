@@ -1,10 +1,10 @@
 <div class="post">
 	<div class="post-title">
-		<h2>Erreur 404: Page inconnue</h2>
+		<h2>Error 404: Page Not Found</h2>
 	</div>
 	
 	<div class="post-content">
-		<p>D&eacute;sol&eacute;, ce que vous cherchez ne se trouve pas ici.</p>
-		<p><a href="<?php bloginfo('url'); ?>" title="Retour a la page d'accueil">Retour &agrave; la page d'accueil&hellip;</a></p>
+		<p>Sorry, but you are looking for something that isn't here.</p>
+		<p><a href="<?php bloginfo('url'); ?>" title="Back to the home page">Return to the homepage&hellip;</a></p>
 	</div>
 </div>

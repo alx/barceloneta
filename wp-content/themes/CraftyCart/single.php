@@ -6,9 +6,9 @@
 
 		<div class="post" id="post-<?php the_ID(); ?>">
 			<div class="post-title">
-			<p class="post-edit" style="float:right;"><?php edit_post_link('Modifier','',''); ?></p>
+			<p class="post-edit" style="float:right;"><?php edit_post_link('Edit','',''); ?></p>
 			<h2>
-				<a href="<?php the_permalink() ?>" rel="bookmark" title="Permalien vers <?php the_title(); ?>">
+				<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent link to <?php the_title(); ?>">
 				<?php the_title(); ?></a>
 			</h2>
 			</div>
@@ -16,15 +16,15 @@
 			<div class="post-footer">
 			<h4>
 				<span class="post-date"><?php the_time('F jS, Y'); ?></span>
-				<span class="post-comments"><a href="<?php comments_link(); ?>" title="Voir les commentaires de ce post">
-				<?php comments_number('Ecrire un Commentaire','1 Commentaire','% Commentaires'); ?></a></span>
+				<span class="post-comments"><a href="<?php comments_link(); ?>" title="See comments for this post">
+				<?php comments_number('Write Comment','1 Comment','% Comments'); ?></a></span>
 				<span class="post-category"><?php the_category(' &middot; '); ?></span>
 				<br/><?php the_tags('<span class="post-tags">Tags: ', ', ', '</span>'); ?>
 			</h4>
 			</div>
 			
 			<div class="post-content">
-			<?php the_content("Continuer la lecture &hellip;"); ?>
+			<?php the_content("Continue reading&hellip;"); ?>
 			<?php link_pages('<p class="pagenav">Page: ', '</p>'); ?>
 			</div>
 		</div>

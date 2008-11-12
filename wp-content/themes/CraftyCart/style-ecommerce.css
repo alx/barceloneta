@@ -398,9 +398,9 @@ div.producttext p.wpsc_product_price span.pricedisplay {
 	width: 73px;
 	clear: none;
 	padding: 6px 6px;
-	background-color: #c874e7;
+	background-color: #00B5DF;
 	color: #fff;
-	border-bottom: 1px solid #9d09df;
+	border-bottom: 1px solid #008FCD;
 	line-height: 100%;
 	border-radius: 3px;
 	-webkit-border-radius: 3px;
@@ -431,7 +431,7 @@ div.producttext p.wpsc_product_price span.pricedisplay {
 #shopping-cart #sliding_cart table a,
 #shopping-cart #sliding_cart table a:visited,
 #shopping-cart #sliding_cart table span.pricedisplay {
-	color: #CCC;
+	color: #666;
 	font-weight: normal;
 	float: none;
 }

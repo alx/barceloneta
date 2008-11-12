@@ -14,7 +14,7 @@
 <?php if ('open' == $post->comment_status || $comments) : ?>
 <div id="comments">
 <?php if ($comments) : ?>
-	<h3><a href="#respond"><?php comments_number('Pas de commentaire', '1 Commentaire', '% Commentaires' );?></a></h3>
+	<h3><a href="#respond"><?php comments_number('No Comments', '1 Comment', '% Comments' );?></a></h3>
 	<?php $oddcomment = ''; ?>
 	
 	<?php foreach ($comments as $comment) : ?>
@@ -35,10 +35,10 @@
 		</div>
 		<div class="right">
 			<cite><b><?php comment_author_link() ?></b>
-			<small><a href="#comment-<?php comment_ID() ?>" title="Permalien vers ce commentaire"><?php comment_date() ?> &agrave; <?php comment_time() ?></a>
-			<?php edit_comment_link('Modifier',' &middot; ',''); ?></small></cite>
+			<small><a href="#comment-<?php comment_ID() ?>" title="Permanent link to this comment"><?php comment_date('F jS, Y') ?> at <?php comment_time() ?></a>
+			<?php edit_comment_link('Edit',' &middot; ',''); ?></small></cite>
 			<?php if ($comment->comment_approved == '0') : ?>
-			<p style="color:#C64021;"><b>Ce commentaire est en cours de mod&eacute;ration.</b></p>
+			<p style="color:#C64021;"><b>This comment is awaiting moderation.</b></p>
 			<?php else : ?>
 			<?php comment_text() ?>
 			<?php endif; ?>
@@ -65,14 +65,14 @@
 <?php global $trackbacks; ?>
 <?php if ($trackbacks) : ?>
 	<?php $comments = $trackbacks; ?>
-	<h3 id="trackbacks"><?php echo sizeof($trackbacks); ?> Trackbacks et Pingbacks</h3>
+	<h3 id="trackbacks"><?php echo sizeof($trackbacks); ?> Trackbacks and Pingbacks</h3>
 	<ul>
 		<?php foreach ($comments as $comment) : ?>
 		<li>
 			<cite><b><?php comment_author_link() ?></b> &middot; 
-			<small><a href="#comment-<?php comment_ID() ?>" title="Permalien vers ce commentaire">
-			<?php comment_date() ?></a>
-			<?php edit_comment_link('Modifier',' &middot; ',''); ?></small></cite>
+			<small><a href="#comment-<?php comment_ID() ?>" title="Permanent link to this comment">
+			<?php comment_date('F jS, Y') ?></a>
+			<?php edit_comment_link('Edit',' &middot; ',''); ?></small></cite>
 			<?php comment_text() ?>
 		</li>
 		<?php endforeach; ?>
@@ -81,24 +81,24 @@
 
 <?php /* COMMENT FORM */ ?>
 <?php if ('open' == $post->comment_status) : ?>
-	<h3 id="respond">Ecrire un Commentaire</h3>
+	<h3 id="respond">Write a Comment</h3>
 	<?php if ( get_option('comment_registration') && !$user_ID ) : ?>
-	<p>Vous devez &ecirc;tre <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?redirect_to=<?php the_permalink(); ?>">connect&eacute;</a> pour laisser un commentaire.</p>
+	<p>You must be <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?redirect_to=<?php the_permalink(); ?>">logged in</a> to post a comment.</p>
 <?php else : ?>
 	<form id="comment_form" action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post">
 		<fieldset>
 			<?php if ( $user_ID ) : ?>
-			<p>Connecté comme <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a> &middot; 
+			<p>Logged in as <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a> &middot; 
 			<a href="<?php echo get_option('siteurl'); ?>/wp-login.php?action=logout" title="Log out of this account">Logout</a></p>
 			<?php else : ?>
 			
-			<label for="author">Nom:<?php if ($req) echo " (required)"; ?></label>
+			<label for="author">Name:<?php if ($req) echo " (required)"; ?></label>
 			<input class="text" type="text" name="author" id="author" value="<?php echo $comment_author; ?>" size="22" tabindex="1" />
 			
 			<label for="email">Email:<?php if ($req) echo " (required)"; ?></label>
 			<input class="text" type="text" name="email" id="email" value="<?php echo $comment_author_email; ?>" size="22" tabindex="2" />
 			
-			<label for="url">Site web:</label>
+			<label for="url">Website:</label>
 			<input class="text" type="text" name="url" id="url" value="<?php echo $comment_author_url; ?>" size="22" tabindex="3" />
 			
 			<?php endif; ?>
@@ -107,7 +107,7 @@
 			<label for="comment">Message:</label>
 			<textarea class="text" name="comment" id="comment" cols="50" rows="5" tabindex="4"></textarea>
 			
-			<p><input class="button" name="submit" type="submit" id="submit" tabindex="5" value="Laisser un commentaire" /></p>
+			<p><input class="button" name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" /></p>
 			<input type="hidden" name="comment_post_ID" value="<?php echo $id; ?>" />
 			<?php do_action('comment_form', $post->ID); ?>
 		</fieldset>

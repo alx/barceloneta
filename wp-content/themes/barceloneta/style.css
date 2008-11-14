@@ -39,6 +39,13 @@ div#page {
 }
 
 div.container {
+	width: 827px;
+	margin: 0 auto;
+	height: 100%;
+	overflow: auto;
+}
+
+html>body div.container {
 	width: 820px;
 	margin: 0 auto;
 	height: 100%;
@@ -606,8 +613,7 @@ img.wp-smiley { border: none; }
 #sidebar-1 {
 	background-color: transparent;
 }
-#sidebar-1 .sidebar:first-child,
-#sidebar-1 .sidebar.first-child {
+#sidebar-1 #shopping-cart {
 	background-color: #803A72;
 	border-bottom-color: #663366;
 	border-bottom-style: dotted;

@@ -700,4 +700,6 @@ define('TXT_WPSC_ACTIVATE', 'Activer');
 define('TXT_WPSC_LATEST_PRODUCTS', 'Derniers Produits');
 define('TXT_WPSC_PRICE_RANGE', "Echelle de Prix");
 define('TXT_WPSC_ADMINMENU', 'Menu d\'Administration');
+
+define('TXT_WPSC_DISPLAY_PRODUCT_CATEGORIES', 'Afficher [categorisation]'); // The shortcode [categorisation] is replaced with the name of the currently select categorisation
 ?>

@@ -420,9 +420,9 @@ function product_display_default($product_list, $group_type, $group_sql = '', $s
 				} else {
 					$output .= TXT_WPSC_PRICE.": <span id='product_price_".$product['id']."'>" . nzshpcrt_currency_display($product['price'], $product['notax']) . "</span><br />";
 				}
-        if(get_option('display_pnp') == 1) {
-          $output .= TXT_WPSC_PNP.": " . nzshpcrt_currency_display($product['pnp'], 1) . "<br />";
-				}
+				//         if(get_option('display_pnp') == 1) {
+				//           $output .= TXT_WPSC_PNP.": " . nzshpcrt_currency_display($product['pnp'], 1) . "<br />";
+				// }
 			}
       $output .= "</p>";
       
@@ -704,9 +704,9 @@ function single_product_display($product_id) {
 						} else {
 							$output .= TXT_WPSC_PRICE.": <span id='product_price_".$product['id']."'>" . nzshpcrt_currency_display($product['price'], $product['notax']) . "</span><br />";
 						}
-						if(get_option('display_pnp') == 1) {
-							$output .= TXT_WPSC_PNP.": " . nzshpcrt_currency_display($product['pnp'], 1) . "<br />";
-						}
+						// if(get_option('display_pnp') == 1) {
+						// 	$output .= TXT_WPSC_PNP.": " . nzshpcrt_currency_display($product['pnp'], 1) . "<br />";
+						// }
 					}
 				}
 				$output .= "</p>\n\r";	

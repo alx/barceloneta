@@ -37,6 +37,9 @@ $cache_filename = '';
 $meta_file = '';
 $wp_cache_gzip_encoding = '';
 
+$gzipped = 0;
+$gzsize = 0;
+
 function gzip_accepted(){
 	if( ini_get( 'zlib.output_compression' ) ) // don't compress WP-Cache data files when PHP is already doing it
 		return false;
@@ -49,7 +52,7 @@ if ($cache_compression) {
 	$wp_cache_gzip_encoding = gzip_accepted();
 }
 
-$key = $blogcacheid . md5($_SERVER['HTTP_HOST'].preg_replace('/#.*$/', '', str_replace( '/index.php', '/', $_SERVER['REQUEST_URI'] ) ).$wp_cache_gzip_encoding.wp_cache_get_cookies_values());
+$key = $blogcacheid . md5( do_cacheaction( 'wp_cache_key', $_SERVER['HTTP_HOST'].preg_replace('/#.*$/', '', str_replace( '/index.php', '/', $_SERVER['REQUEST_URI'] ) ).$wp_cache_gzip_encoding.wp_cache_get_cookies_values() ) );
 
 $cache_filename = $file_prefix . $key . '.html';
 $meta_file = $file_prefix . $key . '.meta';
@@ -57,11 +60,17 @@ $cache_file = realpath( $cache_path . $cache_filename );
 $meta_pathname = realpath( $cache_path . 'meta/' . $meta_file );
 
 $wp_start_time = microtime();
-if( ($mtime = @filemtime($meta_pathname)) ) {
+if( file_exists( $cache_file ) && ($mtime = @filemtime($meta_pathname)) ) {
 	if ($mtime + $cache_max_time > time() ) {
 		$meta = new CacheMeta;
 		if (! ($meta = unserialize(@file_get_contents($meta_pathname))) ) 
 			return;
+		// Sometimes the gzip headers are lost. If this is a gzip capable client, send those headers.
+		if( $wp_cache_gzip_encoding && !in_array( 'Content-Encoding: ' . $wp_cache_gzip_encoding, $meta->headers ) ) {
+			array_push($meta, 'Content-Encoding: ' . $wp_cache_gzip_encoding);
+			array_push($meta, 'Vary: Accept-Encoding, Cookie');
+			array_push($meta, 'Content-Length: ' . filesize( $cache_file ) );
+		}
 		foreach ($meta->headers as $header) {
 			// godaddy fix, via http://blog.gneu.org/2008/05/wp-supercache-on-godaddy/ and http://www.littleredrails.com/blog/2007/09/08/using-wp-cache-on-godaddy-500-error/
 			if( strpos( $header, 'Last-Modified:' ) === false ) 
@@ -72,10 +81,6 @@ if( ($mtime = @filemtime($meta_pathname)) ) {
 		if ($meta->dynamic) {
 			include($cache_file);
 		} else {
-			/* No used to avoid problems with some PHP installations
-			$content_size += strlen($log);
-			header("Content-Length: $content_size");
-			*/
 			if(!@readfile ($cache_file)) 
 				return;
 		}

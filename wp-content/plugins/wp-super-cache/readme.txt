@@ -2,7 +2,7 @@
 Contributors: donncha
 Tags: performance,caching,wp-cache
 Tested up to: 2.6.2
-Stable tag: 0.8.4
+Stable tag: 0.8.5
 Requires at least: 2.2
 
 A very fast caching engine for WordPress that produces static html files.
@@ -88,7 +88,7 @@ This plugin is based on the excellent WP-Cache plugin and therefore brings all t
 
 = Will comments and other dynamic parts of my blog update immediately? =
 
-Comments will show as soon as they are moderated, depending on the comment policy of the blog owner. Other dynamic elements on a page may not update unless they are written in Javascript, Flash, Java or another client side browser language. The plugin really produces static html pages. No PHP is executed when those pages are served. "Popularity Contest" is one such plugin that will not work.
+Comments will show as soon as they are moderated, depending on the comment policy of the blog owner. Other dynamic elements on a page may not update unless they are written in Javascript, Flash, Java or another client side browser language. The plugin really produces static html pages. No PHP is executed when those pages are served. "Popularity Contest" is one such plugin that will not work. Plugins that show different content for mobile users will probaby not work either.
 
 = Will the Super Cache compression slow down my server? =
 
@@ -122,9 +122,10 @@ If you can't do that, then copy the file. That will work too.
 8.  Anything in your php error_log?
 9.  If your browser keeps asking you to save the file after the super cache is installed you must disable Super Cache compression. Go to the Settings->WP Super Cache page and disable it there.
 10. The plugin does not work very well when PHP's safe mode is active. This must be disabled by your administrator.
-11. If pages are randomly super cached and sometimes not, your blog can probably be viewed with and without the "www" prefix on the URL. You should choose one way and install the [Enforce www preference](http://txfx.net/code/wordpress/enforce-www-preference/) plugin.
+11. If pages are randomly super cached and sometimes not, your blog can probably be viewed with and without the "www" prefix on the URL. You should choose one way and install the [Enforce www preference](http://txfx.net/code/wordpress/enforce-www-preference/) plugin if you are using an old WordPress install. The latest versions redirect themselves (you should always be running the latest version of WordPress anyway!)
 12. Private Server users at Dreamhost should edit wp-content/wp-cache-config.php and set the cache dir to "/tmp/" if they are getting errors about increasing CPU usage. See this [discussion](http://wordpress.org/support/topic/145895?replies=42) for more.
-13. sem_acquire() errors such as "failed to acquire key 0x152b: Permission denied in..." are a sign that you must use file locking. Edit wp-content/wp-cache-config.php and uncomment "$use_flock = true" or  set $sem_id to a different value.
+13. File locking errors such as "failed to acquire key 0x152b: Permission denied in..." or "Page not cached by WP Super Cache. Could not get mutex lock." are a sign that you may have to use file locking. Edit wp-content/wp-cache-config.php and uncomment "$use_flock = true" or set $sem_id to a different value.
+14. Make sure cache/wp_cache_mutex.lock is writeable by the web server.
 
 == Custom Caching ==
 It is now possible to hook into the caching process using the add_cacheaction() function.
@@ -140,6 +141,9 @@ to customize the checks made before caching. The filter accepts one parameter.
 The output of WP-Cache's wp_cache_get_cookies_values() function.
 
 See plugins/searchengine.php as an example I use for my [No Adverts for Friends](plugin at http://ocaoimh.ie/no-adverts-for-friends/)
+
+== Links ==
+[WP Widget Cache](http://wordpress.org/extend/plugins/wp-widget-cache/) is another caching plugin for WordPress. This plugin caches the output of widgets and may significantly speed up dynamic page generation times.
 
 == Updates ==
 Updates to the plugin will be posted here, to [Holy Shmoly!](http://ocaoimh.ie/) and the [WP Super Cache homepage](http://ocaoimh.ie/wp-super-cache/) will always link to the newest version.

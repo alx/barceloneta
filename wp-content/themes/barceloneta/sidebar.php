@@ -1,27 +1,4 @@
 <div class="small" id="sidebar-1">
-	<?php if ( is_404() || is_category() || is_day() || is_month() || is_year() || is_tag() || is_paged() ) { ?>
-	<div class="sidebar first-child">
-		<?php /* If this is a 404 page */ if (is_404()) { ?>
-		<?php /* If this is a category archive */ } elseif (is_category()) { ?>
-		<h4>You are currently browsing the archives for <?php single_cat_title(''); ?>.</h4>
-
-		<?php /* If this is a daily archive */ } elseif (is_day()) { ?>
-		<h4>You are currently browsing the archives for the day <?php the_time('l, F jS, Y'); ?>.</h4>
-
-		<?php /* If this is a monthly archive */ } elseif (is_month()) { ?>
-		<h4>You are currently browsing the archives for <?php the_time('F, Y'); ?>.</h4>
-
-		<?php /* If this is a yearly archive */ } elseif (is_year()) { ?>
-		<h4>You are currently browsing the archives for the year <?php the_time('Y'); ?>.</h4>
-
-		<?php /* If this is a yearly archive */ } elseif (is_tag()) { ?>
-		<h4>You are currently browsing the archives for the tag <i>'<?php single_tag_title(); ?>'</i>.</h4>
-
-		<?php /* If this is a paged archive */ } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) { ?>
-		<h4>You are currently browsing the archives.</h4>
-		<?php } ?>
-	</div>
-	<?php } ?>
 	
 <?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('Sidebar')) : ?>
 	<!-- Default Sidebar content -->

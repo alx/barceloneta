@@ -1,41 +1,48 @@
 jQuery(document).ready(function() {
-	jQuery('div.wpcf7 > form').ajaxForm({
-		beforeSubmit: wpcf7BeforeSubmit,
-		dataType: 'json',
-		success: wpcf7ProcessJson
-	});
+    try {
+        jQuery('div.wpcf7 > form').ajaxForm({
+            beforeSubmit: wpcf7BeforeSubmit,
+            dataType: 'json',
+            success: wpcf7ProcessJson
+        });
+    } catch (e) {
+    }
 
-  jQuery('div.wpcf7 > form').each(function(i, n) {
-    wpcf7ToggleSubmit(jQuery(n));
-  });
+    try {
+        jQuery('div.wpcf7 > form').each(function(i, n) {
+            wpcf7ToggleSubmit(jQuery(n));
+        });
+    } catch (e) {
+    }
 });
 
 // Exclusive checkbox
 function wpcf7ExclusiveCheckbox(elem) {
-  jQuery(elem.form).find('input:checkbox[@name="' + elem.name + '"]').not(elem).removeAttr('checked');
+    jQuery(elem.form).find('input:checkbox[@name="' + elem.name + '"]').not(elem).removeAttr('checked');
 }
 
 // Toggle submit button
 function wpcf7ToggleSubmit(form) {
-  var submit = jQuery(form).find('input:submit');
-  if (! submit.length) return;
-  
-  var acceptances = jQuery(form).find('input:checkbox.wpcf7-acceptance');
-  if (! acceptances.length) return;
-  
-  submit.removeAttr('disabled');
-  acceptances.each(function(i, n) {
-    n = jQuery(n);
-    if (n.hasClass('wpcf7-invert') && n.is(':checked') || ! n.hasClass('wpcf7-invert') && ! n.is(':checked'))
-      submit.attr('disabled', 'disabled');
-  });
+    var submit = jQuery(form).find('input:submit');
+    if (! submit.length) return;
+
+    var acceptances = jQuery(form).find('input:checkbox.wpcf7-acceptance');
+    if (! acceptances.length) return;
+
+    submit.removeAttr('disabled');
+    acceptances.each(function(i, n) {
+        n = jQuery(n);
+        if (n.hasClass('wpcf7-invert') && n.is(':checked') || ! n.hasClass('wpcf7-invert') && ! n.is(':checked'))
+        submit.attr('disabled', 'disabled');
+    });
 }
 
 function wpcf7BeforeSubmit(formData, jqForm, options) {
 	wpcf7ClearResponseOutput();
 	jQuery('img.ajax-loader', jqForm[0]).css({ visibility: 'visible' });
-  
-  formData.push({name: '_wpcf7_is_ajax_call', value: 1});
+
+    formData.push({name: '_wpcf7_is_ajax_call', value: 1});
+    jQuery(jqForm[0]).append('<input type="hidden" name="_wpcf7_is_ajax_call" value="1" />');
   
 	return true;
 }
@@ -70,6 +77,13 @@ function wpcf7ProcessJson(data) {
 			jQuery(data.into).find('input:hidden[@name="_wpcf7_captcha_challenge_' + i + '"]').attr('value', match[1]);
 		});
 	}
+    if (data.quiz) {
+        jQuery.each(data.quiz, function(i, n) {
+            jQuery(data.into).find(':input[@name="' + i + '"]').clearFields();
+            jQuery(data.into).find(':input[@name="' + i + '"]').siblings('span.wpcf7-quiz-label').text(n[0]);
+            jQuery(data.into).find('input:hidden[@name="_wpcf7_quiz_answer_' + i + '"]').attr('value', n[1]);
+        });
+    }
 	if (1 == data.spam) {
 		wpcf7ResponseOutput.addClass('wpcf7-spam-blocked');
 	}

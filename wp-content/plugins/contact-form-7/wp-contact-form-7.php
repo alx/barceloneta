@@ -4,7 +4,7 @@ Plugin Name: Contact Form 7
 Plugin URI: http://ideasilo.wordpress.com/2007/04/30/contact-form-7/
 Description: Just another contact form plugin. Simple but flexible.
 Author: Takayuki Miyoshi
-Version: 1.8.1.1
+Version: 1.9.2.2
 Author URI: http://ideasilo.wordpress.com/
 */
 
@@ -25,11 +25,7 @@ Author URI: http://ideasilo.wordpress.com/
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-define('WPCF7_VERSION', '1.8.1.1');
-
-function wpcf7_version() {
-    return WPCF7_VERSION;
-}
+define('WPCF7_VERSION', '1.9.2.2');
 
 if (! defined('WP_CONTENT_DIR'))
     define('WP_CONTENT_DIR', ABSPATH . 'wp-content');
@@ -51,9 +47,19 @@ if (! defined('WPCF7_CAPTCHA_TMP_DIR'))
 if (! defined('WPCF7_CAPTCHA_TMP_URL'))
     define('WPCF7_CAPTCHA_TMP_URL', WP_CONTENT_URL . '/uploads/wpcf7_captcha');
 
-if (! defined('WPCF7_SUBSTITUTE_WPAUTOP'))
-    define('WPCF7_SUBSTITUTE_WPAUTOP', true);
-    
+if (! defined('WPCF7_UPLOADS_TMP_DIR'))
+    define('WPCF7_UPLOADS_TMP_DIR', WP_CONTENT_DIR . '/uploads/wpcf7_uploads');
+
+if (! defined('WPCF7_AUTOP'))
+    define('WPCF7_AUTOP', true);
+
+if (! defined('WPCF7_USE_PIPE'))
+    define('WPCF7_USE_PIPE', true);
+
+if (! function_exists('wpcf7_version')) {
+    function wpcf7_version() { return WPCF7_VERSION; }
+}
+
 if (! function_exists('wpcf7_read_capability')) {
     function wpcf7_read_capability() { return 'edit_posts'; }
 }
@@ -66,10 +72,10 @@ class tam_contact_form_seven {
 
 	var $contact_forms;
 	var $captcha;
+    var $posted_data;
 
 	function tam_contact_form_seven() {
-		// This backslash replacement for Win32 will be unnecessary. See http://trac.wordpress.org/ticket/3002
-		add_action('activate_' . strtr(plugin_basename(__FILE__), '\\', '/'), array(&$this, 'set_initial'));
+		add_action('activate_' . plugin_basename(__FILE__), array(&$this, 'set_initial'));
 		add_action('init', array(&$this, 'load_plugin_textdomain'));
 		add_action('admin_menu', array(&$this, 'add_pages'));
 		add_action('admin_head', array(&$this, 'admin_head'));
@@ -77,57 +83,13 @@ class tam_contact_form_seven {
 		add_action('wp_print_scripts', array(&$this, 'load_js'));
 		add_action('init', array(&$this, 'init_switch'), 11);
 		add_filter('the_content', array(&$this, 'the_content_filter'), 9);
-		add_filter('widget_text', array(&$this, 'widget_text_filter'));
-		if (WPCF7_SUBSTITUTE_WPAUTOP && remove_filter('the_content', 'wpautop'))
-            add_filter('the_content', array(&$this, 'wpautop_substitute'));
-	}
-    
-    function wpautop_substitute($pee, $br = 1) {
-        $pee = $pee . "\n"; // just to make things a little easier, pad the end
-        $pee = preg_replace('|<br />\s*<br />|', "\n\n", $pee);
-        // Space things out a little
-        $allblocks = '(?:table|thead|tfoot|caption|colgroup|tbody|tr|td|th|div|dl|dd|dt|ul|ol|li|pre|form|map|area|blockquote|address|math|style|p|h[1-6]|hr)';
-        $pee = preg_replace('!(<' . $allblocks . '[^>]*>)!', "\n$1", $pee);
-        $pee = preg_replace('!(</' . $allblocks . '>)!', "$1\n\n", $pee);
-        $pee = str_replace(array("\r\n", "\r"), "\n", $pee); // cross-platform newlines
-        if ( strpos($pee, '<object') !== false ) {
-            $pee = preg_replace('|\s*<param([^>]*)>\s*|', "<param$1>", $pee); // no pee inside object/embed
-            $pee = preg_replace('|\s*</embed>\s*|', '</embed>', $pee);
-        }
-        $pee = preg_replace("/\n\n+/", "\n\n", $pee); // take care of duplicates
-        // make paragraphs, including one at the end
-        $pees = preg_split('/\n\s*\n/', $pee, -1, PREG_SPLIT_NO_EMPTY);
-        $pee = '';
-        foreach ( $pees as $tinkle )
-            $pee .= '<p>' . trim($tinkle, "\n") . "</p>\n";
-        $pee = preg_replace('|<p>\s*?</p>|', '', $pee); // under certain strange conditions it could create a P of entirely whitespace
-        $pee = preg_replace('!<p>([^<]+)\s*?(</(?:div|address|form)[^>]*>)!', "<p>$1</p>$2", $pee);
-        $pee = preg_replace( '|<p>|', "$1<p>", $pee );
-        $pee = preg_replace('!<p>\s*(</?' . $allblocks . '[^>]*>)\s*</p>!', "$1", $pee); // don't pee all over a tag
-        $pee = preg_replace("|<p>(<li.+?)</p>|", "$1", $pee); // problem with nested lists
-        $pee = preg_replace('|<p><blockquote([^>]*)>|i', "<blockquote$1><p>", $pee);
-        $pee = str_replace('</blockquote></p>', '</p></blockquote>', $pee);
-        $pee = preg_replace('!<p>\s*(</?' . $allblocks . '[^>]*>)!', "$1", $pee);
-        $pee = preg_replace('!(</?' . $allblocks . '[^>]*>)\s*</p>!', "$1", $pee);
-        if ($br) {
-            $pee = preg_replace_callback('/<(script|style).*?<\/\\1>/s', create_function('$matches', 'return str_replace("\n", "<WPPreserveNewline />", $matches[0]);'), $pee);
-            $pee = preg_replace('|(?<!<br />)\s*\n|', "<br />\n", $pee); // optionally make line breaks
-            $pee = str_replace('<WPPreserveNewline />', "\n", $pee);
-        }
-        $pee = preg_replace('!(</?' . $allblocks . '[^>]*>)\s*<br />!', "$1", $pee);
-        $pee = preg_replace('!<br />(\s*</?(?:p|li|div|dl|dd|dt|th|pre|td|ul|ol)[^>]*>)!', '$1', $pee);
-        if (strpos($pee, '<pre') !== false)
-            $pee = preg_replace_callback('!(<pre.*?>)(.*?)</pre>!is', 'clean_pre', $pee );
-        $pee = preg_replace( "|\n</p>$|", '</p>', $pee );
+		add_filter('widget_text', array(&$this, 'widget_text_filter'), 9);
         
-        if (function_exists('get_shortcode_regex'))
-            $pee = preg_replace('/<p>\s*?(' . get_shortcode_regex() . ')\s*<\/p>/s', '$1', $pee); // don't auto-p wrap shortcodes that stand alone
-    
-        return $pee;
-    }
+        add_shortcode('contact-form', array(&$this, 'contact_form_tag_func'));
+	}
 
 	function init_switch() {
-		if ('POST' == $_SERVER['REQUEST_METHOD'] && $_POST['_wpcf7_is_ajax_call']) {
+		if ('POST' == $_SERVER['REQUEST_METHOD'] && 1 == (int) $_POST['_wpcf7_is_ajax_call']) {
 			$this->ajax_json_echo();
 			exit();
 		} elseif (! is_admin()) {
@@ -137,6 +99,8 @@ class tam_contact_form_seven {
 	}
 	
 	function ajax_json_echo() {
+        $echo = '';
+        
 		if (isset($_POST['_wpcf7'])) {
 			$id = (int) $_POST['_wpcf7'];
 			$unit_tag = $_POST['_wpcf7_unit_tag'];
@@ -145,6 +109,11 @@ class tam_contact_form_seven {
 				$cf = stripslashes_deep($cf);
 				$validation = $this->validate($cf);
 				
+                $handled_uploads = $this->handle_uploads($cf);
+                if (! $handled_uploads['validation']['valid'])
+                    $validation['valid'] = false;
+                $validation['reason'] = array_merge($validation['reason'], $handled_uploads['validation']['reason']);
+                
 				$captchas = $this->refill_captcha($cf);
 				if (! empty($captchas)) {
 					$captchas_js = array();
@@ -155,8 +124,17 @@ class tam_contact_form_seven {
 				} else {
 					$captcha = 'null';
 				}
-				
-				@header('Content-Type: text/plain; charset=' . get_option('blog_charset'));
+                
+                $quizzes = $this->refill_quiz($cf);
+                if (! empty($quizzes)) {
+                    $quizzes_js = array();
+                    foreach ($quizzes as $name => $q) {
+                        $quizzes_js[] = '"' . $name . '": [ "' . js_escape($q[0]) . '", "' . $q[1] . '" ]';
+                    }
+                    $quiz = '{ ' . join(', ', $quizzes_js) . ' }';
+                } else {
+                    $quiz = 'null';
+                }
 				
 				if (! $validation['valid']) { // Validation error occured
 					$invalids = array();
@@ -164,52 +142,164 @@ class tam_contact_form_seven {
 						$invalids[] = '{ into: "span.wpcf7-form-control-wrap.' . $name . '", message: "' . js_escape($reason) . '" }';
 					}
 					$invalids = '[' . join(', ', $invalids) . ']';
-					echo '{ mailSent: 0, message: "' . js_escape($this->message($cf, 'validation_error')) . '", into: "#' . $unit_tag . '", invalids: ' . $invalids . ', captcha: ' . $captcha . ' }';
+					$echo = '{ mailSent: 0, message: "' . js_escape($this->message($cf, 'validation_error')) . '", into: "#' . $unit_tag . '", invalids: ' . $invalids . ', captcha: ' . $captcha . ', quiz: ' . $quiz . ' }';
                 } elseif (! $this->acceptance($cf)) { // Not accepted terms
-                    echo '{ mailSent: 0, message: "' . js_escape($this->message($cf, 'accept_terms')) . '", into: "#' . $unit_tag . '", captcha: ' . $captcha . ' }';
+                    $echo = '{ mailSent: 0, message: "' . js_escape($this->message($cf, 'accept_terms')) . '", into: "#' . $unit_tag . '", captcha: ' . $captcha . ', quiz: ' . $quiz . ' }';
 				} elseif ($this->akismet($cf)) { // Spam!
-					echo '{ mailSent: 0, message: "' . js_escape($this->message($cf, 'akismet_says_spam')) . '", into: "#' . $unit_tag . '", spam: 1, captcha: ' . $captcha . ' }';
-				} elseif ($this->mail($cf)) {
-					echo '{ mailSent: 1, message: "' . js_escape($this->message($cf, 'mail_sent_ok')) . '", into: "#' . $unit_tag . '", captcha: ' . $captcha . ' }';
+					$echo = '{ mailSent: 0, message: "' . js_escape($this->message($cf, 'akismet_says_spam')) . '", into: "#' . $unit_tag . '", spam: 1, captcha: ' . $captcha . ', quiz: ' . $quiz . ' }';
+				} elseif ($this->mail($cf, $handled_uploads['files'])) {
+					$echo = '{ mailSent: 1, message: "' . js_escape($this->message($cf, 'mail_sent_ok')) . '", into: "#' . $unit_tag . '", captcha: ' . $captcha . ', quiz: ' . $quiz . ' }';
 				} else {
-					echo '{ mailSent: 0, message: "' . js_escape($this->message($cf, 'mail_sent_ng')) . '", into: "#' . $unit_tag . '", captcha: ' . $captcha . ' }';
+					$echo = '{ mailSent: 0, message: "' . js_escape($this->message($cf, 'mail_sent_ng')) . '", into: "#' . $unit_tag . '", captcha: ' . $captcha . ', quiz: ' . $quiz . ' }';
 				}
+                
+                // remove upload files
+                foreach ($handled_uploads['files'] as $name => $path) {
+                    @unlink($path);
+                }
 			}
 		}
-	}
-	
-	function mail($contact_form) {
-		$contact_form = $this->upgrade($contact_form);
-		$regex = '/\[\s*([a-zA-Z][0-9a-zA-Z:._-]*)\s*\]/';
-        $callback = array(&$this, 'mail_callback');
-		$mail_subject = preg_replace_callback($regex, $callback, $contact_form['mail']['subject']);
-		$mail_sender = preg_replace_callback($regex, $callback, $contact_form['mail']['sender']);
-		$mail_body = preg_replace_callback($regex, $callback, $contact_form['mail']['body']);
-		$mail_recipient = preg_replace_callback($regex, $callback, $contact_form['mail']['recipient']);
-		$mail_headers = "From: $mail_sender\n"
-			. "Content-Type: text/plain; charset=\"" . get_option('blog_charset') . "\"\n";
-		if (@wp_mail($mail_recipient, $mail_subject, $mail_body, $mail_headers)) {
-			
-			// Mail 2
-			if ($contact_form['mail_2']['active']) {
-				$mail_2_subject = preg_replace_callback($regex, $callback, $contact_form['mail_2']['subject']);
-				$mail_2_sender = preg_replace_callback($regex, $callback, $contact_form['mail_2']['sender']);
-				$mail_2_body = preg_replace_callback($regex, $callback, $contact_form['mail_2']['body']);
-				$mail_2_recipient = preg_replace_callback($regex, $callback, $contact_form['mail_2']['recipient']);
-				$mail_2_headers = "From: $mail_2_sender\n"
-					. "Content-Type: text/plain; charset=\"" . get_option('blog_charset') . "\"\n";
-				@wp_mail($mail_2_recipient, $mail_2_subject, $mail_2_body, $mail_2_headers);
-			}
-			
-			return true;
-		} else {
-			return false;
-		}
+        
+        if ($_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest') {
+            @header('Content-Type: application/json; charset=' . get_option('blog_charset'));
+            echo $echo;
+        } else {
+            @header('Content-Type: text/html; charset=' . get_option('blog_charset'));
+            echo '<textarea>' . $echo . '</textarea>';
+        }
 	}
     
+    function handle_uploads($contact_form) {
+        $files = array();
+        $valid = true;
+        $reason = array();
+        
+        $this->init_uploads(); // Confirm upload dir
+        $uploads_dir = WPCF7_UPLOADS_TMP_DIR;
+        
+        $fes = $this->form_elements($contact_form['form'], false);
+        
+        foreach ($fes as $fe) {
+            if ('file' != $fe['type'] && 'file*' != $fe['type'])
+                continue;
+            
+            $name = $fe['name'];
+            $options = (array) $fe['options'];
+
+            $file = $_FILES[$name];
+
+            if (empty($file['tmp_name']) && 'file*' == $fe['type']) {
+                $valid = false;
+                $reason[$name] = $this->message($contact_form, 'invalid_required');
+                continue;
+            }
+            
+            if (! is_uploaded_file($file['tmp_name']))
+                continue;
+            
+            $filename = wp_unique_filename($uploads_dir, $file['name']);
+            $new_file = trailingslashit($uploads_dir) . $filename;
+            if (false === @move_uploaded_file($file['tmp_name'], $new_file)) {
+                $valid = false;
+                $reason[$name] = $this->message($contact_form, 'upload_failed');
+                continue;
+            }
+
+            $files[$name] = $new_file;
+
+            if ($allowed_types_options = preg_grep('%^filetypes:%', $options)) {
+                $pattern = '';
+                foreach ($allowed_types_options as $allowed_types_option) {
+                    if (preg_match('%^filetypes:(.+)$%', $allowed_types_option, $matches)) {
+                        $file_types = explode('|', $matches[1]);
+                        foreach ($file_types as $file_type) {
+                            $file_type = trim($file_type, '.');
+                            $file_type = str_replace(array('.', '+', '*', '?'), array('\.', '\+', '\*', '\?'), $file_type);
+                            $pattern .= '|' . $file_type;
+                        }
+                    }
+                }
+                $pattern = trim($pattern, '|');
+                $pattern = '(' . $pattern . ')';
+                $pattern = '/\.' . $pattern . '$/i';
+                if (! preg_match($pattern, $file['name'])) {
+                    $valid = false;
+                    $reason[$name] = $this->message($contact_form, 'upload_file_type_invalid');
+                    continue;
+                }
+            }
+            
+            if ($allowed_size_options = preg_grep('%^limit:%', $options)) {
+                $allowed_size_option = array_shift($allowed_size_options);
+                preg_match('/^limit:([1-9][0-9]*)$/', $allowed_size_option, $matches);
+                $allowed_size = (int) $matches[1];
+                
+                if ($file['size'] > $allowed_size) {
+                    $valid = false;
+                    $reason[$name] = $this->message($contact_form, 'upload_file_too_large');
+                    continue;
+                }
+            }
+        }
+        
+        $validation = compact('valid', 'reason');
+        
+        return compact('files', 'validation');
+    }
+	
+	function mail($contact_form, $files = array()) {
+        global $wp_version;
+        
+		$contact_form = $this->upgrade($contact_form);
+
+        $this->posted_data = $_POST;
+
+        if (WPCF7_USE_PIPE) {
+            $this->pipe_all_posted($contact_form);
+        }
+
+        if ($this->compose_and_send_mail($contact_form['mail'], $files)) {
+            if ($contact_form['mail_2']['active'])
+                $this->compose_and_send_mail($contact_form['mail_2'], $files);
+            
+            return true;
+        }
+        
+        return false;
+	}
+    
+    function compose_and_send_mail($mail_template, $attachments = array()) {
+        $regex = '/\[\s*([a-zA-Z][0-9a-zA-Z:._-]*)\s*\]/';
+        $callback = array(&$this, 'mail_callback');
+		$mail_subject = preg_replace_callback($regex, $callback, $mail_template['subject']);
+		$mail_sender = preg_replace_callback($regex, $callback, $mail_template['sender']);
+		$mail_body = preg_replace_callback($regex, $callback, $mail_template['body']);
+		$mail_recipient = preg_replace_callback($regex, $callback, $mail_template['recipient']);
+		$mail_headers = "From: $mail_sender\n";
+
+        if ($attachments) {
+            $mail_headers .= "Content-Type: multipart/mixed\n";
+        } elseif ($mail_template['use_html']) {
+            $mail_headers .= "Content-Type: text/html\n";
+        }
+
+        if ($attachments) {
+            $for_this_mail = array();
+            foreach ($attachments as $name => $path) {
+                if (false === strpos($mail_template['attachments'], "[${name}]"))
+                    continue;
+                $for_this_mail[] = $path;
+            }
+            return @wp_mail($mail_recipient, $mail_subject, $mail_body, $mail_headers, $for_this_mail);
+        } else {
+            return @wp_mail($mail_recipient, $mail_subject, $mail_body, $mail_headers);
+        }
+    }
+    
     function mail_callback($matches) {
-        if (isset($_POST[$matches[1]])) {
-            $submitted = $_POST[$matches[1]];
+        if (isset($this->posted_data[$matches[1]])) {
+            $submitted = $this->posted_data[$matches[1]];
+            
             if (is_array($submitted))
                 $submitted = join(', ', $submitted);
             return stripslashes($submitted);
@@ -276,7 +366,7 @@ class tam_contact_form_seven {
 		$ignore = array('HTTP_COOKIE');
 		
 		foreach ($_SERVER as $key => $value)
-			if (! in_array($key, $ignore))
+			if (! in_array($key, (array) $ignore))
 				$c["$key"] = $value;
 		
 		$query_string = '';
@@ -354,6 +444,8 @@ class tam_contact_form_seven {
     function upgrade($contact_form) {
         $contact_form = $this->upgrade_160($contact_form);
         $contact_form = $this->upgrade_181($contact_form);
+        $contact_form = $this->upgrade_190($contact_form);
+        $contact_form = $this->upgrade_192($contact_form);
         return $contact_form;
     }
 
@@ -377,13 +469,39 @@ class tam_contact_form_seven {
             );
 		return $contact_form;
     }
+    
+    function upgrade_190($contact_form) {
+        if (! isset($contact_form['messages']) || ! is_array($contact_form['messages']))
+            $contact_form['messages'] = array();
+
+        if (! isset($contact_form['messages']['upload_failed']))
+            $contact_form['messages']['upload_failed'] = $this->default_message('upload_failed');
+
+        if (! isset($contact_form['messages']['upload_file_type_invalid']))
+            $contact_form['messages']['upload_file_type_invalid'] = $this->default_message('upload_file_type_invalid');
+
+        if (! isset($contact_form['messages']['upload_file_too_large']))
+            $contact_form['messages']['upload_file_too_large'] = $this->default_message('upload_file_too_large');
+
+		return $contact_form;
+    }
+    
+    function upgrade_192($contact_form) {
+        if (! isset($contact_form['messages']) || ! is_array($contact_form['messages']))
+            $contact_form['messages'] = array();
+
+        if (! isset($contact_form['messages']['quiz_answer_not_correct']))
+            $contact_form['messages']['quiz_answer_not_correct'] = $this->default_message('quiz_answer_not_correct');
+
+		return $contact_form;
+    }
 
 /* Admin panel */
 
     function admin_menu_parent() {
         global $wp_version;
-        if (version_compare($wp_version, '2.7-alpha', '>='))
-            return 'import.php';
+        if (version_compare($wp_version, '2.7', '>='))
+            return 'tools.php';
         else
             return 'edit.php';
     }
@@ -407,14 +525,18 @@ class tam_contact_form_seven {
 				'subject' => trim($_POST['wpcf7-mail-subject']),
 				'sender' => trim($_POST['wpcf7-mail-sender']),
 				'body' => trim($_POST['wpcf7-mail-body']),
-				'recipient' => trim($_POST['wpcf7-mail-recipient'])
+				'recipient' => trim($_POST['wpcf7-mail-recipient']),
+				'attachments' => trim($_POST['wpcf7-mail-attachments']),
+				'use_html' => (1 == $_POST['wpcf7-mail-use-html']) ? true : false
 				);
 			$mail_2 = array(
 				'active' => (1 == $_POST['wpcf7-mail-2-active']) ? true : false,
 				'subject' => trim($_POST['wpcf7-mail-2-subject']),
 				'sender' => trim($_POST['wpcf7-mail-2-sender']),
 				'body' => trim($_POST['wpcf7-mail-2-body']),
-				'recipient' => trim($_POST['wpcf7-mail-2-recipient'])
+				'recipient' => trim($_POST['wpcf7-mail-2-recipient']),
+				'attachments' => trim($_POST['wpcf7-mail-2-attachments']),
+				'use_html' => (1 == $_POST['wpcf7-mail-2-use-html']) ? true : false
 				);
             $messages = array(
                 'mail_sent_ok' => trim($_POST['wpcf7-message-mail-sent-ok']),
@@ -424,7 +546,11 @@ class tam_contact_form_seven {
                 'accept_terms' => trim($_POST['wpcf7-message-accept-terms']),
                 'invalid_email' => trim($_POST['wpcf7-message-invalid-email']),
                 'invalid_required' => trim($_POST['wpcf7-message-invalid-required']),
-                'captcha_not_match' => trim($_POST['wpcf7-message-captcha-not-match'])
+                'quiz_answer_not_correct' => trim($_POST['wpcf7-message-quiz-answer-not-correct']),
+                'captcha_not_match' => trim($_POST['wpcf7-message-captcha-not-match']),
+                'upload_failed' => trim($_POST['wpcf7-message-upload-failed']),
+                'upload_file_type_invalid' => trim($_POST['wpcf7-message-upload-file-type-invalid']),
+                'upload_file_too_large' => trim($_POST['wpcf7-message-upload-file-too-large'])
                 );
 			$options = array(
 				'recipient' => trim($_POST['wpcf7-options-recipient']) // For backward compatibility.
@@ -460,31 +586,16 @@ class tam_contact_form_seven {
 		global $plugin_page, $wp_version;
 		
 		if (isset($plugin_page) && $plugin_page == plugin_basename(__FILE__)) {
+        
             $admin_stylesheet_url = WPCF7_PLUGIN_URL . '/admin-stylesheet.css';
-			echo '<link rel="stylesheet" href="' . $admin_stylesheet_url . '" type="text/css" />';
-			
-			$javascript_url = WPCF7_PLUGIN_URL . '/wpcf7-admin.js';
-            
-            /* default styles for backward compatibility */
-            if (version_compare($wp_version, '2.5', '<')) : // Using old WordPress
-?>
-<style type="text/css">
-    .subsubsub { list-style: none; margin: 14px 0 8px 0; padding: 0; white-space: nowrap; font-size: 12px; }
-    .subsubsub a { line-height: 200%; padding: 3px; text-decoration: none; }
-    .subsubsub a.current { font-weight: bold; background: none; border: none;}
-    .subsubsub li { display: inline; margin: 0; padding: 0; }
-</style>
-<?php
-            endif;
+            $javascript_url = WPCF7_PLUGIN_URL . '/wpcf7-admin.js';
 
-            /* looks little bit more WP 2.7 fashion */
-            if (version_compare($wp_version, '2.7-alpha', '>=')) : // Using WordPress 2.7 or latar
-?>
-<style type="text/css">
-    input#contact-form-anchor-text { -moz-border-radius: 6px; -khtml-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px; }
-</style>
-<?php
-            endif;
+			echo '<link rel="stylesheet" href="' . $admin_stylesheet_url . '" type="text/css" />';
+            
+            if ('rtl' == get_bloginfo('text_direction')) {
+                $admin_stylesheet_rtl_url = WPCF7_PLUGIN_URL . '/admin-stylesheet-rtl.css';
+                echo '<link rel="stylesheet" href="' . $admin_stylesheet_rtl_url . '" type="text/css" />';
+            }
 
 ?>
 <script type="text/javascript">
@@ -504,6 +615,11 @@ var _wpcf7 = {
 		isAcceptanceInvert: "<?php echo js_escape(__("Make this checkbox work inversely?", 'wpcf7')); ?>",
 		isAcceptanceInvertMeans: "<?php echo js_escape(__("* That means visitor who accepts the term unchecks it.", 'wpcf7')); ?>",
 		captcha: "<?php echo js_escape(__('CAPTCHA', 'wpcf7')); ?>",
+		quiz: "<?php echo js_escape(__('Quiz', 'wpcf7')); ?>",
+		quizzes: "<?php echo js_escape(__('Quizzes', 'wpcf7')); ?>",
+		quizFormatDesc: "<?php echo js_escape(__("* quiz|answer (e.g. 1+1=?|2)", 'wpcf7')); ?>",
+		fileUpload: "<?php echo js_escape(__('File upload', 'wpcf7')); ?>",
+		bytes: "<?php echo js_escape(__('bytes', 'wpcf7')); ?>",
 		submit: "<?php echo js_escape(__('Submit button', 'wpcf7')); ?>",
 		tagName: "<?php echo js_escape(__('Name', 'wpcf7')); ?>",
 		isRequiredField: "<?php echo js_escape(__('Required field?', 'wpcf7')); ?>",
@@ -517,7 +633,7 @@ var _wpcf7 = {
 		akismetAuthor: "<?php echo js_escape(__("This field requires author's name", 'wpcf7')); ?>",
 		akismetAuthorUrl: "<?php echo js_escape(__("This field requires author's URL", 'wpcf7')); ?>",
 		akismetAuthorEmail: "<?php echo js_escape(__("This field requires author's email address", 'wpcf7')); ?>",
-		generatedTag: "<?php echo js_escape(__("Copy and paste this code into the form", 'wpcf7')); ?>",
+		generatedTag: "<?php echo js_escape(__("Copy this code and paste it into the form left.", 'wpcf7')); ?>",
 		fgColor: "<?php echo js_escape(__("Foreground color", 'wpcf7')); ?>",
 		bgColor: "<?php echo js_escape(__("Background color", 'wpcf7')); ?>",
 		imageSize: "<?php echo js_escape(__("Image size", 'wpcf7')); ?>",
@@ -530,7 +646,9 @@ var _wpcf7 = {
 		tagForInputField: "<?php echo js_escape(__("For input field", 'wpcf7')); ?>",
 		oneChoicePerLine: "<?php echo js_escape(__("* One choice per line.", 'wpcf7')); ?>",
 		show: "<?php echo js_escape(__("Show", 'wpcf7')); ?>",
-		hide: "<?php echo js_escape(__("Hide", 'wpcf7')); ?>"
+		hide: "<?php echo js_escape(__("Hide", 'wpcf7')); ?>",
+		fileSizeLimit: "<?php echo js_escape(__("File size limit", 'wpcf7')); ?>",
+		acceptableFileTypes: "<?php echo js_escape(__("Acceptable file types", 'wpcf7')); ?>"
 	}
 };
 //]]>
@@ -583,8 +701,8 @@ var _wpcf7 = {
             $cf = stripslashes_deep($contact_forms[$current]);
 			$cf = $this->upgrade($cf);
 		}
-		
-		require_once WPCF7_PLUGIN_DIR . '/includes/admin-panel.php';
+
+        require_once WPCF7_PLUGIN_DIR . '/includes/admin-panel.php';
 	}
 
 	function default_pack($title, $initial = false) {
@@ -637,8 +755,14 @@ var _wpcf7 = {
         $accept_terms = $this->default_message('accept_terms');
         $invalid_email = $this->default_message('invalid_email');
         $invalid_required = $this->default_message('invalid_required');
+        $quiz_answer_not_correct = $this->default_message('quiz_answer_not_correct');
         $captcha_not_match = $this->default_message('captcha_not_match');
-		return compact('mail_sent_ok', 'mail_sent_ng', 'akismet_says_spam', 'validation_error', 'accept_terms', 'invalid_email', 'invalid_required', 'captcha_not_match');
+        $upload_failed = $this->default_message('upload_failed');
+        $upload_file_type_invalid = $this->default_message('upload_file_type_invalid');
+        $upload_file_too_large = $this->default_message('upload_file_too_large');
+		return compact('mail_sent_ok', 'mail_sent_ng', 'akismet_says_spam',
+            'validation_error', 'accept_terms', 'invalid_email', 'invalid_required', 'quiz_answer_not_correct',
+            'captcha_not_match', 'upload_failed', 'upload_file_type_invalid', 'upload_file_too_large');
     }
 
 	function default_options_template() {
@@ -671,6 +795,14 @@ var _wpcf7 = {
 				return __('Please fill the required field.', 'wpcf7');
 			case 'captcha_not_match':
 				return __('Your entered code is incorrect.', 'wpcf7');
+			case 'quiz_answer_not_correct':
+				return __('Your answer is not correct.', 'wpcf7');
+			case 'upload_failed':
+				return __('Failed to upload file.', 'wpcf7');
+			case 'upload_file_type_invalid':
+				return __('This file type is not allowed.', 'wpcf7');
+			case 'upload_file_too_large':
+				return __('This file is too large.', 'wpcf7');
 		}
 	}
 
@@ -683,17 +815,28 @@ var _wpcf7 = {
 		if ($cf = $contact_forms[$id]) {
 			$cf = stripslashes_deep($cf);
 			$validation = $this->validate($cf);
+            
+            $handled_uploads = $this->handle_uploads($cf);
+            if (! $handled_uploads['validation']['valid'])
+                $validation['valid'] = false;
+            $validation['reason'] = array_merge($validation['reason'], $handled_uploads['validation']['reason']);
+            
 			if (! $validation['valid']) {
 				$_POST['_wpcf7_validation_errors'] = array('id' => $id, 'messages' => $validation['reason']);
 			} elseif (! $this->acceptance($cf)) { // Not accepted terms
 				$_POST['_wpcf7_mail_sent'] = array('id' => $id, 'ok' => false, 'message' => $this->message($cf, 'accept_terms'));
 			} elseif ($this->akismet($cf)) { // Spam!
 				$_POST['_wpcf7_mail_sent'] = array('id' => $id, 'ok' => false, 'message' => $this->message($cf, 'akismet_says_spam'), 'spam' => true);
-			} elseif ($this->mail($cf)) {
+			} elseif ($this->mail($cf, $handled_uploads['files'])) {
 				$_POST['_wpcf7_mail_sent'] = array('id' => $id, 'ok' => true, 'message' => $this->message($cf, 'mail_sent_ok'));
 			} else {
 				$_POST['_wpcf7_mail_sent'] = array('id' => $id, 'ok' => false, 'message' => $this->message($cf, 'mail_sent_ng'));
 			}
+            
+            // remove upload files
+            foreach ($handled_uploads['files'] as $name => $path) {
+                @unlink($path);
+            }
 		}
 	}
 
@@ -708,10 +851,7 @@ var _wpcf7 = {
 		$this->processing_within = 'p' . get_the_ID();
 		$this->unit_count = 0;
 
-		$regex = '/\[\s*contact-form\s+(\d+)(?:\s+.*?)?\s*\]/';
-		return preg_replace_callback($regex, array(&$this, 'the_content_filter_callback'), $content);
-		
-		$this->processing_within = null;
+        return $content;
 	}
 	
 	function widget_text_filter($content) {
@@ -719,17 +859,26 @@ var _wpcf7 = {
 		$this->processing_within = 'w' . $this->widget_count;
 		$this->unit_count = 0;
 
-		$regex = '/\[\s*contact-form\s+(\d+)(?:\s+.*?)?\s*\]/';
-		return preg_replace_callback($regex, array(&$this, 'the_content_filter_callback'), $content);
-		
-		$this->processing_within = null;
+		$regex = '/\[\s*contact-form\s+(\d+(?:\s+.*)?)\]/';
+		return preg_replace_callback($regex, array(&$this, 'widget_text_filter_callback'), $content);
 	}
-	
-	function the_content_filter_callback($matches) {
+    
+    function widget_text_filter_callback($matches) {
+        return $this->contact_form_tag_func($matches[1]);
+    }
+
+    function contact_form_tag_func($atts) {
+        if (is_string($atts))
+            $atts = explode(' ', $atts, 2);
+
+        $atts = (array) $atts;
+
+        $id = (int) array_shift($atts);
+    
 		$contact_forms = $this->contact_forms();
 
-		$id = (int) $matches[1];
-		if (! ($cf = $contact_forms[$id])) return $matches[0];
+		if (! ($cf = $contact_forms[$id]))
+            return '[contact-form 404 "Not Found"]';
 		
 		$cf = stripslashes_deep($cf);
 
@@ -741,8 +890,18 @@ var _wpcf7 = {
 		
 		$url = parse_url($_SERVER['REQUEST_URI']);
 		$url = $url['path'] . (empty($url['query']) ? '' : '?' . $url['query']) . '#' . $unit_tag;
+        
+        $form_elements = $this->form_elements($cf['form'], false);
+        $multipart = false;
+        foreach ($form_elements as $form_element) {
+            if ('file' == $form_element['type']) {
+                $multipart = true;
+                break;
+            }
+        }
+        $enctype = $multipart ? ' enctype="multipart/form-data"' : '';
 		
-		$form .= '<form action="' . $url . '" method="post" class="wpcf7-form">';
+		$form .= '<form action="' . $url . '" method="post" class="wpcf7-form"' . $enctype . '>';
         $form .= '<div style="display: none;">';
 		$form .= '<input type="hidden" name="_wpcf7" value="' . $id . '" />';
 		$form .= '<input type="hidden" name="_wpcf7_version" value="' . wpcf7_version() . '" />';
@@ -778,9 +937,57 @@ var _wpcf7 = {
 		$form .= '</div>';
 		
 		$this->processing_unit_tag = null;
+        
+        if (WPCF7_AUTOP)
+            $form = $this->wpautop_substitute($form);
+        
 		return $form;
-	}
+    }
 
+    function wpautop_substitute($pee, $br = 1) {
+        $pee = $pee . "\n"; // just to make things a little easier, pad the end
+        $pee = preg_replace('|<br />\s*<br />|', "\n\n", $pee);
+        // Space things out a little
+        $allblocks = '(?:table|thead|tfoot|caption|colgroup|tbody|tr|td|th|div|dl|dd|dt|ul|ol|li|pre|form|map|area|blockquote|address|math|style|p|h[1-6]|hr)';
+        $pee = preg_replace('!(<' . $allblocks . '[^>]*>)!', "\n$1", $pee);
+        $pee = preg_replace('!(</' . $allblocks . '>)!', "$1\n\n", $pee);
+        $pee = str_replace(array("\r\n", "\r"), "\n", $pee); // cross-platform newlines
+        if ( strpos($pee, '<object') !== false ) {
+            $pee = preg_replace('|\s*<param([^>]*)>\s*|', "<param$1>", $pee); // no pee inside object/embed
+            $pee = preg_replace('|\s*</embed>\s*|', '</embed>', $pee);
+        }
+        $pee = preg_replace("/\n\n+/", "\n\n", $pee); // take care of duplicates
+        // make paragraphs, including one at the end
+        $pees = preg_split('/\n\s*\n/', $pee, -1, PREG_SPLIT_NO_EMPTY);
+        $pee = '';
+        foreach ( $pees as $tinkle )
+            $pee .= '<p>' . trim($tinkle, "\n") . "</p>\n";
+        $pee = preg_replace('|<p>\s*?</p>|', '', $pee); // under certain strange conditions it could create a P of entirely whitespace
+        $pee = preg_replace('!<p>([^<]+)\s*?(</(?:div|address|form)[^>]*>)!', "<p>$1</p>$2", $pee);
+        $pee = preg_replace( '|<p>|', "$1<p>", $pee );
+        $pee = preg_replace('!<p>\s*(</?' . $allblocks . '[^>]*>)\s*</p>!', "$1", $pee); // don't pee all over a tag
+        $pee = preg_replace("|<p>(<li.+?)</p>|", "$1", $pee); // problem with nested lists
+        $pee = preg_replace('|<p><blockquote([^>]*)>|i', "<blockquote$1><p>", $pee);
+        $pee = str_replace('</blockquote></p>', '</p></blockquote>', $pee);
+        $pee = preg_replace('!<p>\s*(</?' . $allblocks . '[^>]*>)!', "$1", $pee);
+        $pee = preg_replace('!(</?' . $allblocks . '[^>]*>)\s*</p>!', "$1", $pee);
+        if ($br) {
+            $pee = preg_replace_callback('/<(script|style).*?<\/\\1>/s', create_function('$matches', 'return str_replace("\n", "<WPPreserveNewline />", $matches[0]);'), $pee);
+            $pee = preg_replace('|(?<!<br />)\s*\n|', "<br />\n", $pee); // optionally make line breaks
+            $pee = str_replace('<WPPreserveNewline />', "\n", $pee);
+        }
+        $pee = preg_replace('!(</?' . $allblocks . '[^>]*>)\s*<br />!', "$1", $pee);
+        $pee = preg_replace('!<br />(\s*</?(?:p|li|div|dl|dd|dt|th|pre|td|ul|ol)[^>]*>)!', '$1', $pee);
+        if (strpos($pee, '<pre') !== false)
+            $pee = preg_replace_callback('!(<pre.*?>)(.*?)</pre>!is', 'clean_pre', $pee );
+        $pee = preg_replace( "|\n</p>$|", '</p>', $pee );
+        
+        if (function_exists('get_shortcode_regex'))
+            $pee = preg_replace('/<p>\s*?(' . get_shortcode_regex() . ')\s*<\/p>/s', '$1', $pee); // don't auto-p wrap shortcodes that stand alone
+    
+        return $pee;
+    }
+    
 	function validate($contact_form) {
 		$fes = $this->form_elements($contact_form['form'], false);
 		$valid = true;
@@ -790,6 +997,7 @@ var _wpcf7 = {
 			$type = $fe['type'];
 			$name = $fe['name'];
             $values = $fe['values'];
+            $raw_values = $fe['raw_values'];
             
             // Before validation corrections
             if (preg_match('/^(?:text|email|captchar|textarea)[*]?$/', $type))
@@ -802,12 +1010,12 @@ var _wpcf7 = {
                 if (is_array($_POST[$name])) {
                     foreach ($_POST[$name] as $key => $value) {
                         $value = stripslashes($value);
-                        if (! in_array($value, $values)) // Not in given choices.
+                        if (! in_array($value, (array) $values)) // Not in given choices.
                             unset($_POST[$name][$key]);
                     }
                 } else {
                     $value = stripslashes($_POST[$name]);
-                    if (! in_array($value, $values)) //  Not in given choices.
+                    if (! in_array($value, (array) $values)) //  Not in given choices.
                         $_POST[$name] = '';
                 }
             }
@@ -857,6 +1065,16 @@ var _wpcf7 = {
 				}
 				$this->remove_captcha($_POST[$captchac]);
 			}
+            
+            if ('quiz' == $type) {
+                $answer = $this->canonicalize($_POST[$name]);
+                $answer_hash = wp_hash($answer, 'wpcf7_quiz');
+                $expected_hash = $_POST['_wpcf7_quiz_answer_' . $name];
+                if ($answer_hash != $expected_hash) {
+                    $valid = false;
+                    $reason[$name] = $this->message($contact_form, 'quiz_answer_not_correct');
+                }
+            }
 		}
 		return compact('valid', 'reason');
 	}
@@ -880,9 +1098,45 @@ var _wpcf7 = {
 		return $refill;
 	}
 
+    function refill_quiz($contact_form) {
+		$fes = $this->form_elements($contact_form['form'], false);
+		$refill = array();
+		
+		foreach ($fes as $fe) {
+			$type = $fe['type'];
+			$name = $fe['name'];
+            $values = $fe['values'];
+            $raw_values = $fe['raw_values'];
+            
+			if ('quiz' != $type)
+                continue;
+            
+            if (count($values) == 0)
+                continue;
+
+            if (count($values) == 1)
+                $question = $values[0];
+            else
+                $question = $values[array_rand($values)];
+            
+            $pipes = $this->get_pipes($raw_values);
+            $answer = $this->pipe($pipes, $question);
+            $answer = $this->canonicalize($answer);
+                
+            $refill[$name] = array($question, wp_hash($answer, 'wpcf7_quiz'));
+		}
+        
+		return $refill;
+	}
+
 	function wp_head() {
 		$stylesheet_url = WPCF7_PLUGIN_URL . '/stylesheet.css';
 		echo '<link rel="stylesheet" href="' . $stylesheet_url . '" type="text/css" />';
+        
+        if ('rtl' == get_bloginfo('text_direction')) {
+            $stylesheet_rtl_url = WPCF7_PLUGIN_URL . '/stylesheet-rtl.css';
+            echo '<link rel="stylesheet" href="' . $stylesheet_rtl_url . '" type="text/css" />';
+        }
 		
 		$javascript_url = WPCF7_PLUGIN_URL . '/contact-form-7.js';
 ?>
@@ -901,8 +1155,8 @@ var _wpcf7 = {
 /* Processing form element placeholders */
 
 	function form_elements($form, $replace = true) {
-		$types = 'text[*]?|email[*]?|textarea[*]?|select[*]?|checkbox[*]?|radio|acceptance|captchac|captchar';
-		$regex = '%\[\s*(' . $types . ')(\s+[a-zA-Z][0-9a-zA-Z:._-]*)([-0-9a-zA-Z:#_/\s]*)?((?:\s*(?:"[^"]*"|\'[^\']*\'))*)?\s*\]%';
+		$types = 'text[*]?|email[*]?|textarea[*]?|select[*]?|checkbox[*]?|radio|acceptance|captchac|captchar|file[*]?|quiz';
+		$regex = '%\[\s*(' . $types . ')(\s+[a-zA-Z][0-9a-zA-Z:._-]*)([-0-9a-zA-Z:#_/|\s]*)?((?:\s*(?:"[^"]*"|\'[^\']*\'))*)?\s*\]%';
 		$submit_regex = '%\[\s*submit(\s[-0-9a-zA-Z:#_/\s]*)?(\s+(?:"[^"]*"|\'[^\']*\'))?\s*\]%';
 		if ($replace) {
 			$form = preg_replace_callback($regex, array(&$this, 'form_element_replace_callback'), $form);
@@ -920,7 +1174,7 @@ var _wpcf7 = {
 	}
 
 	function form_element_replace_callback($matches) {
-		extract((array) $this->form_element_parse($matches)); // $type, $name, $options, $values
+		extract((array) $this->form_element_parse($matches)); // $type, $name, $options, $values, $raw_values
 		
 		if ($this->processing_unit_tag == $_POST['_wpcf7_unit_tag']) {
 			$validation_error = $_POST['_wpcf7_validation_errors']['messages'][$name];
@@ -1046,10 +1300,10 @@ var _wpcf7 = {
 				$html = '';
                 foreach ($values as $key => $value) {
                     $selected = '';
-                    if (! $empty_select && in_array($key + 1, $scr_default))
+                    if (! $empty_select && in_array($key + 1, (array) $scr_default))
                         $selected = ' selected="selected"';
                     if ($this->processing_unit_tag == $_POST['_wpcf7_unit_tag'] && (
-                            $multiple && in_array($value, $_POST[$name]) ||
+                            $multiple && in_array($value, (array) $_POST[$name]) ||
                             ! $multiple && $_POST[$name] == $value))
                         $selected = ' selected="selected"';
 					$html .= '<option value="' . attribute_escape($value) . '"' . $selected . '>' . $value . '</option>';
@@ -1075,10 +1329,10 @@ var _wpcf7 = {
                 
                 foreach ($values as $key => $value) {
                     $checked = '';
-                    if (in_array($key + 1, $scr_default))
+                    if (in_array($key + 1, (array) $scr_default))
                         $checked = ' checked="checked"';
                     if ($this->processing_unit_tag == $_POST['_wpcf7_unit_tag'] && (
-                            $multiple && in_array($value, $_POST[$name]) ||
+                            $multiple && in_array($value, (array) $_POST[$name]) ||
                             ! $multiple && $_POST[$name] == $value))
                         $checked = ' checked="checked"';
                     if (preg_grep('%^label[_-]?first$%', $options)) { // put label first, input last
@@ -1096,6 +1350,46 @@ var _wpcf7 = {
 				$html = '<span class="wpcf7-form-control-wrap ' . $name . '">' . $html . $validation_error . '</span>';
 				return $html;
 				break;
+            case 'quiz':
+                if (count($raw_values) == 0 && count($values) == 0) { // default quiz
+                    $raw_values[] = '1+1=?|2';
+                    $values[] = '1+1=?';
+                }
+                    
+                $pipes = $this->get_pipes($raw_values);
+                
+                if (count($values) == 0) {
+                    break;
+                } elseif (count($values) == 1) {
+                    $value = $values[0];
+                } else {
+                    $value = $values[array_rand($values)];
+                }
+                
+                $answer = $this->pipe($pipes, $value);
+                $answer = $this->canonicalize($answer);
+                
+				if (is_array($options)) {
+					$size_maxlength_array = preg_grep('%^[0-9]*[/x][0-9]*$%', $options);
+					if ($size_maxlength = array_shift($size_maxlength_array)) {
+						preg_match('%^([0-9]*)[/x]([0-9]*)$%', $size_maxlength, $sm_matches);
+						if ($size = (int) $sm_matches[1])
+							$atts .= ' size="' . $size . '"';
+                        else
+                            $atts .= ' size="40"';
+						if ($maxlength = (int) $sm_matches[2])
+							$atts .= ' maxlength="' . $maxlength . '"';
+					} else {
+                        $atts .= ' size="40"';
+                    }
+				}
+                
+                $html = '<span class="wpcf7-quiz-label">' . $value . '</span>&nbsp;';
+                $html .= '<input type="text" name="' . $name . '"' . $atts . ' />';
+                $html .= '<input type="hidden" name="_wpcf7_quiz_answer_' . $name . '" value="' . wp_hash($answer, 'wpcf7_quiz') . '" />';
+				$html = '<span class="wpcf7-form-control-wrap ' . $name . '">' . $html . $validation_error . '</span>';
+				return $html;
+                break;
             case 'acceptance':
                 $invert = (bool) preg_grep('%^invert$%', $options);
                 $default = (bool) preg_grep('%^default:on$%', $options);
@@ -1127,6 +1421,12 @@ var _wpcf7 = {
 				$html = '<input type="hidden" name="_wpcf7_captcha_challenge_' . $name . '" value="' . $ref . '" />' . $html;
 				return $html;
 				break;
+            case 'file':
+            case 'file*':
+                $html = '<input type="file" name="' . $name . '"' . $atts . ' value="1" />';
+                $html = '<span class="wpcf7-form-control-wrap ' . $name . '">' . $html . $validation_error . '</span>';
+                return $html;
+                break;
 		}
 	}
 
@@ -1162,6 +1462,15 @@ var _wpcf7 = {
         $html .= ' <img class="ajax-loader" style="visibility: hidden;" alt="ajax loader" src="' . $ajax_loader_image_url . '" />';
 		return $html;
 	}
+    
+    function canonicalize($text) {
+        if (function_exists('mb_convert_kana') && 'UTF-8' == get_option('blog_charset'))
+            $text = mb_convert_kana($text, 'asKV', 'UTF-8');
+
+        $text = strtolower($text);
+        $text = trim($text);
+        return $text;
+    }
 
 	function form_element_parse($element) {
 		$type = trim($element[1]);
@@ -1169,9 +1478,16 @@ var _wpcf7 = {
 		$options = preg_split('/[\s]+/', trim($element[3]));
 		
 		preg_match_all('/"[^"]*"|\'[^\']*\'/', $element[4], $matches);
-		$values = $this->strip_quote_deep($matches[0]);
-		
-		return compact('type', 'name', 'options', 'values');
+		$raw_values = $this->strip_quote_deep($matches[0]);
+        
+        if (WPCF7_USE_PIPE && preg_match('/^(select[*]?|checkbox[*]?|radio)$/', $type) || 'quiz' == $type) {
+            $pipes = $this->get_pipes($raw_values);
+            $values = array_keys($pipes);
+        } else {
+            $values =& $raw_values;
+        }
+        
+		return compact('type', 'name', 'options', 'values', 'raw_values');
 	}
 
 	function strip_quote($text) {
@@ -1194,6 +1510,11 @@ var _wpcf7 = {
 			return $result;
 		}
 	}
+    
+    function init_uploads() {
+        wp_mkdir_p(trailingslashit(WPCF7_UPLOADS_TMP_DIR));
+        @chmod(WPCF7_UPLOADS_TMP_DIR, 0733);
+    }
     
     function init_captcha() {
         if (! is_object($this->captcha))
@@ -1338,6 +1659,63 @@ var _wpcf7 = {
 		
 		return $op;
 	}
+
+    function pipe($pipes, $value) {
+        if (is_string($value)) {
+            if (isset($pipes[$value]))
+                return $pipes[$value];
+            else
+                return $value;
+        } elseif (is_array($value)) {
+            $results = array();
+            foreach ($value as $k => $v) {
+                $results[$k] = $this->pipe($pipes, $v);
+            }
+            return $results;
+        }
+    }
+
+    function get_pipes($values) {
+        $pipes = array();
+        
+        foreach ($values as $value) {
+            $pipe_pos = strpos($value, '|');
+            if (false === $pipe_pos) {
+                $before = $after = $value;
+            } else {
+                $before = substr($value, 0, $pipe_pos);
+                $after = substr($value, $pipe_pos + 1);
+            }
+            
+            if (! isset($pipes[$before]))
+                $pipes[$before] = $after;
+        }
+        
+        return $pipes;
+    }
+
+    function pipe_all_posted($contact_form) {
+        $all_pipes = array();
+
+        $fes = $this->form_elements($contact_form['form'], false);
+        foreach ($fes as $fe) {
+            $type = $fe['type'];
+            $name = $fe['name'];
+            $raw_values = $fe['raw_values'];
+            
+            if (! preg_match('/^(select[*]?|checkbox[*]?|radio)$/', $type))
+                continue;
+            
+            $pipes = $this->get_pipes($raw_values);
+            
+            $all_pipes[$name] = array_merge($pipes, (array) $all_pipes[$name]);
+        }
+        
+        foreach ($all_pipes as $name => $pipes) {
+            if (isset($this->posted_data[$name]))
+                $this->posted_data[$name] = $this->pipe($pipes, $this->posted_data[$name]);
+        }
+    }
 
 }
 

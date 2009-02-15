@@ -4,7 +4,7 @@ Plugin Name: Google Analytics for WordPress
 Plugin URI: http://yoast.com/wordpress/analytics/
 Description: This plugin makes it simple to add Google Analytics with extra search engines and automatic clickout and download tracking to your WordPress blog. 
 Author: Joost de Valk
-Version: 2.6.3
+Version: 2.7
 Author URI: http://yoast.com/
 License: GPL
 
@@ -35,12 +35,35 @@ if ( ! class_exists( 'GA_Admin' ) ) {
 			global $wpdb;
 			if ( function_exists('add_submenu_page') ) {
 				add_submenu_page('plugins.php', 'Google Analytics for WordPress Configuration', 'Google Analytics', 9, basename(__FILE__), array('GA_Admin','config_page'));
+				add_filter( 'plugin_action_links', array( 'GA_Admin', 'filter_plugin_actions'), 10, 2 );
+				add_filter( 'ozh_adminmenu_icon', array( 'GA_Admin', 'add_ozh_adminmenu_icon' ) );				
 			}
 		} // end add_GA_config_page()
 
+		function add_ozh_adminmenu_icon( $hook ) {
+			static $gawpicon;
+			if (!$gawpicon) {
+				$gawpicon = WP_CONTENT_URL . '/plugins/' . plugin_basename(dirname(__FILE__)). '/chart_curve.png';
+			}
+			if ($hook == 'googleanalytics.php') return $gawpicon;
+			return $hook;
+		}
+
+		function filter_plugin_actions( $links, $file ){
+			//Static so we don't call plugin_basename on every plugin row.
+			static $this_plugin;
+			if ( ! $this_plugin ) $this_plugin = plugin_basename(__FILE__);
+
+			if ( $file == $this_plugin ){
+				$settings_link = '<a href="plugins.php?page=googleanalytics.php">' . __('Settings') . '</a>';
+				array_unshift( $links, $settings_link ); // before other links
+			}
+			return $links;
+		}
+		
 		function config_page() {
 			global $dlextensions;
-			if ( $_GET['reset'] == "true") {
+			if ( isset($_GET['reset']) && $_GET['reset'] == "true") {
 				$options['dlextensions'] = 'doc,exe,.js,pdf,ppt,tgz,zip,xls';
 				$options['dlprefix'] = '/downloads';
 				$options['artprefix'] = '/outbound/article';
@@ -59,7 +82,7 @@ if ( ! class_exists( 'GA_Admin' ) ) {
 				check_admin_referer('analyticspp-config');
 				$options['uastring'] = $_POST['uastring'];
 				
-				foreach (array('dlextensions', 'dlprefix', 'artprefix', 'comprefix', 'comautprefix', 'blogrollprefix', 'domainorurl') as $option_name) {
+				foreach (array('dlextensions', 'dlprefix', 'artprefix', 'comprefix', 'comautprefix', 'blogrollprefix', 'domainorurl','position') as $option_name) {
 					if (isset($_POST[$option_name])) {
 						$options[$option_name] = strtolower($_POST[$option_name]);
 					}
@@ -79,7 +102,6 @@ if ( ! class_exists( 'GA_Admin' ) ) {
 
 				update_option('GoogleAnalyticsPP', $options);
 			}
-			$mulch = ($uastring=""?"##-#####-#":$uastring);
 
 			$options  = get_option('GoogleAnalyticsPP');
 			?>
@@ -117,23 +139,11 @@ if ( ! class_exists( 'GA_Admin' ) ) {
 									Analytics code in your blog, so you don't have to
 									edit any PHP. If you don't have a Google Analytics
 									account yet, you can get one at 
-									<a href="https://www.google.com/analytics/home/">analytics.google.com</a>.</p>
+									<a href="https://www.google.com/analytics/">google.com/analyics</a>.</p>
 
 								<p>In the Google interface, when you "Add Website 
-									Profile" you are shown a piece of JavaScript that
-									you are told to insert into the page, in that script is a 
-									unique string that identifies the website you 
-									just defined, that is your User Account string
-									(it's shown in <strong>bold</strong> in the example below).</p>
-								<tt>&lt;script type="text/javascript"&gt;<br/>
-	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-	&lt;/script&gt;<br/>
-	&lt;script type="text/javascript"&gt;<br/>
-	var pageTracker = _gat._getTracker("<strong><?php echo($mulch);?></strong>");<br/>
-	pageTracker._initData();<br/>
-	pageTracker._trackPageview();<br/>
-	&lt;/script&gt;</tt>
+									Profile" you are shown a Web Property ID, a number that starts with "UA-". 
+									Copy paste that into the box above.</p>
 								<p>Once you have entered your User Account String in
 								   the box above your pages will be trackable by
 									Google Analytics.</p>
@@ -195,13 +205,24 @@ if ( ! class_exists( 'GA_Admin' ) ) {
 							<label for="domainorurl">Track full URL of outbound clicks or just the domain?</label>
 						</th>
 						<td>
-							<select name="domainorurl" id="domainorurl">
+							<select name="domainorurl" id="domainorurl" style="width:200px;">
 								<option value="domain"<?php if ($options['domainorurl'] == 'domain') { echo ' selected="selected"';} ?>>Just the domain</option>
 								<option value="url"<?php if ($options['domainorurl'] == 'url') { echo ' selected="selected"';} ?>>Track the complete URL</option>
 							</select>
 						</td>
 					</tr>
 						<?php } ?>
+					<tr>
+						<th scope="row" valign="top">
+							<label for="position">Track full URL of outbound clicks or just the domain?</label>
+						</th>
+						<td>
+							<select name="position" id="position" style="width:200px;">
+								<option value="footer"<?php if ($options['position'] == 'footer' || $options['position'] == "") { echo ' selected="selected"';} ?>>In the footer (default)</option>
+								<option value="header"<?php if ($options['position'] == 'header') { echo ' selected="selected"';} ?>>In the header</option>
+							</select>
+						</td>
+					</tr>						
 					<tr>
 						<th scope="row" valign="top">
 							<label for="trackoutbound">Track outbound clicks<br/>
@@ -213,10 +234,11 @@ if ( ! class_exists( 'GA_Admin' ) ) {
 					</tr>
 					<tr>
 						<th scope="row" valign="top">
-							<label for="trackadsense">Track AdSense clicks</label>
+							<label for="trackadsense">Track AdSense</label><br/>
+							<small>This requires integration of your Analytics and AdSense account, for help, <a href="https://www.google.com/adsense/support/bin/topic.py?topic=15007">look here</a>.</small>
 						</th>
 						<td>
-							<input type="checkbox" id="trackadsense" name="trackadsense" <?php if ($options['trackadsense']) echo ' checked="checked" '; ?>/> 
+							<input type="checkbox" id="trackadsense" name="trackadsense" <?php if ($options['trackadsense']) echo ' checked="checked" '; ?>/>
 						</td>
 					</tr>
 					<tr>
@@ -348,10 +370,20 @@ if ( ! class_exists( 'GA_Filter' ) ) {
 			}
 		}
 
-		function track_adsense() {
-			global $gapppluginpath;
-			echo("\t<script src=\"".$gapppluginpath."adsense-track.js\" type=\"text/javascript\"></script>\n");
-		}
+		/*
+		 * Insert the AdSense parameter code into the page. This'll go into the header per Google's instructions.
+		 */
+		function spool_adsense() {
+			$options  = get_option('GoogleAnalyticsPP');
+			if ($options["uastring"] != "" && (!current_user_can('edit_users') || $options["admintracking"]) && !is_preview() ) { ?>
+				
+	<script type="text/javascript">
+		window.google_analytics_uacct = "<?php echo $options["uastring"]; ?>";
+	</script>
+	<?php
+			}
+		}		
+
 		/* Create an array which contians:
 		 * "domain" e.g. boakes.org
 		 * "host" e.g. store.boakes.org
@@ -364,8 +396,10 @@ if ( ! class_exists( 'GA_Filter' ) ) {
 			preg_match($hostPattern, $uri, $matches);
 			$host = $matches[2];
 			preg_match($domainPattern, $host, $matches);
-			return array("domain"=>$matches[0],"host"=>$host);    
-
+			if (isset($matches[0]))
+				return array("domain"=>$matches[0],"host"=>$host);    
+			else
+				return array("domain"=>"","host"=>"");
 		}
 
 		function ga_parse_link($leaf, $matches){
@@ -374,7 +408,7 @@ if ( ! class_exists( 'GA_Filter' ) ) {
 			$options  = get_option('GoogleAnalyticsPP');
 			
 			$target = GA_Filter::ga_get_domain($matches[3]);
-			$coolbit = "";
+			$coolBit = "";
 			$extension = substr($matches[3],-3);
 			$dlextensions = split(",",$options['dlextensions']);
 			if ( $target["domain"] != $origin["domain"] ){
@@ -402,7 +436,7 @@ if ( ! class_exists( 'GA_Filter' ) ) {
 		}
 
 		function the_content($text) {
-			static $anchorPattern = '/<a (.*?)href="(.*?)\/\/(.*?)"(.*?)>(.*?)<\/a>/i';
+			static $anchorPattern = '/<a (.*?)href=[\'\"](.*?)\/\/([^\'\"]+?)[\'\"](.*?)>(.*?)<\/a>/i';
 			$text = preg_replace_callback($anchorPattern,array('GA_Filter','ga_parse_article_link'),$text);
 			return $text;
 		}
@@ -421,7 +455,7 @@ if ( ! class_exists( 'GA_Filter' ) ) {
 			if ($matches[2] == "") return $text;
 
 			$target = GA_Filter::ga_get_domain($matches[2]);
-			$coolbit = "";
+			$coolBit = "";
 			$origin = GA_Filter::ga_get_domain($_SERVER["HTTP_HOST"]);
 			if ( $target["domain"] != $origin["domain"]  ){
 				if ($options['domainorurl'] == "domain") {
@@ -434,6 +468,8 @@ if ( ! class_exists( 'GA_Filter' ) ) {
 		}
 		
 		function bookmarks($bookmarks) {
+			$options  = get_option('GoogleAnalyticsPP');
+			
 			if (!is_admin() && (!current_user_can('edit_users') || $options['admintracking'] ) ) {
 				$options  = get_option('GoogleAnalyticsPP');
 
@@ -453,13 +489,6 @@ if ( ! class_exists( 'GA_Filter' ) ) {
 
 $version = "0.61";
 $uakey = "analytics";
-
-if (function_exists("get_option")) {
-	if ($wp_uastring_takes_precedence) {
-		$options  = get_option('GoogleAnalyticsPP');
-		$uastring = $options['uastring'];
-	}
-} 
 
 $mulch = ($uastring=""?"##-#####-#":$uastring);
 $gaf = new GA_Filter();
@@ -495,11 +524,14 @@ if ($options['trackoutbound']) {
 	add_filter('get_comment_author_link', array('GA_Filter','comment_author_link'), 99);
 }
 
-// adds the footer so the javascript is loaded
-add_action('wp_footer', array('GA_Filter','spool_analytics'));	
-
 if ($options['trackadsense']) {
-	add_action('wp_footer', array('GA_Filter','track_adsense'));	
+	add_action('wp_head', array('GA_Filter','spool_adsense'),10);	
+}
+
+if ($options['position'] == 'footer' || $options['position'] == "") {
+	add_action('wp_footer', array('GA_Filter','spool_analytics'));	
+} else {
+	add_action('wp_head', array('GA_Filter','spool_analytics'),20);	
 }
 
 ?>

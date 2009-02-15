@@ -1,75 +1,92 @@
 jQuery(document).ready(function() {
-  jQuery('#form-content-fieldset textarea:first:enabled').after(tagGenerator());
-  
-  jQuery('input#wpcf7-title:enabled').css({
-    cursor: 'pointer'
-  });
-  
-  jQuery('input#wpcf7-title').mouseover(function() {
-    jQuery(this).not('.focus').css({
-      'background-color': '#ffffdd'
-    });
-  });
-  
-  jQuery('input#wpcf7-title').mouseout(function() {
-    jQuery(this).css({
-      'background-color': '#fff'
-    });
-  });
-  
-  jQuery('input#wpcf7-title').focus(function() {
-    jQuery(this).addClass('focus');
-    jQuery(this).css({
-      cursor: 'text',
-      color: '#333',
-      border: '1px solid #777',
-      font: 'normal 13px Verdana, Arial, Helvetica, sans-serif',
-      'background-color': '#fff'
-    });
-  });
-  
-  jQuery('input#wpcf7-title').blur(function() {
-    jQuery(this).removeClass('focus');
-    jQuery(this).css({
-      cursor: 'pointer',
-      color: '#555',
-      border: 'none',
-      font: 'bold 20px serif',
-      'background-color': '#fff'
-    });
-  });
-  
-  jQuery('input#wpcf7-title').change(function() {
-    updateTag();
-  });
-  
-  updateTag();
-  
-  if (! jQuery('#wpcf7-mail-2-active').is(':checked'))
-    jQuery('#mail-2-fields').hide();
-  
-  jQuery('#wpcf7-mail-2-active').click(function() {
-    if (jQuery('#wpcf7-mail-2-active').is(':checked')) {
-        if (jQuery('#mail-2-fields').is(':hidden'))
-            jQuery('#mail-2-fields').slideDown('fast');
-    } else {
-        if (jQuery('#mail-2-fields').is(':visible'))
-            jQuery('#mail-2-fields').hide('fast');
-    }
-  });
-  
-  jQuery('#message-fields-toggle-switch').text(_wpcf7.l10n.show);
-  jQuery('#message-fields').hide();
-  
-  jQuery('#message-fields-toggle-switch').click(function() {
-    if (jQuery('#message-fields').is(':hidden')) {
-        jQuery('#message-fields').slideDown('fast');
-        jQuery('#message-fields-toggle-switch').text(_wpcf7.l10n.hide);
-    } else {
-        jQuery('#message-fields').hide('fast');
+    try {
+        jQuery('#tag-generator-div').append(tagGenerator());
+
+        jQuery('input#wpcf7-title:enabled').css({
+            cursor: 'pointer'
+        });
+
+        jQuery('input#wpcf7-title').mouseover(function() {
+            jQuery(this).not('.focus').css({
+                'background-color': '#ffffdd'
+            });
+        });
+
+        jQuery('input#wpcf7-title').mouseout(function() {
+            jQuery(this).css({
+                'background-color': '#fff'
+            });
+        });
+
+        jQuery('input#wpcf7-title').focus(function() {
+            jQuery(this).addClass('focus');
+            jQuery(this).css({
+                cursor: 'text',
+                color: '#333',
+                border: '1px solid #777',
+                font: 'normal 13px Verdana, Arial, Helvetica, sans-serif',
+                'background-color': '#fff'
+            });
+        });
+
+        jQuery('input#wpcf7-title').blur(function() {
+            jQuery(this).removeClass('focus');
+            jQuery(this).css({
+                cursor: 'pointer',
+                color: '#555',
+                border: 'none',
+                font: 'bold 20px serif',
+                'background-color': '#fff'
+            });
+        });
+
+        jQuery('input#wpcf7-title').change(function() {
+            updateTag();
+        });
+
+        updateTag();
+
+        if (! jQuery('#wpcf7-mail-2-active').is(':checked'))
+            jQuery('#mail-2-fields').hide();
+
+        jQuery('#wpcf7-mail-2-active').click(function() {
+            if (jQuery('#wpcf7-mail-2-active').is(':checked')) {
+                if (jQuery('#mail-2-fields').is(':hidden'))
+                    jQuery('#mail-2-fields').slideDown('fast');
+            } else {
+                if (jQuery('#mail-2-fields').is(':visible'))
+                    jQuery('#mail-2-fields').hide('fast');
+            }
+        });
+
         jQuery('#message-fields-toggle-switch').text(_wpcf7.l10n.show);
+        jQuery('#message-fields').hide();
+
+        jQuery('#message-fields-toggle-switch').click(function() {
+            if (jQuery('#message-fields').is(':hidden')) {
+                jQuery('#message-fields').slideDown('fast');
+                jQuery('#message-fields-toggle-switch').text(_wpcf7.l10n.hide);
+            } else {
+                jQuery('#message-fields').hide('fast');
+                jQuery('#message-fields-toggle-switch').text(_wpcf7.l10n.show);
+            }
+        });
+
+        jQuery('.delete-link input').mouseover(function() {
+            jQuery(this).css({
+                color: '#fff',
+                'background-color': '#ff0000'
+            });
+        });
+
+        jQuery('.delete-link input').mouseout(function() {
+            jQuery(this).css({
+                color: '#ff0000',
+                'background-color': '#fff'
+            });
+        });
+    } catch (e) {
     }
-  });
 });
 
 function updateTag() {
@@ -93,7 +110,11 @@ function tagGenerator() {
   selector.css({
     border: '1px solid #ddd',
     padding: '2px 4px',
-    background: '#fff url( ../wp-admin/images/fade-butt.png ) repeat-x 0 0'
+    background: '#fff url( ../wp-admin/images/fade-butt.png ) repeat-x 0 0',
+    '-moz-border-radius': '3px',
+    '-khtml-border-radius': '3px',
+    '-webkit-border-radius': '3px',
+    'border-radius': '3px'
   });
   selector.mouseover(function() {
     jQuery(this).css({ 'border-color': '#bbb' });
@@ -108,7 +129,7 @@ function tagGenerator() {
     jQuery(this).css({ background: '#fff url( ../wp-admin/images/fade-butt.png ) repeat-x 0 0' });
   });
   selector.click(function() {
-    dropdown.show();
+    dropdown.slideDown('fast');
     return false;
   });
   jQuery('body').click(function() {
@@ -123,7 +144,11 @@ function tagGenerator() {
   var dropdown = jQuery('<div class="tg-dropdown"></div>');
   dropdown.hide();
   
-  jQuery.each([ 'textField', 'emailField', 'textArea', 'menu', 'checkboxes', 'radioButtons', 'acceptance', 'captcha', 'submit' ], function(i, n) {
+  var tag_types = [
+    'textField', 'emailField', 'textArea', 'menu', 'checkboxes', 'radioButtons',
+    'acceptance', 'quiz', 'captcha', 'fileUpload', 'submit'];
+
+  jQuery.each(tag_types, function(i, n) {
     var submenu = jQuery('<div>' + _wpcf7.l10n[n] + '</div>');
     submenu.css({
       margin: 0,
@@ -142,7 +167,7 @@ function tagGenerator() {
       pane.hide();
       pane.empty();
       tgPane(pane, n);
-      pane.show();
+      pane.slideDown('fast');
       return false;
     });
     dropdown.append(submenu);
@@ -158,7 +183,7 @@ function tgPane(pane, tagType) {
   closeButtonDiv.css({ float: 'right' });
   var closeButton = jQuery('<span class="tg-closebutton">&#215;</span>');
   closeButton.click(function() {
-    pane.hide().empty();
+    pane.slideUp('fast').empty();
   });
   closeButtonDiv.append(closeButton);
   pane.append(closeButtonDiv);
@@ -168,9 +193,9 @@ function tgPane(pane, tagType) {
   
   var tgInputs = {};
   jQuery.each([ 'tagName', 'tagId', 'tagClasses', 'tagId2', 'tagClasses2', 'defaultValue',
-    'tagSize', 'tagMaxLength', 'tagCols', 'tagRows', 'label', 'fgColor', 'bgColor' ], function(i, n) {
+    'tagSize', 'tagMaxLength', 'tagFileSizeLimit', 'tagAcceptableFileTypes', 'tagCols', 'tagRows', 'label', 'fgColor', 'bgColor' ], function(i, n) {
     tgInputs[n] = jQuery('<input type="text" />');
-    tgInputs[n].css({ width: '80%', 'font-size': 'smaller' });
+    tgInputs[n].css({ width: '98%', 'font-size': 'smaller' });
     tgInputs[n].change(function() {
       tgCreateTag(tagType, tgInputs, n);
     });
@@ -187,14 +212,14 @@ function tgPane(pane, tagType) {
   });
   jQuery.each([ 'menuChoices' ], function(i, n) {
     tgInputs[n] = jQuery('<textarea></textarea>');
-    tgInputs[n].css({ width: '80%', height: '100px', 'font-size': 'smaller' });
+    tgInputs[n].css({ width: '98%', height: '100px', 'font-size': 'smaller' });
     tgInputs[n].change(function() {
       tgCreateTag(tagType, tgInputs, n);
     });
   });
   jQuery.each([ 'tag1st', 'tag2nd' ], function(i, n) {
     tgInputs[n] = jQuery('<input type="text" class="tag" readonly="readonly" onfocus="this.select()" />');
-    tgInputs[n].css({ width: '96%' });
+    tgInputs[n].css({ width: '98%' });
   });
   
   switch (tagType) {
@@ -325,8 +350,33 @@ function tgPane(pane, tagType) {
       var menuOpt2 = jQuery('<span>&nbsp;' + _wpcf7.l10n.isAcceptanceInvert + '</span>').prepend(tgInputs.isAcceptanceInvert).prepend('<br />');
       menuOpt2.append('<br /><span style="font-size: smaller;">' + _wpcf7.l10n.isAcceptanceInvertMeans + '</span>');
       
-      table2.append(tgTr(menuOpt1.append(menuOpt2)));
+      table2.append(jQuery('<tr></tr>').append(jQuery('<td colspan="2"></td>').append(menuOpt1).append(menuOpt2)));
       
+      pane.append(jQuery('<div class="tg-tag">' + _wpcf7.l10n.generatedTag + '<br /></div>').append(tgInputs.tag1st));
+      break;
+    case 'quiz':
+      var table1 = jQuery('<table></table>');
+      pane.append(table1);
+      
+      table1.append(tgTr(
+        jQuery('<span>' + _wpcf7.l10n.tagName + '<br /></span>').append(tgInputs.tagName),
+        jQuery('<span></span>')
+      ));
+      
+      var table2 = jQuery('<table></table>');
+      pane.append(table2);
+      table2.append(tgTr(
+        jQuery('<span><code>size</code> (' + _wpcf7.l10n.optional + ')<br /></span>').append(tgInputs.tagSize),
+        jQuery('<span><code>maxlength</code> (' + _wpcf7.l10n.optional + ')<br /></span>').append(tgInputs.tagMaxLength)
+      ));
+      table2.append(tgTr(
+        jQuery('<span><code>id</code> (' + _wpcf7.l10n.optional + ')<br /></span>').append(tgInputs.tagId),
+        jQuery('<span><code>class</code> (' + _wpcf7.l10n.optional + ')<br /></span>').append(tgInputs.tagClasses)
+      ));
+      table2.append(tgTr(
+        jQuery('<span>' + _wpcf7.l10n.quizzes + '<br /></span>').append(tgInputs.menuChoices)
+          .append('<br /><span style="font-size: smaller">' + _wpcf7.l10n.quizFormatDesc + '</span>')
+      ));
       pane.append(jQuery('<div class="tg-tag">' + _wpcf7.l10n.generatedTag + '<br /></div>').append(tgInputs.tag1st));
       break;
     case 'captcha':
@@ -346,9 +396,7 @@ function tgPane(pane, tagType) {
       imageSizeOpts.append(tgInputs.imageSizeMedium).append('&nbsp;' + _wpcf7.l10n.imageSizeMedium);
       imageSizeOpts.append('&emsp;');
       imageSizeOpts.append(tgInputs.imageSizeLarge).append('&nbsp;' + _wpcf7.l10n.imageSizeLarge);
-      table2.append(tgTr(
-        imageSizeOpts
-      ));
+      table2.append(jQuery('<tr></tr>').append(jQuery('<td colspan="2"></td>').append(imageSizeOpts)));
       table2.append(tgTr(
         jQuery('<span>' + _wpcf7.l10n.fgColor + ' (' + _wpcf7.l10n.optional + ')<br /></span>').append(tgInputs.fgColor),
         jQuery('<span>' + _wpcf7.l10n.bgColor + ' (' + _wpcf7.l10n.optional + ')<br /></span>').append(tgInputs.bgColor)
@@ -376,6 +424,29 @@ function tgPane(pane, tagType) {
           .append('<br />').append('2) ' + _wpcf7.l10n.tagForInputField)
           .append(tgInputs.tag2nd)
       );
+      break;
+    case 'fileUpload':
+      var table1 = jQuery('<table></table>');
+      pane.append(table1);
+      table1.append(tgTr(
+        jQuery('<span>&nbsp;' + _wpcf7.l10n.isRequiredField + '</span>').prepend(tgInputs.isRequiredField)
+      ));
+      table1.append(tgTr(
+        jQuery('<span>' + _wpcf7.l10n.tagName + '<br /></span>').append(tgInputs.tagName),
+        jQuery('<span></span>')
+      ));
+      
+      var table2 = jQuery('<table></table>');
+      pane.append(table2);
+      table2.append(tgTr(
+        jQuery('<span>' + _wpcf7.l10n.fileSizeLimit + ' (' + _wpcf7.l10n.bytes + ') (' + _wpcf7.l10n.optional + ')<br /></span>').append(tgInputs.tagFileSizeLimit),
+        jQuery('<span>' + _wpcf7.l10n.acceptableFileTypes + ' (' + _wpcf7.l10n.optional + ')<br /></span>').append(tgInputs.tagAcceptableFileTypes)
+      ));
+      table2.append(tgTr(
+        jQuery('<span><code>id</code> (' + _wpcf7.l10n.optional + ')<br /></span>').append(tgInputs.tagId),
+        jQuery('<span><code>class</code> (' + _wpcf7.l10n.optional + ')<br /></span>').append(tgInputs.tagClasses)
+      ));
+      pane.append(jQuery('<div class="tg-tag">' + _wpcf7.l10n.generatedTag + '<br /></div>').append(tgInputs.tag1st));
       break;
     case 'submit':
       var table = jQuery('<table></table>');
@@ -418,7 +489,7 @@ function tgCreateTag(tagType, tgInputs, trigger) {
     tgInputs[n].val(val);
   });
   
-  jQuery.each([ 'tagSize', 'tagMaxLength', 'tagCols', 'tagRows' ], function(i, n) {
+  jQuery.each([ 'tagSize', 'tagMaxLength', 'tagCols', 'tagRows', 'tagFileSizeLimit' ], function(i, n) {
     var val = tgInputs[n].val();
     val = val.replace(/[^0-9]/g, '');
     tgInputs[n].val(val);
@@ -442,6 +513,12 @@ function tgCreateTag(tagType, tgInputs, trigger) {
   jQuery.each([ 'fgColor', 'bgColor' ], function(i, n) {
     var val = tgInputs[n].val();
     val = val.replace(/[^0-9a-fA-F]/g, '');
+    tgInputs[n].val(val);
+  });
+  
+  jQuery.each([ 'tagAcceptableFileTypes' ], function(i, n) {
+    var val = tgInputs[n].val();
+    val = val.replace(/[^0-9a-zA-Z.\s]/g, '');
     tgInputs[n].val(val);
   });
   
@@ -573,6 +650,27 @@ function tgCreateTag(tagType, tgInputs, trigger) {
       var tag = name ? '[' + type + ' ' + name + options +  ']' : '';
       tgInputs.tag1st.val(tag);
       break;
+    case 'quiz':
+      var type = 'quiz';
+      var name = tgInputs.tagName.val();
+      var options = [];
+      if (tgInputs.tagSize.val() || tgInputs.tagMaxLength.val())
+        options.push(tgInputs.tagSize.val() + '/' + tgInputs.tagMaxLength.val());
+      if (tgInputs.tagId.val())
+        options.push('id:' + tgInputs.tagId.val());
+      if (tgInputs.tagClasses.val())
+        jQuery.each(tgInputs.tagClasses.val().split(' '), function(i, n) {
+          options.push('class:' + n);
+        });
+      options = (options.length > 0) ? ' ' + options.join(' ') : '';
+      var choices = '';
+      if (tgInputs.menuChoices.val())
+        jQuery.each(tgInputs.menuChoices.val().split("\n"), function(i, n) {
+          choices += ' "' + n.replace(/["]/g, '&quot;') + '"';
+        });
+      var tag = name ? '[' + type + ' ' + name + options + choices + ']' : '';
+      tgInputs.tag1st.val(tag);
+      break;
     case 'captcha':
       // for captchac
       var type = 'captchac';
@@ -612,6 +710,26 @@ function tgCreateTag(tagType, tgInputs, trigger) {
       var tag = name ? '[' + type + ' ' + name + options +  ']' : '';
       tgInputs.tag2nd.val(tag);
       break;
+    case 'fileUpload':
+      var type = 'file';
+      if (tgInputs.isRequiredField.is(':checked'))
+        type += '*';
+      var name = tgInputs.tagName.val();
+      var options = [];
+      if (tgInputs.tagId.val())
+        options.push('id:' + tgInputs.tagId.val());
+      if (tgInputs.tagClasses.val())
+        jQuery.each(tgInputs.tagClasses.val().split(' '), function(i, n) {
+          options.push('class:' + n);
+        });
+      if (tgInputs.tagFileSizeLimit.val())
+        options.push('limit:' + tgInputs.tagFileSizeLimit.val());
+      if (tgInputs.tagAcceptableFileTypes.val())
+        options.push('filetypes:' + tgInputs.tagAcceptableFileTypes.val().split(' ').join('|'));
+      options = (options.length > 0) ? ' ' + options.join(' ') : '';
+      var tag = name ? '[' + type + ' ' + name + options +  ']' : '';
+      tgInputs.tag1st.val(tag);
+      break;
     case 'submit':
       var type = 'submit';
       
@@ -649,7 +767,11 @@ function tgDefaultName(tagType) {
     return 'radio-' + rand;
   } else if ('acceptance' == tagType) {
     return 'acceptance-' + rand;
+  } else if ('quiz' == tagType) {
+    return 'quiz-' + rand;
   } else if ('captcha' == tagType) {
     return 'captcha-' + rand;
+  } else if ('fileUpload' == tagType) {
+    return 'file-' + rand;
   }
 }

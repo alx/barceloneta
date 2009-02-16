@@ -1,0 +1,12 @@
+A new Post "@@title" was written on the @@date at @@time on "@@blogname".
+
+@@content 
+
+@@permalink
+
+________________________________________________________
+
+You have subscribed to these e-mail notices about new posts to the blog.
+If you want to change your settings or unsubscribe, please visit:
+
+@@conf_url

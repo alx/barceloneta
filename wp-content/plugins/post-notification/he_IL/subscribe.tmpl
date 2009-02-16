@@ -1,0 +1,17 @@
+﻿<form id="newsletter" method="post" action="@@action" style="text-align:right">
+<p>דף זה נועד לאפשר לכם ליצור (או לבטל) מנוי אשר ישלח לכתובת הדוא"ל שלכם הודעת דוא"ל בכל פעם שמתפרסם פוסט חדש בבלוג זה.</p>
+	<p>כתובת הדוא"ל שלכם: <input type="text" name="addr" size="30" maxlength="50" value="@@addr"/> </p>
+	<p><input type="radio" name="action" value="subscribe" checked="checked" />רישום &nbsp; <input type="radio" name="action" value="unsubscribe" />ביטול רישום </p>
+	<!--capt--><p><img alt="captcha" src="@@captchaimg" /> <br />
+	בבקשה הקלידו את התווים המופיעים בתמונה המצורפת לעיל: <input type="text" name="captcha" size="30" maxlength="50" />
+	<input type="hidden" name="captchacode" value="@@captchacode" />
+	</p><!--cha-->
+	<p><input type="submit" name="submit" value="אישור" /></p>
+	@@vars
+</form>
+<br />
+<div align="right" dir="rtl">
+מערכת מנוי הדוא"ל פועלת על בסיס התוסף <a href="http://wordpress.org/extend/plugins/post-notification/" target="_blank"><u>Post Notification</u></a> אשר נכתב על ידי <a href="http://xn--strbe-mva.de/" target="_blank"><u>Moritz (Morty) Strübe</u></a>.
+<br />
+תרגום התוסף לעברית בוצע על ידי <a href="http://caspi.org.il/" target="_blank"><u>איתן כספי</u></a>.
+</div>

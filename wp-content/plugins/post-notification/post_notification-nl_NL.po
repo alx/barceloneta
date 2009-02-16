@@ -1,0 +1,1031 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: post notificatie  1.2.18\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-20 10:07+0100\n"
+"PO-Revision-Date: 2008-09-20 10:07+0100\n"
+"Last-Translator: Moritz 'Morty' Strübe <morty@gmx.net>\n"
+"Language-Team: werkgroepen.net <team@wrkgroepen.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Dutch\n"
+"X-Poedit-Country: NETHERLANDS\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin_changelog.php:12
+#: admin.php:60
+msgid "Change log"
+msgstr "Log wijzigingen"
+
+#: admin_changelog.php:14
+msgid "Latest change log from the server."
+msgstr ""
+
+#: admin_export.php:14
+msgid "Export Emails"
+msgstr "Export emails"
+
+#: admin_export.php:20
+msgid "No entries found."
+msgstr "Niets gevonden"
+
+#: admin_info.php:31
+#: admin_info.php:60
+msgid "Couldn't create File:"
+msgstr "Kan bestand niet maken:"
+
+#: admin_info.php:33
+#: admin_info.php:61
+msgid "Please assure the the path is writeable."
+msgstr "Verzeker je dat het path beschrijfbaar is."
+
+#: admin_info.php:33
+msgid "This is an error!"
+msgstr "Dit is een fout!"
+
+#: admin_info.php:41
+msgid "PHP was compiled without iconv-libs. This might cause severe trouble using UTF-8 with special chars or umlauts."
+msgstr "PHP is gecompileerd zonder iconv-libs. Dit zou een ernstig probleem kunnen veroorzaken met gebruik van utf-8 bij speciale karakters of umlauts."
+
+#: admin_info.php:42
+#: admin_info.php:48
+msgid "Most hosters support this, as it is a sensible php-extension."
+msgstr "De meeste hosts ondersteunen dit, als het een geldige php-extensie is."
+
+#: admin_info.php:43
+#: admin_info.php:49
+#: admin_info.php:79
+#: admin_settings.php:502
+msgid "More information."
+msgstr "Meer informatie."
+
+#: admin_info.php:47
+msgid "This version of PHP does not support the function mb_detect_encoding. You might experience some trouble with non-ASCII characters."
+msgstr "Deze PHP versie ondersteunt de functie mb_detect_encoding niet. Je zult problemen kunnen krijgen met niet-ASCII karakters."
+
+#: admin_info.php:54
+msgid "This version of PHP does not support the function html_entity_decode. Sending out text mails will not be possible."
+msgstr "Deze versie van PHP ondersteunt de functie html_entity_decode niet. Tekstmails verzenden zullen onmogelijk zijn."
+
+#: admin_info.php:55
+msgid "Please contact your hoster."
+msgstr "Neem contact op met je host."
+
+#: admin_info.php:62
+msgid "You can also copy the file from the plugin directory manually."
+msgstr "Je kunt het bestand ook vanaf de plugin map kopi&#235;ren."
+
+#: admin_info.php:68
+msgid "PN is in debugging mode. This should only be on, if something isn't working correctly."
+msgstr "PN is in debugging modus. Dit hoeft alleen aan te staan als iets onjuist werkt."
+
+#: admin_info.php:72
+msgid "It seems like you want to uninstall this Plugin. Please deactivate it or change the setting the options. "
+msgstr "Het lijkt erop dat je deze plugin wilt de&#239;nstalleren. Deactiveer het of wijzig de instellingen in de opties."
+
+#: admin_info.php:74
+msgid "It seems like there is some trouble creating the tables in the DB. If you're lucky there should be some errormessages on this page."
+msgstr "Het lijkt erop dat er problemen zijn met het maken van de tabellen in de DB. Als je geluk hebt worden enkele foutberichten in deze pagina weergegeven."
+
+#: admin_info.php:78
+msgid "The maximum executiontime is very low."
+msgstr "De maximum uitvoeringsrijd is erg laag"
+
+#: admin_info.php:84
+msgid "There is a bug in WP handling HTML-Mails. Please make sure a mail-plugin is installed."
+msgstr "Er is een bug in WP met de HTML-Mails. Verzeker je dat een mail plugin is ge&#239;nstalleerd."
+
+#: admin_info.php:106
+msgid "Number of Subscribers:"
+msgstr "Aantal ingeschreven adressen"
+
+#: admin_info.php:109
+msgid "Looks like you are realy using this plugin."
+msgstr "Het lijkt erop dat je deze plugin echt gebruikt"
+
+#: admin_info.php:110
+msgid "What about a donation?."
+msgstr "Wat denk je van een donatie?"
+
+#: admin_info.php:114
+msgid "The time is:"
+msgstr "De datum en tijd:"
+
+#: admin_info.php:117
+msgid "Posts to be notified."
+msgstr "Berichten die genotificeerd worden:"
+
+#: admin_info.php:124
+msgid "Post-ID"
+msgstr "Bericht-ID"
+
+#: admin_info.php:125
+msgid "Post title"
+msgstr "Bericht titel"
+
+#: admin_info.php:126
+msgid "Publish-date"
+msgstr "Publicatie datum"
+
+#: admin_info.php:127
+msgid "Save-date"
+msgstr "Bewaar datum"
+
+#: admin_info.php:128
+msgid "Last email-id"
+msgstr "Laatste email ID"
+
+#: admin_info.php:131
+#: admin_info.php:148
+msgid "None queued"
+msgstr "Geen rij"
+
+#: admin_info.php:146
+msgid "The next mail will be sent:"
+msgstr "De volgende mail wordt verzonden:"
+
+#: admin_info.php:154
+msgid "The last mail was sent:"
+msgstr "De laatste mail was verzonden"
+
+#: admin_info.php:157
+msgid "The last post was saved:"
+msgstr "Het laatste bericht is opgeslagen:"
+
+#: admin_instructions.php:13
+#: admin.php:58
+msgid "Instructions"
+msgstr "Instructies"
+
+#: admin_instructions.php:16
+msgid "Important"
+msgstr "Belangrijk"
+
+#: admin_instructions.php:17
+msgid "I'm very bad in writing documentation. Please check the PN Forum for support! And look around whether someone else already asked that question."
+msgstr "Ik ben erg slecht in schrijven van documentatie. Bezoek het PN Forum voor ondersteuning! Kijk rond of iemand anders je vraag al gesteld heeft."
+
+#: admin_instructions.php:18
+msgid "To the PN Forum."
+msgstr "Naar het PN forum (Engels en Duits)."
+
+#: admin_instructions.php:21
+msgid "What does this plugin do?"
+msgstr "Wat doet deze plugin?"
+
+#: admin_instructions.php:22
+msgid "With each new post an email is sent to every registered user in the database. The email can be text or HTML."
+msgstr "Bij elk nieuw bericht wordt een email verzonden naar elke geregistreerde Post Notification deelnemer in de database. De email kan  uit 'platte tekst' of HTML (opgemaakte tekst) bestaan."
+
+#: admin_instructions.php:23
+msgid "After subscribing the user gets a opt-in email with a link he has to visit before getting any mails."
+msgstr "Na inschrijving krijgt de gebruiker een bevestigingsmail met een link die aangeklikt en bezocht moet worden, alvorens daadwerkelijk email notificatie naar het opgegeven adres verzonden wordt. Dit geldt niet voor inschrijvingen die door de beheerder zijn toegevoegd in 'Adressen beheren'."
+
+#: admin_instructions.php:27
+msgid "Integration"
+msgstr "Integratie"
+
+#: admin_instructions.php:28
+msgid "Post Notification always needs a special Post Notification Page. This may be a page, post enty or a special .php page.."
+msgstr "Post Notification heeft altijd een Post Notification Pagina nodig om juist te kunnen functioneren. Dit kan een pagina, een bericht of een speciale .php pagina zijn.."
+
+#: admin_instructions.php:29
+msgid "There are several ways of integration:"
+msgstr "Er zijn verschillende manieren van integratie"
+
+#: admin_instructions.php:31
+msgid "Replacement in Posts"
+msgstr "Vervangen in berichten"
+
+#: admin_instructions.php:31
+msgid "The strings @@post_notification_header and @@post_notification_body will be replaced in your post in case the \"@@repl\" option ist turned on in the settings."
+msgstr "De strings @@post_notification_header en @@post_notification_body worden vervangen in het bericht in geval de \"@@repl\" optie is ingeschakeld bij de instellingen."
+
+#: admin_instructions.php:32
+msgid "Therefore a new page with @@post_notification_header in the title and @@post_notification_body in the Post itself must be created."
+msgstr "Daarom moet een nieuwe pagina met  @@post_notification_header in de titel en @@post_notification_body in het bericht zelf gemaakt worden."
+
+#: admin_instructions.php:33
+msgid "This is done automaticly by the \"Add Post Notification page\" option. If you do not do that you have to add the post-id/page-id in the \"Link to the Post Notification page\" setting by hand."
+msgstr "Dit wordt automatisch gedaan als je de \"Toevoegen notificatie pagina\" optie aanvinkt. Als je dit niet doet, moet het bericht ID/Pagina ID in de \"Link naar de Bericht Notificatie Pagina\" handmatig ingesteld worden."
+
+#: admin_instructions.php:35
+msgid "Use the Post Notification template. The Template is automaticly copied to your theme. This method might have some trouble with badly written themes. But has a little better performance."
+msgstr "Gebruik het Post Notificatie sjabloon. Het sjabloon is automatisch naar je thema gekopieerd. Deze methode kan soms problemen veroorzaken met slecht geschreven thema&#39;s, maar het geeft betere presentaties."
+
+#: admin_instructions.php:36
+msgid "If you do not use the \"Add Post Notification page\" option you have to add the post-id in the \"Link to the Post Notification page\" setting by hand."
+msgstr "Als je de optie \"Toevoegen notificatie pagina\" niet gebruikt, zul je het bericht-id in de \"Link naar de bericht notificatie pagina\" handmatig moeten instellen."
+
+#: admin_instructions.php:39
+msgid "Copy the wp-post_notification.php to your WP-root. Copy&Paste the url to the \"Link to the Post Notification page\" setting"
+msgstr "Kopieer wp-post_notification.php naar je WP-root. Kopieer en plak de url naar de \"Link naar de bericht notificatie pagina\" instelling"
+
+#: admin_instructions.php:42
+msgid "You can copy the content of the subscribe_snippet.php into your theme."
+msgstr "Je kunt de inhoud van de subscribe_snippet.php naar je thema kopi&#235;ren"
+
+#: admin_instructions.php:43
+msgid "You still need a special Post Notification Page. "
+msgstr "Je blijft een speciale Bericht notificatie pagina nodig hebben."
+
+#: admin_instructions.php:45
+msgid "Coders might want to look at the frontend.php."
+msgstr "Code kenners willen misschien de frontend.php bekijken."
+
+#: admin_instructions.php:51
+msgid "Templates"
+msgstr "Sjablonen"
+
+#: admin_instructions.php:52
+msgid "If you want to modify the templates it's probably best to create a new profile. Take the subdir of your favorite language and copy it. Now you can modify the templates. This way it is also assured, that your modifications are not overwritten when updating."
+msgstr "Als je de sjablonen wilt wijzigen is het misschien beter om een nieuw profiel te maken. Gebruik de submap van je favoriete taal en kopieer het. Nu kun je de sjablonen wijzigen. Op deze manier ben je ook zeker dat je wijzigen niet overschreven worden bij een update."
+
+#: admin_instructions.php:53
+msgid "Vars used in the templates"
+msgstr "Vars gebruikt in de sjablonen"
+
+#: admin_instructions.php:55
+msgid "The title of the post"
+msgstr "De titel van het bericht"
+
+#: admin_instructions.php:56
+msgid "The author of the post"
+msgstr "De auteur van het bericht"
+
+#: admin_instructions.php:57
+msgid "The content of the post"
+msgstr "De inhoud van het bericht"
+
+#: admin_instructions.php:58
+msgid "The link to the post."
+msgstr "De link naar het bericht"
+
+#: admin_instructions.php:59
+msgid "The Name of the blog"
+msgstr "De naam van het blog"
+
+#: admin_instructions.php:60
+msgid "Date of the post being published"
+msgstr "Datum wanneer het bericht gepubliceerd is"
+
+#: admin_instructions.php:61
+msgid "Time of the post being published"
+msgstr "Tijd wanneer het bericht gepubliceerd is"
+
+#: admin_instructions.php:62
+msgid "The email the mail is sent to."
+msgstr "Het mailadres waar de mail naartoe gezonden is"
+
+#: admin_instructions.php:63
+msgid "The URL that has to be visited to verify the subscription."
+msgstr "De URL die geklikt moet worden om de inschrijving voor email notificatie te bevestigen"
+
+#: admin_instructions.php:66
+msgid "The different templates"
+msgstr "De verschillende sjablonen"
+
+#: admin_instructions.php:67
+msgid "I know the names are not the best, but I'm to lazy too change them."
+msgstr "Ik weet het, de namen zijn niet de beste, maar ik ben te lui om ze te wijzigen."
+
+#: admin_instructions.php:69
+msgid "This is the subscription page."
+msgstr "Dit is de inschrijvings pagina."
+
+#: admin_instructions.php:70
+msgid "This is the page you see after subscribing."
+msgstr "Dit is de pagina die je ziet na de inschrijving."
+
+#: admin_instructions.php:71
+msgid "This email is sent with the activation-link in it."
+msgstr "Deze email wordt verzonden en bevat de activerings-link"
+
+#: admin_instructions.php:72
+msgid "The page you see to select your categories."
+msgstr "Deze pagina zie je bij het selecteren van je categorie&#235;n."
+
+#: admin_instructions.php:73
+msgid "This email is sent in case someone unsubscribes."
+msgstr "Deze mail wordt verzonden als iemand zich uitschrijft."
+
+#: admin_instructions.php:74
+msgid "In this file all the other strings needed are saved."
+msgstr "In dit bestand bevinden zich alle nodige andere opgeslagen strings."
+
+#: admin_instructions.php:80
+msgid "Bugs"
+msgstr "Bugs"
+
+#: admin_instructions.php:81
+msgid "Please report bugs. Finding bugs is much more difficult then fixing them."
+msgstr "Geef bugs ajb door. Bugs vinden is veel moeilijker dan ze te repareren."
+
+#: admin_instructions.php:83
+msgid "Report a bug in English or German (Forum)."
+msgstr "Rapporteer een bug in het Engels of in het Duits (Forum)."
+
+#: admin_instructions.php:89
+msgid "History"
+msgstr "Geschiedenis"
+
+#: admin_instructions.php:90
+msgid "The Plugin on which this plugin originally is based was written by <a href=\"http://watershedstudio.com/portfolio/software/wp-email-notification.html\">Brian Groce</a>. <a href=\"http://bueltge.de\">Frank B&uuml;ltge</a> translated it to german and maintained it for a while. Major parts were rewritten and it is now maintained by <a href=\"http://xn--strbe-mva.de\">Moritz Str&uuml;be</a>."
+msgstr "Deze plugin is gebaseerd op de originele plugin van <a href=\"http://watershedstudio.com/portfolio/software/wp-email-notification.html\">Brian Groce</a>. <a href=\"http://bueltge.de\">Frank B&uuml;ltge</a> heeft het naar Duits vertaald en  heeft het voor een tijdje beheerd. Belangrijke delen zijn herschreven en worden nu beheerd door <a href=\"http://xn--strbe-mva.de\">Moritz Str&uuml;be</a>. "
+
+#: admin_instructions.php:93
+msgid "Donations"
+msgstr "Donaties"
+
+#: admin_instructions.php:94
+msgid "There are several ways to donate:"
+msgstr "Er zijn verschillende manier om te doneren:"
+
+#: admin_instructions.php:96
+msgid "Donate time: Find and report bugs. If you know php: fix them and mail the fix to me. If you are interested you can also get svn-access."
+msgstr "Doneer tijd: Vind en rapporteer bugs. Als je php kent: fix en mail de fix naar me. Als je ge&#239;nteresseerd bent, kun je ook svn-toegang krijgen. "
+
+#: admin_instructions.php:97
+msgid "Donate motivation: Send me a postcard (with snailmail), make a comment on my page how cool the plugin is, or anything else that might motivate me."
+msgstr "Doneer motivatie: Stuur me een postkaart (met de postbode), of geef een reactie op mijn pagina hoe cool je de plugin vindt, of iets anders wat mij motiveert om door te gaan."
+
+#: admin_instructions.php:98
+msgid "Donate money:"
+msgstr "Doneer geld:"
+
+#: admin_instructions.php:101
+msgid "Supporters"
+msgstr "Ondersteuning/meewerkenden:"
+
+#: admin_instructions.php:103
+msgid "French translation"
+msgstr "Franse vertaling"
+
+#: admin_instructions.php:104
+#, fuzzy
+msgid "Hebrew translation"
+msgstr "Franse vertaling"
+
+#: admin_instructions.php:105
+msgid "Dutch translation"
+msgstr "Nederlandse Vertaling"
+
+#: admin_instructions.php:106
+msgid "Testing and bugs"
+msgstr "Testen en bugs"
+
+#: admin_list_email.php:38
+msgid "List of addresses:"
+msgstr "Lijst van adressen:"
+
+#: admin_list_email.php:43
+msgid "No address checked!"
+msgstr "Geen adres aangevinkt!"
+
+#: admin_list_email.php:45
+msgid "The following addresses were deleted:"
+msgstr "De volgende adressen zijn verwijderd:"
+
+#: admin_list_email.php:110
+#: admin_test.php:28
+#: post_notification.php:311
+msgid "Email:"
+msgstr "Email:"
+
+#: admin_list_email.php:111
+msgid "Cats:"
+msgstr "Categorie&#235;n"
+
+#: admin_list_email.php:116
+msgid "Limit:"
+msgstr "Limiet:"
+
+#: admin_list_email.php:117
+msgid "Start at:"
+msgstr "Start op:"
+
+#: admin_list_email.php:119
+msgid "Sort by:"
+msgstr ""
+
+#: admin_list_email.php:120
+msgid "ID"
+msgstr ""
+
+#: admin_list_email.php:121
+#: admin_list_email.php:181
+msgid "Address"
+msgstr "Adres"
+
+#: admin_list_email.php:122
+#: admin_list_email.php:183
+msgid "Date accepted"
+msgstr "Datum geaccepteerd"
+
+#: admin_list_email.php:123
+#: admin_list_email.php:185
+msgid "IP"
+msgstr "IP"
+
+#: admin_list_email.php:126
+msgid "Ascending"
+msgstr ""
+
+#: admin_list_email.php:127
+#, fuzzy
+msgid "Descending"
+msgstr "Opnieuw verzenden"
+
+#: admin_list_email.php:131
+msgid "Show unconfirmed mails:"
+msgstr "Toon niet bevestigde emails:"
+
+#: admin_list_email.php:134
+msgid "Only show cat ids:"
+msgstr "Toon alleen categorie IDs:"
+
+#: admin_list_email.php:137
+msgid "Show as list:"
+msgstr "Toon als lijst:"
+
+#: admin_list_email.php:142
+msgid "Update"
+msgstr "Bijwerken"
+
+#: admin_list_email.php:167
+msgid "No entries found!"
+msgstr "Niets gevonden!"
+
+#: admin_list_email.php:174
+msgid "Showing entry @@start to @@end of @@total entries."
+msgstr "Tonen entry @@start tot @@end van @@total entries."
+
+#: admin_list_email.php:182
+msgid "Accepted"
+msgstr "Geaccepteerd"
+
+#: admin_list_email.php:184
+msgid "Subscribed categories"
+msgstr "Ingeschrven categori&#235;n"
+
+#: admin_list_email.php:201
+#: admin_settings.php:67
+#: admin_settings.php:321
+#: admin_settings.php:330
+#: admin_settings.php:340
+#: admin_settings.php:374
+#: admin_settings.php:625
+#: admin_settings.php:636
+#: admin_settings.php:698
+#: admin_settings.php:707
+#: post_notification.php:111
+msgid "Yes"
+msgstr "Ja"
+
+#: admin_list_email.php:203
+#: admin_settings.php:66
+#: admin_settings.php:320
+#: admin_settings.php:329
+#: admin_settings.php:339
+#: admin_settings.php:373
+#: admin_settings.php:624
+#: admin_settings.php:635
+#: admin_settings.php:697
+#: admin_settings.php:706
+#: post_notification.php:150
+msgid "No"
+msgstr "Nee"
+
+#: admin_list_email.php:217
+#: admin_list_email.php:219
+#: functions.php:298
+msgid "All"
+msgstr "Alle"
+
+#: admin_list_email.php:263
+msgid "Check all"
+msgstr "Alle selecteren"
+
+#: admin_list_email.php:264
+msgid "Uncheck all"
+msgstr "Alle deselecteren"
+
+#: admin_list_email.php:266
+msgid "Delete"
+msgstr "Verwijder"
+
+#: admin_manage.php:25
+#: admin.php:50
+msgid "Manage addresses"
+msgstr "Adressen beheren"
+
+#: admin_manage.php:28
+msgid "The Emails may be seprated by newline, space, comma, semi colon, tabs, [, ], &lt; or &gt;."
+msgstr "De email adressen kunnen gescheiden worden door een nieuwe regel, spatie, komma, puntkomma, tabs, [, ], &lt; of &gt;."
+
+#: admin_manage.php:29
+msgid "Watch out! There is only simple checking whether the email address is valid."
+msgstr "Kijk uit! Er wordt slechts op eenvoudige wijze gecontroleerd of het email adres geldig is."
+
+#: admin_manage.php:33
+msgid "Load LDIF-File:"
+msgstr "LDIF-Besrand Laden:"
+
+#: admin_manage.php:35
+msgid "Load"
+msgstr "Laden"
+
+#: admin_manage.php:39
+msgid "Emails"
+msgstr "Emails"
+
+#: admin_manage.php:47
+msgid "What should be done?"
+msgstr "Wat moet gedaan worden?"
+
+#: admin_manage.php:48
+msgid "Add selected categories"
+msgstr "Geselecteerde categorie&#235;n toevoegen"
+
+#: admin_manage.php:49
+msgid "Remove selected categories"
+msgstr "Geselecteerde categorie&#235;n verwijderen"
+
+#: admin_manage.php:50
+msgid "Replace with selected categories"
+msgstr "Vervangen met geselecteerde categorie&#235;n"
+
+#: admin_manage.php:51
+msgid "Delete the listed emails"
+msgstr "De emails uit de lijst verwijderen"
+
+#: admin_manage.php:57
+msgid "Manage"
+msgstr "Bijwerken"
+
+#: admin_manage.php:58
+msgid "Reset"
+msgstr "Terug zetten"
+
+#: admin_manage.php:77
+msgid "Email is not valid:"
+msgstr "Email is niet geldig:"
+
+#: admin_manage.php:91
+msgid "Removed email:"
+msgstr "Verwijderde email:"
+
+#: admin_manage.php:93
+msgid "Email is not in DB:"
+msgstr "Email bevindt zich niet in database:"
+
+#: admin_manage.php:106
+msgid "Added Email:"
+msgstr "Toegevoegde email:"
+
+#: admin_manage.php:112
+msgid "Something went wrong with the Email:"
+msgstr "Er is iets misgegaan met de email:"
+
+#: admin_manage.php:139
+msgid "Updated Email:"
+msgstr "Bijgewerkte email:"
+
+#: admin_settings.php:13
+msgid "File missing in profile folder."
+msgstr "Bestand wordt gemist is de profiel map."
+
+#: admin_settings.php:14
+msgid "Folder"
+msgstr "Map"
+
+#: admin_settings.php:15
+#: admin_settings.php:25
+#: admin_settings.php:493
+msgid "File"
+msgstr "Bestand"
+
+#: admin_settings.php:24
+msgid "Missing string in string file."
+msgstr "Een string gemist in het string bestand"
+
+#: admin_settings.php:26
+msgid "String"
+msgstr "String"
+
+#: admin_settings.php:72
+#: admin.php:54
+msgid "Settings"
+msgstr "Instellingen"
+
+#: admin_settings.php:104
+msgid "Number of captcha-chars must be 0 or greater."
+msgstr "Aantal captcha-karakters moet 0 of meer zijn."
+
+#: admin_settings.php:107
+msgid "Number of captcha-chars must be a number."
+msgstr "Aantal captcha-karakters moeten een cijfer zijn"
+
+#: admin_settings.php:117
+msgid "Pause must be zero or greater."
+msgstr "Pauze moet 0 zijn of hoger."
+
+#: admin_settings.php:120
+msgid "Pause must be a number."
+msgstr "Pauze moet een getal zijn"
+
+#: admin_settings.php:128
+msgid "Nervous Finger must be zero or greater."
+msgstr "Wachten met email verzenden na publiceren moet nul zijn of meer"
+
+#: admin_settings.php:131
+msgid "Nervous Finger must be a number."
+msgstr "Aantal seconden wachten met email verzenden moet een getal zijn"
+
+#: admin_settings.php:141
+msgid "Number of mails must be greater then zero."
+msgstr "Aantal emails moet groter dan nul zijn."
+
+#: admin_settings.php:144
+msgid "Number of mails must be a number"
+msgstr "Aantal of emails moet een getal zijn"
+
+#: admin_settings.php:164
+msgid "Could not find the template in this profile. Please select a template and save again."
+msgstr "Kan het sjabloon in dit profiel niet vinden. Selecteer een sjabloon en bewaar opnieuw."
+
+#: admin_settings.php:201
+msgid "If you can read this, something went wrong. :-("
+msgstr "Als je dit kun lezen is er iets misgegaan. :-("
+
+#: admin_settings.php:220
+msgid "Data was updated."
+msgstr "Data is bijgewerkt"
+
+#: admin_settings.php:310
+msgid "When to send"
+msgstr "Als er verzonden wordt"
+
+#: admin_settings.php:317
+msgid "Send normal posts by default:"
+msgstr "Standaard normale berichten verzenden:"
+
+#: admin_settings.php:327
+msgid "Send private posts by default:"
+msgstr "Standaard priv&#233; berichten verzenden:"
+
+#: admin_settings.php:336
+msgid "Send pages by default:"
+msgstr "Standaard pagina&#39;s verzenden:"
+
+#: admin_settings.php:346
+msgid "Note:"
+msgstr "Opmerking:"
+
+#: admin_settings.php:348
+msgid "You can always override the settings above when writing a post. There is a Post Notification box somewhere near the upload box when writing or editing a post."
+msgstr "Je kunt bovenstaande instellingen altijd overschrijven als je een bericht schrijft. Er is een Post Notification veld, onder daar waar je de berichten/pagina&#39;s schrijft."
+
+#: admin_settings.php:353
+msgid "Nervous finger wait:"
+msgstr "Wachten met email verzenden na publiceren:"
+
+#: admin_settings.php:355
+#: admin_settings.php:464
+msgid "seconds."
+msgstr "seconden."
+
+#: admin_settings.php:361
+msgid "This option sets the time to wait before sending an Email. So if you have an nervous finger you can unpublish your post quickly and no mails are sent."
+msgstr "Deze optie stelt de tijd in om te wachten na publicatie voor email verzonden wordt. Het kan gebeuren dat je nog fouten ontdekt in je bericht. Met deze tijdsinstelling kun je de publicatie nog annuleren en er worden geen mails verzonden."
+
+#: admin_settings.php:366
+msgid "Look"
+msgstr "Design:"
+
+#: admin_settings.php:370
+msgid "Copy complete post in to the mail:"
+msgstr "Kopieer het complete bericht in de email:"
+
+#: admin_settings.php:375
+msgid "Up to the more-tag."
+msgstr "Tot aan de meer lezen tag"
+
+#: admin_settings.php:376
+msgid "The excerpt"
+msgstr "De samenvatting"
+
+#: admin_settings.php:382
+msgid "Read-more-text:"
+msgstr "Meer lezen tekst:"
+
+#: admin_settings.php:387
+msgid "This text is put behind the content in case the mail is truncated. E.g. because of the more-tag."
+msgstr "Deze tekst wordt achter de inhoud gezet als het bericht ingekort is. Als voorbeeld: je hebt de meer lezen tag ingesteld."
+
+#: admin_settings.php:393
+msgid "Profile:"
+msgstr "Profiel"
+
+#: admin_settings.php:403
+#: admin_test.php:47
+msgid "Template:"
+msgstr "Sjabloon:"
+
+#: admin_settings.php:413
+msgid "Templates with the extension .txt are sent as text-mails. Templates with the extension .html are sent as HTML-mails"
+msgstr "Sjablonen met de extensie .txt worden verzonden als platte tekst emails.  Sjablonen met de extensie .html worden verzonden als HTML-mails(opgemaakte tekst)"
+
+#: admin_settings.php:418
+msgid "Subject:"
+msgstr "Onderwerp:"
+
+#: admin_settings.php:423
+#: admin_settings.php:436
+msgid "Use @@blogname as placeholder for the blog name."
+msgstr "Gebruik @@blogname als code voor de blognaam."
+
+#: admin_settings.php:424
+msgid "Use @@title as placeholder for the title of the post."
+msgstr "Gebruik @@title als code voor de titel van het bericht."
+
+#: admin_settings.php:431
+msgid "Sender-Name:"
+msgstr "Verzend-Naam:"
+
+#: admin_settings.php:441
+msgid "Sender-Email:"
+msgstr "Verzender-Email:"
+
+#: admin_settings.php:453
+msgid "Technical"
+msgstr "Technisch"
+
+#: admin_settings.php:457
+msgid "Number of mails to be sent in a burst:"
+msgstr "Aantal mails in bulk verzenden:"
+
+#: admin_settings.php:463
+msgid "Pause between transmission:"
+msgstr "Pauze tussen de transmissie:"
+
+#: admin_settings.php:468
+msgid "Type of header line break:"
+msgstr "Soort regel afbreek gebruiken:"
+
+#: admin_settings.php:479
+msgid ""
+"According to the PHP-specification \\r\\n"
+" must be used. Never the less quite a few servers have trouble if they get a \\r\\n"
+" instead of \\n"
+". You'll see part of the header in your mail if you have the wrong selection."
+msgstr ""
+"Met gebruik van de PHP-specificatie moet \\r\\n"
+"  gebruikt worden. Er zijn enkele servers die problemen geven als ze een \\r\\n"
+"  krijgen in plaats van een \\n"
+". Je ziet in het deel van de header in je email of je de onjuiste selectie hebt."
+
+#: admin_settings.php:484
+msgid "Locking:"
+msgstr "Vergrendel:"
+
+#: admin_settings.php:494
+msgid "Database"
+msgstr "Database"
+
+#: admin_settings.php:501
+msgid "Try using database locking if you are geting duplicate messages."
+msgstr "Probeer database vergrendeling als je duplicatie berichten krijgt."
+
+#: admin_settings.php:512
+msgid "Filters to exclude from filtering \"the_content\":"
+msgstr "Filters uitsluiten om \"the_content\" te filteren:"
+
+#: admin_settings.php:541
+msgid "Some plugins use filters to modify the content of a post. You might not want some of them modifying your mails. Finding the right filters might need some playing around."
+msgstr "Enkele plugins gebruiken filters om de content(inhoud) van een bericht te wijzigen. Je zult niet willen dat ze je mails wijzigen. Om de juiste filters te vinden zul je wat moeten spelen."
+
+#: admin_settings.php:557
+msgid "Frontend"
+msgstr "Voorkant, zichtbaar voor je mail notificatie ontvangers"
+
+#: admin_settings.php:564
+msgid "Name of the Post Notification page:"
+msgstr "Naam van de bericht notificatie pagina:"
+
+#: admin_settings.php:569
+#, fuzzy
+msgid "Allow selection of categories:"
+msgstr "Geselecteerde categorie&#235;n toevoegen"
+
+#: admin_settings.php:577
+msgid "Show empty categories:"
+msgstr "Toon lege categorie&#235;n"
+
+#: admin_settings.php:593
+msgid "Default categories:"
+msgstr "Standaard categorie&#235;n:"
+
+#: admin_settings.php:598
+msgid "The categories which will be automatically selected when a user subscribes, and which is also default for the Manage Addresses dialog. Choosing a category includes all subcategories."
+msgstr "De categorie&#235;n die automatisch geselecteerd worden als gebruikers zich inschrijven en welke ook standaard is voor de Adressen Beheren instellingen. Een categorie kiezen betekent inclusief subcategorie&#235;n."
+
+#: admin_settings.php:607
+msgid "http://en.wikipedia.org/wiki/Captcha"
+msgstr "http://en.wikipedia.org/wiki/Captcha"
+
+#: admin_settings.php:607
+msgid "Captcha-chars:"
+msgstr "Captcha-karakters:"
+
+#: admin_settings.php:613
+msgid "Number of Captcha-chars. 0 is no Captcha"
+msgstr "Aantal Captcha karakters. 0 is geen captcha gebruiken."
+
+#: admin_settings.php:614
+msgid "Warning:"
+msgstr "Waarschuwing:"
+
+#: admin_settings.php:615
+msgid "Your template must support Captchas."
+msgstr "Je sjabloon moet captcha ondersteunen."
+
+#: admin_settings.php:621
+msgid "Post Notification link in the meta-section:"
+msgstr "Bericht notificatie link in de meta-sectie tonen:"
+
+#: admin_settings.php:632
+msgid "Replacement in Posts:"
+msgstr "Herplaatsen in berichten"
+
+#: admin_settings.php:643
+msgid "The Stings @@post_notification_header and @@post_notification_body will be replaced in your post."
+msgstr "De Strings @@post_notification_header en @@post_notification_body worden herplaatst in je bericht."
+
+#: admin_settings.php:644
+#: admin_settings.php:662
+#: admin_settings.php:677
+msgid "Also see the Instructions for this."
+msgstr " Bekijk ook de instructies hiervoor."
+
+#: admin_settings.php:651
+msgid "Add Post Notification page:"
+msgstr "Toevoegen notificatie pagina"
+
+#: admin_settings.php:659
+msgid "Adds a Post Notification page to your pages."
+msgstr "Voegt een Post Notification toe aan je pagina&#39;s. "
+
+#: admin_settings.php:660
+msgid "The file \"post_notification_template.php\" has been copied into the active theme. You may want to edit this file to fit your needs.  "
+msgstr "Het bestand \"post_notification_template.php\" is gekopieerd in het actieve thema. Je kunt dit bestand  bewerken, naar wat je nodig hebt."
+
+#: admin_settings.php:661
+msgid "This checkbox is cleared after execution."
+msgstr "Na uitvoering wordt dit aanvinkmenu schoongemaakt."
+
+#: admin_settings.php:669
+msgid "Link to the Post Notification page:"
+msgstr "Link naar de Post Notification pagina:"
+
+#: admin_settings.php:675
+msgid "This must be the URL or the ID of the page on which you subscribe."
+msgstr "Dit moet de URL of het ID van de pagina zijn waarop ingeschreven wordt. "
+
+#: admin_settings.php:676
+msgid "If you pick \"Add Post Notification page\" this will be compleated automaticly."
+msgstr " Als je \"Toevoegen notificatie pagina\" kiest, zal dit automatisch gebeuren. "
+
+#: admin_settings.php:683
+msgid "Miscellaneous"
+msgstr "Overige"
+
+#: admin_settings.php:688
+msgid "Debug:"
+msgstr "Debug:"
+
+#: admin_settings.php:703
+msgid "Uninstall:"
+msgstr "De&#239;nstalleren"
+
+#: admin_settings.php:714
+msgid "WARNING: If this option is set, all database entries are deleted upon deactivation. Of course all data is lost."
+msgstr "WAARSCHUWING: Als deze optie is gekozen, worden alle database gegevens van deze plugin verwijderd na deactivatie. Alle data is dan uiteraard weg."
+
+#: admin_settings.php:720
+msgid "save"
+msgstr "Uitvoeren"
+
+#: admin_test.php:6
+#: admin.php:59
+msgid "Test"
+msgstr "Test"
+
+#: admin_test.php:12
+msgid "Post id:"
+msgstr "Bericht id:"
+
+#: admin_test.php:20
+msgid "This must be the ID of the post you want to send. You can find the ID under Manage->Posts."
+msgstr "Dit moet het ID van het bericht zijn welke je wilt verzenden. Je kunt het ID vinden bij ->Beheren->Berichten."
+
+#: admin_test.php:55
+msgid "Do not send mail:"
+msgstr "Stuur geen mail:"
+
+#: admin_test.php:68
+msgid "Send test mail."
+msgstr "Stuur testmail."
+
+#: admin_test.php:77
+msgid "Email"
+msgstr "Email"
+
+#: admin_test.php:85
+msgid "Error:"
+msgstr "Fout:"
+
+#: admin_test.php:85
+msgid "Email has to be in the database."
+msgstr "Email moet in de database van de plugin staan"
+
+#: admin.php:35
+msgid "You need at least Userlevel 8 to modify the settings."
+msgstr "Je hebt minimaal gebruikersniveau 8  nodig om instellingen te bewerken."
+
+#: admin.php:41
+msgid "You need to be administrator to modify the settings."
+msgstr "Je moet beheerder zijn om instellingen te wijzigen"
+
+#: admin.php:49
+msgid "Info"
+msgstr "Info"
+
+#: admin.php:51
+msgid "Export addresses"
+msgstr "Export adressen"
+
+#: admin.php:52
+msgid "List addresses"
+msgstr "Lijst adressen"
+
+#: admin.php:53
+msgid "Delete addresses"
+msgstr "Verwijder adressen"
+
+#: admin.php:56
+#: admin_templates.php:5
+#, fuzzy
+msgid "Edit templates"
+msgstr "De verschillende sjablonen"
+
+#: install.php:124
+msgid "Subscribe to Posts"
+msgstr "Inschrijven op berichten"
+
+#: sendmail.php:189
+msgid "New post"
+msgstr "Nieuw bericht"
+
+#: post_notification.php:112
+msgid "Default"
+msgstr "Standaard"
+
+#: post_notification.php:121
+msgid "Send Mails in queue."
+msgstr "Mail in rij verzenden"
+
+#: post_notification.php:125
+msgid "Resend"
+msgstr "Opnieuw verzenden"
+
+#: post_notification.php:144
+msgid "Send notification when publishing?"
+msgstr "Notificatie verzenden als gepubliceerd wordt?"
+
+#: post_notification.php:313
+msgid "Submit"
+msgstr ""
+
+#: post_notification.php:336
+#, fuzzy
+msgid "Title:"
+msgstr "Bestand"
+
+#: post_notification.php:339
+#, fuzzy
+msgid "Subtext:"
+msgstr "Onderwerp:"
+
+#: post_notification.php:343
+msgid "Size:"
+msgstr ""
+
+#: post_notification.php:346
+#, fuzzy
+msgid "Submit:"
+msgstr "Onderwerp:"
+

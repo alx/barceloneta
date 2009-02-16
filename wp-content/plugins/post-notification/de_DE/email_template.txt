@@ -1,0 +1,12 @@
+Der Beitrag "@@title" wurde von @@author am @@date um @@time auf "@@blogname" erstellt.
+
+@@content 
+
+@@permalink
+
+________________________________________________________
+
+Sie haben sich zum Empfang dieser Mitteilung angemeldet.
+Wenn Sie sich abmelden oder ihre Einstellungen ändern möchten besuchen Sie bitte:
+		
+@@conf_url

@@ -1,0 +1,12 @@
+Een nieuw bericht "@@title" is geplaatst op @@date om @@time op "@@blogname".
+
+@@content 
+
+@@permalink
+
+________________________________________________________
+
+U ontvangt dit bericht omdat u zich aangemeld heeft.
+Als u zich wilt uitschrijven of uw instellinen wilt wijzigen, klik dan op:
+
+@@conf_url

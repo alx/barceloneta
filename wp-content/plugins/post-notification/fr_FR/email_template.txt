@@ -1,0 +1,12 @@
+Un nouvel article "@@title" a été écrit le @@date à @@time on "@@blogname".
+
+@@content 
+
+@@permalink
+
+________________________________________________________
+
+Vous vous êtes abonné avec ces courriels.
+Sinon activez ce lien:
+		
+@@conf_url

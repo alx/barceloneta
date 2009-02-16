@@ -1,0 +1,530 @@
+// Release 1.2.30
+
+// 22.01.09
+Bug: @@blogname in the melcome string wasn't replaced.
+
+// 20.01.09
+Readme.txt updated
+
+// Release 1.2.29
+
+//04 - 17.01.09
+Profiles can now be saved in in /wp-content/post_notification/ and don't get deleted when doing auto update!
+Fixed problems with excluding filters from classes.
+When sending fails when sending a test mail mor information is put out.
+
+
+
+// Release 1.2.28
+
+// 03.01.09
+Fixed Problem with selected super-categories in admin_list_email. WP changed it's API!
+Added support for excluding filters, which are within classes.
+
+
+// Release 1.2.27
+
+// 21.12.08
+Fixed probelms with WP 2.7 which expects an correctly encoded emailaddress
+
+// Release 1.2.26
+
+// 29.10.08
+Frontend: Added optional welcome message.
+Frontend: Added option to show saved.tmpl on save.
+
+// 27.10.08
+Is is now possible to choose when to send Emails.
+
+// Release 1.2.25
+
+// 01.10.08
+Bug: Debug output in the frontend
+
+// Release 1.2.24
+
+
+// 20.09.08
+Bugfixes in the widget (Thanks to Eitan for finding them)
+Fixed problem subscribing with an ip2long on 32 bit systems
+
+
+// 19.09.08
+Added sort options to search
+
+// Release 1.2.23
+
+// 17.09.08
+Bug: Translations didn't load if cWP_PLUGIN_DIR was defined
+Typo in en_US
+
+
+// Release 1.2.22
+
+// 16.09.08
+Fixed possible php5 bug using ip2long.
+Fixed problem selecting cats in the list dialog.
+Removed dead code from ldiff2array.class.php
+Added widget
+
+
+// 14.09.08
+WP_PLUGIN_DIR and WP_PLUGIN_URL variables are now used. Thanks to Jonathan Rogers
+Added Italian frontend. Thanks to Roberto Scano
+
+// Release 1.2.21
+
+// 08.08.08
+Updated the en_US frontend. Thanks to SleeplessinDC.
+Added a spanish frontend by walteralini
+Added an option to not show categories
+Tryed to fix a bug creating a broken subscription page
+Fixed <? without php
+
+
+// 30.07.08
+Made sure, that $rem_filters really is an array.
+
+// Release 1.2.20
+
+// 27.07.08
+Updated Hebrew
+Bug: Warning when .lock didn't exist.
+
+
+// Release 1.2.19
+
+// 19.07.08
+Updated Dutch translation
+Added an option to edit templates
+The category selection in the list Emails now has size 5
+Fixed potential problem with unserialize
+
+
+// 18.07.08
+Added Hebrew backend
+Changelog now gets escaped
+added post_notification_get_subscribers() which returns the number of subscribers
+
+// Release 1.2.18
+
+// 13.07.08
+Added pt_BT by gnustavo
+Excerpt now uses the first 55 Words if no excerpt exists.
+
+
+// Release 1.2.17
+
+// 23.05.08 
+Bug: Broken html - <select /> ... </select>
+
+// Release 1.2.16
+
+// 17.05.08
+Added Dutch backend. Thanks to Anja
+
+// 05.05.08
+Some corrections in the German translation. Thanks to turm.
+Load LDIF files. Thanks to Jonathan Rogers
+Bug: Testing now works without sending a mail.
+
+// Release 1.2.15
+
+// 13.04.08
+Added logging of subscribers IP.
+
+//Release 1.2.14
+
+// 09.03.08
+Small adjustments to get PN running in WP 2.5
+Post Notification now works in any directory - as long as it's in the plugin-dir.
+
+
+//Release 1.2.13
+
+// 06.02.08
+Bug: German translation to "show empty categories" was something with sending emails. This has been corrected.
+
+// 27.01.08
+Now posting by other solutions but the form should work. Default is picked.
+
+//Release 1.2.12
+
+// 20.01.08
+Added Hebrew
+
+//Release 1.2.11
+
+// 02.01.2007
+Bug: Testmail was sent although nosend was checked.
+Bug: 50 mails are listed instead of 1.
+It is now possible to mark all Emails listed.
+
+// Release 1.2.10
+
+// 02.01.2007
+Better handling of the sidebar-snippet.
+
+// 26.12.2007
+Should be rfc 2047 & 822 compliant now
+
+// Release 1.2.9
+
+// 02.10.07
+Updated French
+Added some more abstraction between pn_send and admin_test by addin pn_sendmail
+
+// 27.11.07
+Bug: Removed empty line at the beginning of install.php.
+ 
+// 27.11.07
+Bug: When saving there was no output on the frontend.
+
+// 23.11.7
+Typo in settings
+
+// 20.11.07
+Added nl_NL by Joop Beris
+
+// Release 1.2.8
+
+// 15.11.07 
+Improved Text formating
+Test can be run without sending a mail.
+
+// 14.11.07
+Removed bug where @@p_n_title was not replaced in the <title> - Tag
+
+// 14.11.07
+Added an option to show empty categories
+
+// 12.11.07 
+Tried to fix the @@date - Problem. Once again. :-(
+
+// Release 1.2.7
+
+// 11.11.07 
+Fixed small problem with post_notification_get_mailurl using index.php?
+
+// 03.11.07
+Reorganized the settings a bit.
+Removed some typos in the settings
+Added an option to remove unwanted filters.
+
+// Release 1.2.6
+
+// 25.10.07
+More Debugging information
+
+// 17.10.07
+Removed dependency of mb_detect_encoding
+
+// RELEASE 1.2.5
+
+// 12.10.07
+Bug: Empty unsubscribe mail was sent. (Thanks to Björn)
+Bug: French translations didn't really work. Should be fixed now.
+Moved Mailfix into it's own Plugin: http://wordpress.org/extend/plugins/wordpress-22-mailfix/
+Bug: Typos in German translation.
+
+// 11.10.07
+Fixed problem with profile checking.
+
+// RELEASE 1.2.4
+
+// 07.10.07
+Added change log to admin panel
+Moved mailfix into the post_notification dir, to make the installation easier.
+Small adjustment in the install.php: Only load install-helper.php it it needed - didn't solve the problem, but does no harm.
+Also had some trouble with the svn-dir. This should be solved now.
+Fixed some bugs in the documentation. 
+
+// 05.10.07
+Some variable cleanup in the frontend.php after the last bug fix. Nothing serious.
+
+// RELEASE 1.2.3
+
+// 05.10.07
+Bug: Errors were not printed in the front end.
+
+// RELEASE 1.2.2
+
+// 02.10.07
+Removed some warnings.
+Removed possible Bug when subscribing.
+Removed some small bugs which PHP fixed by itself.
+
+// RELAESE 1.2.1
+
+// 30.09.07
+Bug removed a ; that found it's way behind a <?php in the admin_manage.php
+Added French translation. Thanks to Michel Scriban 
+
+// RELEASE 1.2.0
+
+// 22.09.07
+Added debugging information
+Bug: It wasn't possible to turn debugging on
+Works with WP 2.3
+
+// 22.09.07
+Solved some problems with incompatible mysql versions.
+Added indexes to tables. (I lerned a lot about databases in the last few day - more optimizations to come)
+
+// 16.09.07
+Bug: Subscription didn't work because of a bug in a sql-query
+Bug: POST_NOTIFICATION_PATH_URL was missing a "/"
+
+// 13.09.07
+Added database locking.
+
+// 10.09.07
+Remove all references with the path and replaced them with defines.
+
+// 09.09.07
+Added a check, whether there is enaugh time to send Mails.
+
+// 06.09.07
+It is now possible to send test-mails.
+
+// 30.08.07
+Added the Time-adjustment stuff from Karsten Tinnefeld
+
+// 29.08.07
+Lots of small changes. Thanks to Karsten Tinnefeld.
+Added default categories. Thanks to Karsten Tinnefeld.
+Fixed bug where the Plugin always got uninstalled when you deactivated it.
+Installation is alsways run if you are in the admin_info. You don't get error messages when 
+Chenged to automaticalle do the replacements
+
+// 01.08.07
+Bug: Klicking on the Link you were not aktivated until you confirmed your cat selection.
+
+// 17.07.07
+Fixed Problem with mysql not accepting '0' as default value for date_time.
+User who did not Confirm are listed correctly now.
+
+// 10.07.07
+Fixed bug when selecting cats in the listing.
+
+// 10.07.07
+Bug: Couldn't delete Pages > 50
+Bug: Javascript didn't work in Backend
+The links in the list Email are now opened in a new window.
+
+// 10.07.07
+Replaced user_nicename by displayname for the Sting user for tha author.
+Chenged the way Emails are listed. It's confirmed mails or unconfirmed.
+
+// 08.07.07
+Lots of small changes
+Added select.tmpl
+Added some dontion-Link for people > 500 subscribers
+Updated doc
+It's now easier to manage cats
+Captcha class should be less easy to hack
+Frontend cleanup
+Wrote JS for category selection
+added subscribe_snippet.php
+
+// 01.07.07
+Prepared inclusion of tinyMCE
+Adjusted Backend for work with cats
+Fixed bug sending mails: sending multiple mails
+Redesigned frontend - Changing cats only works with link in Mail
+Removed activated.tmpl
+Adjusted templates
+
+// 29.06.07
+Fixed a bug subscribing. Should work again.
+
+// 27.06.07
+Rewrote the FE. Should be working now.
+Fixed problem with umlauts. 
+Sending mails should work correctly, too.
+
+// 24.06.07
+Added ignore_user_abort
+
+// 24.06.07
+Moved menu to the options menu.
+Updated instructions.
+Captcha didn't clean up.
+Added Subscribed categories to the list (PN-Options)
+
+// 23.06.07
+Added more Unicode cahracters in html2text
+
+// 23.06.07
+@@author in mail
+Sending Mails via cats seems to work - but needs testing.
+
+// 28.05.07
+Month in changelog was wrong.
+German translation should be ok now.
+Adjusted Path in SVN for the Plugin to show up in http://downloads.wordpress.org/plugin/
+
+// 19.05.07
+bug(WP): wp_mail is broken since 2.2. Aded a mailfix-plugin.
+
+// 16.05.07
+English stings should be ok now. 
+French strings schould be ok, too.
+
+// 16.05.07
+Plugins, which only do things in certain Pages shouldn't show up anymore.
+
+// 14.05.07
+Bug: I hope the Links in the Mails are finally working.
+French translation should be up to date again.
+
+// 12.05.07
+Bug: Links in mails were random. 
+Updated writing
+
+// 10.05.07
+Problem with confirmation-url.
+
+// 10.05.07
+Missing brace.
+
+// 10.05.07
+I'm was too stupid to copy the french .mo - file.
+
+// 09.05.07
+Bug: On mb_ function wasn't checked.
+
+// 05.05.07
+Added option to change the Text is there is a more-tag
+Bug: Link in mail might have been wrong
+
+// 01.05.07
+Bug: Link to the Subscriptionpage wasn't updated when the link changed. Also some trouble with Permalinks and the link in the meta-section.
+
+// 30.04.07
+Bug: Missing braces.
+
+// 29.04.07
+mb_check_encoding doesn't exist on all servers. -> Warning
+
+// 26.04.07
+Added Options to mail the excerpt and up to the more-tag.
+bug: The wrong profile-folder was shown. (Stupid typo!)
+bug: Template wasn't recognized as such.
+
+// 25.04.07
+Release of 1.1 beta 1
+
+// 23.04.07
+Typos
+
+// 19.04.07
+Fixed the problem with non-ASCII chars in the header.
+You can set the sender name.
+You can set the subject.
+
+// 18.04.07
+Cleanup
+Replaced Captcha-Font with a free one.
+
+// 17.04.07
+Once again rewrote the way it is decided whether to mail a post.
+Moved captchas and lock to temp.
+A bit of documentation
+Added the support of roles (Userlevel made some trouble in 2.1)
+
+// 30.03.07
+Bug: Subjects with non-ASCII-chars are now corrctly encoded.
+Changed the way the subscription page is added. This is now solved via templates.
+Started implementig Captchas but decided to rewrite the subscription page stuff first.
+
+// 29.03.07
+Bug: Add page didn't work in 2.1
+
+// 25.04.07
+Added French (Thanks to Michel Scriban)
+Bug: In the Mail-list the confirmed-column was still German
+
+// 24.03.07
+Bug: Settings were not shown right
+Added an option to send private Mails
+
+// 23.03.07
+Bug: Translations weren't loaded when installing. (Thanks to Aale)
+Bug: Default language should be English.
+
+// 22.03.07
+Rewrote the code handling the option whether to send a notification or not
+
+// 18.03.07
+Bug: Had some trouble with iconv - should be solved now
+Headers are generated in a own function. 
+Bug: I10N wasn't loaded when posting.
+
+
+// 17.03.07
+Bug: Whether to notificate or not wasn't set correctly
+Bug: Some typo
+
+// 15.03.07
+Bugs: Had some timestamp-trouble. Should be solved.
+Added a Profile-Check (missings files & strings)
+Bugs: A few small bugs
+
+
+// 14.03.07
+Added info-page
+Nervous Finger works - might need some more Testing
+@@time was split up in @@date and @@time
+
+// 14.03.07
+Bug: Date of post was not shown correctly in the email
+Enh: Check if iconv exists.
+
+// 13.03.07
+Added documentation
+Added nervous finger-option (not done)
+I18N/I10N: continued
+bug: Posting in future might have caused some trouble
+
+// 24.02.07
+Made FE more configurable
+
+// 19.02.07
+Moved the FE to an extra file so it can easily be included into templates.
+Added template subscribe.tmpl
+
+// 18.02.07
+I18N advanced. Needs translation and testing.
+Bug: Settings were not saved correctly
+Change: renamed settings: manage_page => page
+
+// 09.02.07
+I18N almoast done - needs testing
+Little changes in the Code. Need some testing, too.
+
+// 05.02.07
+Removed div that didn't belong there. (Just made invalid HTML)
+Changed the way of calling the templates.
+
+// 01.02.07
+Added option for Link in Meta
+Added Uninstall-option
+Code-cleanup: Removed vars that were not or only used once.
+Added a nother Tamplate (activated.tmpl)
+Added Profiles. This is part of I18N, but you can choose special Profiles, too.
+
+// 30.01.07
+Bug: Unsubscibe didn't work.
+Bug: Called wp-mail instead of wp_mail. Worked never the less.
+Bug: Misspelling
+
+// 26.01.07
+I18N: Gettext almost done. Moved templates in subdir.
+Removed the Meta-tag until it's configurable
+
+
+// 25.01.07
+Started with I18N
+Changed @@site to @@weblog
+Exported the successful regestration-page to a template.

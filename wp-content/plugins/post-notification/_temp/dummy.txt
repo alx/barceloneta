@@ -1,0 +1,1 @@
+Otherwise this folder is not included into the zip by wordpress.org

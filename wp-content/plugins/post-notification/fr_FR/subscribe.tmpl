@@ -1,0 +1,11 @@
+<form id="newsletter" method="post" action="@@action">
+
+	<p>courriel: <input type="text" name="addr" size="30" maxlength="50" value="@@addr" /></p>
+	<p><input type="radio" name="action" value="subscribe" checked="checked" />S'abonner&nbsp; <input type="radio" name="action" value="unsubscribe" />Se désabonner</p>
+	<!--capt--><p><img alt="captcha" src="@@captchaimg" /> <br />
+	Ecrire les chiffres et lettres de l'image : <input type="text" name="captcha" size="30" maxlength="50" />
+	<input type="hidden" name="captchacode" value="@@captchacode" />
+	</p><!--cha-->
+	<p><input type="submit" name="submit" value="Submit" /></p>
+	@@vars
+</form>

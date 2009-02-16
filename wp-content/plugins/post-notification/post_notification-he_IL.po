@@ -1,0 +1,1026 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Post Notification\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-20 19:15+0100\n"
+"PO-Revision-Date: 2008-09-20 19:15+0100\n"
+"Last-Translator: Moritz 'Morty' Strübe <morty@gmx.net>\n"
+"Language-Team: Morty\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ./\n"
+"X-Poedit-Language: Hebrew\n"
+"X-Poedit-Country: ISRAEL\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin_changelog.php:12
+#: admin.php:60
+msgid "Change log"
+msgstr "לוג שינוי גרסאות התוסף (באנגלית)"
+
+#: admin_changelog.php:14
+msgid "Latest change log from the server."
+msgstr "לוג השינויים העדכני ביותר מהשרת"
+
+#: admin_export.php:14
+msgid "Export Emails"
+msgstr "יצוא כתובות דוא\"ל"
+
+#: admin_export.php:20
+msgid "No entries found."
+msgstr "לא נמצאו רשומות"
+
+#: admin_info.php:31
+#: admin_info.php:60
+msgid "Couldn't create File:"
+msgstr "לא ניצן ליצור קובץ:"
+
+#: admin_info.php:33
+#: admin_info.php:61
+msgid "Please assure the the path is writeable."
+msgstr "בבקשה בדקו שהנתיב מאפשר כתיבה."
+
+#: admin_info.php:33
+msgid "This is an error!"
+msgstr "זו שגיאה!"
+
+#: admin_info.php:41
+msgid "PHP was compiled without iconv-libs. This might cause severe trouble using UTF-8 with special chars or umlauts."
+msgstr "PHP עבר הידור (Compilation) ללא  iconv-libs. זה יכול לגרום לבעיות משמעותיות בעת שימוש ב-UTF-8 עם סימנים מיוחדים או umlauts (הסימנים המיוחדים המאפיינים שפות אירופאיות ודומים קצת לניקוד עברי)."
+
+#: admin_info.php:42
+#: admin_info.php:48
+msgid "Most hosters support this, as it is a sensible php-extension."
+msgstr "רוב חברות אירוח האתרים תומכות בכך, בגלל שזה php-extension הגיוני."
+
+#: admin_info.php:43
+#: admin_info.php:49
+#: admin_info.php:79
+#: admin_settings.php:502
+msgid "More information."
+msgstr "מידע נוסף."
+
+#: admin_info.php:47
+msgid "This version of PHP does not support the function mb_detect_encoding. You might experience some trouble with non-ASCII characters."
+msgstr "גרסה זו של PHP אינה תומכת בפונקציה mb_detect_encoding. ייתכן ותיתקלו בבעיות עם סימנים שאינם ASCII."
+
+#: admin_info.php:54
+msgid "This version of PHP does not support the function html_entity_decode. Sending out text mails will not be possible."
+msgstr "גרסה זו של PHP אינה תומכת בפונקציה html_entity_decode. משלוח של דוא\"ל מבוסס טקסט לא יהיה אפשרי"
+
+#: admin_info.php:55
+msgid "Please contact your hoster."
+msgstr "בבקשה צרו קשר עם חברת אירוח האתר שלכם."
+
+#: admin_info.php:62
+msgid "You can also copy the file from the plugin directory manually."
+msgstr "אתם גם יכולים להעתיק את הקובץ באופן ידני מספרית התוספים."
+
+#: admin_info.php:68
+msgid "PN is in debugging mode. This should only be on, if something isn't working correctly."
+msgstr "Post Notification נמצא כעת במצב איתור תקלות (Debugging). מצב זה צריך להיות פעיל רק במקרה שמשהו לא עובד תקין ואתם יודעים כיצד לטפל במידע שמצב זה מייצר או שהתבקשתם להפעיל מצב זה על ידי מפתח התוסף או אדם אחר בעל ידע מתאים. אין להפעיל מצב זה ללא צורך."
+
+#: admin_info.php:72
+msgid "It seems like you want to uninstall this Plugin. Please deactivate it or change the setting the options. "
+msgstr "נראה שביקשתם להסיר את התוסף מממשק הניהול (Uninstall). התוסף יוסר בפועל ממשק הניהול של וורדפרס רק לאחר ביצוע \"כיבוי\" של התוסף (בדף ה\"תוספים\" של וורדפרס). קבצי התוסף עדיין יישארו לאחר ההסרה בספרית ה-plugins של התקנת הוורדפרס שלכם. רק לאחר ביצוע פעולת ה\"כיבוי\" ניתן להסיר את קבצי התוסף באופן ידני. כל עוד לא בוצעה הסרה של קבצי התוסף - ניתן לבטל את ההסרה על ידי הפעלת התוסף (בדף ה\"תוספים\" של וורדפרס) ולאחר מכן בחירת הערך \"לא\" בשדה ההגדרות \"הסרת התוסף מממשק הניהול\" ושמירת ההגדרות."
+
+#: admin_info.php:74
+msgid "It seems like there is some trouble creating the tables in the DB. If you're lucky there should be some errormessages on this page."
+msgstr "נראה שיש בעיה ביצירת טבלאות במסד הנתונים. אם יש לכם מזל, צריכות להיות הודעות שגיאה בדף זה."
+
+#: admin_info.php:78
+msgid "The maximum executiontime is very low."
+msgstr "זמן הביצוע המקסימלי מאוד נמוך."
+
+#: admin_info.php:84
+msgid "There is a bug in WP handling HTML-Mails. Please make sure a mail-plugin is installed."
+msgstr "יש באג בטיפול של וורדפרס בדוא\"ל מבוסס HTML. בבקשה תוודאו שמותקן בבלוג שלך תוסף המטפל במשלוח דוא\"ל."
+
+#: admin_info.php:106
+msgid "Number of Subscribers:"
+msgstr "מספר המנויים:"
+
+#: admin_info.php:109
+msgid "Looks like you are realy using this plugin."
+msgstr "נראה שאתם באמת משתמשים בתוסף זה."
+
+#: admin_info.php:110
+msgid "What about a donation?."
+msgstr "מה לגבי תרומה?"
+
+#: admin_info.php:114
+msgid "The time is:"
+msgstr "התאריך והשעה כעת הם:"
+
+#: admin_info.php:117
+msgid "Posts to be notified."
+msgstr "פוסטים שמשלוח דוא\"ל עבורם ממתין לביצוע:"
+
+#: admin_info.php:124
+msgid "Post-ID"
+msgstr "מספר פוסט"
+
+#: admin_info.php:125
+msgid "Post title"
+msgstr "כותרת פוסט"
+
+#: admin_info.php:126
+msgid "Publish-date"
+msgstr "תאריך פרסום"
+
+#: admin_info.php:127
+msgid "Save-date"
+msgstr "תאריך שמירה"
+
+#: admin_info.php:128
+msgid "Last email-id"
+msgstr "מס\"ד הדוא\"ל האחרון שנשלח"
+
+#: admin_info.php:131
+#: admin_info.php:148
+msgid "None queued"
+msgstr "(אין פוסטים שממתינים להישלח)"
+
+#: admin_info.php:146
+msgid "The next mail will be sent:"
+msgstr "הדוא\"ל הבא יישלח ב:"
+
+#: admin_info.php:154
+msgid "The last mail was sent:"
+msgstr "הדוא\"ל האחרון נשלח ב:"
+
+#: admin_info.php:157
+msgid "The last post was saved:"
+msgstr "הפוסט האחרון נשמר ב:"
+
+#: admin_instructions.php:13
+#: admin.php:58
+msgid "Instructions"
+msgstr "הוראות"
+
+#: admin_instructions.php:16
+msgid "Important"
+msgstr "חשוב"
+
+#: admin_instructions.php:17
+msgid "I'm very bad in writing documentation. Please check the PN Forum for support! And look around whether someone else already asked that question."
+msgstr "לתוסף זה קיים <a href=\"http://tech.caspi.org.il/?p=30\" target=\"_blank\">מדריך לבלוגר בעברית</a>.‏ מכאן והלאה דבר מפתח התוסף:‏<br>אני גרוע מאוד בתיעוד. בבקשה בדקו את פורום PN לקבלת תמיכה! ובפורום, לפני שתשאלו שאלה, תחפשו - אולי מישהו כבר שאל את השאלה שלכם וקיבל עליה תשובה."
+
+#: admin_instructions.php:18
+msgid "To the PN Forum."
+msgstr "אל פורום PN"
+
+#: admin_instructions.php:21
+msgid "What does this plugin do?"
+msgstr "מה התוסף הזה עושה?"
+
+#: admin_instructions.php:22
+msgid "With each new post an email is sent to every registered user in the database. The email can be text or HTML."
+msgstr "עם פרסום כל פוסט (או דף) חדש נשלח דוא\"ל לכל מנוי שנרשם באמצעות דף ייעודי בבלוג. הדוא\"ל יכול להיות בתבנית טקסט או HTLM (מומלץ לבחור ב-HTML, מאחר ו-HTML מאפשרת שליטה בעיצוב ועימוד התוכן)."
+
+#: admin_instructions.php:23
+msgid "After subscribing the user gets a opt-in email with a link he has to visit before getting any mails."
+msgstr "לאחר הרישום הראשוני המשתמש מקבל דוא\"ל אישור משתמש הכולל קישור לדף שהוא חייב לבקר בו, אחרת המנוי שלו לא יופעל והוא לא יקבל עדכונים. תהליך זה נועדה לוודא את כתובת הדואל שהגולש כתב באתר ככתובת שלו וגם בכדי לוודא שאכן בעל כתובת הדוא\"ל הוא זה שביקש להירשם כמנוי."
+
+#: admin_instructions.php:27
+msgid "Integration"
+msgstr "שילוב התוסף בבלוג"
+
+#: admin_instructions.php:28
+msgid "Post Notification always needs a special Post Notification Page. This may be a page, post enty or a special .php page.."
+msgstr "התוסף תמיד צריך דף ייעודי משלו באתר. דף זה יכול להיות דף, פוסט או דף PHP ייעודי. מומלץ לעשות שימוש בדף מאחר ודף הוא רכיב קבוע במבנה האתר ואינו תלוי בתאריך הפרסום."
+
+#: admin_instructions.php:29
+msgid "There are several ways of integration:"
+msgstr "קיימות מספר דרכים לשילוב:"
+
+#: admin_instructions.php:31
+msgid "Replacement in Posts"
+msgstr "משתנים בפוסטים"
+
+#: admin_instructions.php:31
+msgid "The strings @@post_notification_header and @@post_notification_body will be replaced in your post in case the \"@@repl\" option ist turned on in the settings."
+msgstr "המשתנים @@post_notification_header ו- @@post_notification_body יוחלפו בפוסט עצמו במידה והאפשרות \"@@repl\" פעילה בדף ההגדרות."
+
+#: admin_instructions.php:32
+msgid "Therefore a new page with @@post_notification_header in the title and @@post_notification_body in the Post itself must be created."
+msgstr "לכן קיימת חובה ליצור דף חדש עם post_notification_header@@ בכותרת ו- post_notification_body@@ בפוסט עצמו."
+
+#: admin_instructions.php:33
+msgid "This is done automaticly by the \"Add Post Notification page\" option. If you do not do that you have to add the post-id/page-id in the \"Link to the Post Notification page\" setting by hand."
+msgstr "תהליך זה מתבצע אוטומטית על ידי האפשרות \"הוסף דף Post Notification\". אם לא תבצעו זאת, יש צורך להוסיף ידנית את מספר הדף (או מספר הפוסט אם העדפתם פוסט לצורך טופס הרישום) בהגדרת \"קישור לדף Post Notification\"."
+
+#: admin_instructions.php:35
+msgid "Use the Post Notification template. The Template is automaticly copied to your theme. This method might have some trouble with badly written themes. But has a little better performance."
+msgstr "שימוש בתבנית Post Notification. התבנית מועתקת אוטומטית אל תבנית העיצוב שלכם. ייתכן ויהיו בעיות בשיטה זו במקרה של תבניות שלא נכתבו היטב, אבל היא מעניקה ביצועים מעט טובים יותר."
+
+#: admin_instructions.php:36
+msgid "If you do not use the \"Add Post Notification page\" option you have to add the post-id in the \"Link to the Post Notification page\" setting by hand."
+msgstr "אם אינכם משתמשים באפשרות \"הוסף דף Post Notification\" - יש צורך להוסיף באופן ידני את מספר הדף בהגדרה \"קישור לדף ה-Post Notification\"."
+
+#: admin_instructions.php:39
+msgid "Copy the wp-post_notification.php to your WP-root. Copy&Paste the url to the \"Link to the Post Notification page\" setting"
+msgstr "העתיקו את הקובץ wp-post_notification.php אל ספרית השורש של התקנת הוורדפרס שלכם. העתיקו והדביקו את כתובת האינטרנט המלאה אל דף זה להגדרה \"קישור לדף ה-Post Notification\""
+
+#: admin_instructions.php:42
+msgid "You can copy the content of the subscribe_snippet.php into your theme."
+msgstr "ניתן להעתיק את התוכן של הקובץ subscribe_snippet.php אל תבנית העיצוב שלכם."
+
+#: admin_instructions.php:43
+msgid "You still need a special Post Notification Page. "
+msgstr "אתם עדיין צריכים דף Post Notification ייעודי."
+
+#: admin_instructions.php:45
+msgid "Coders might want to look at the frontend.php."
+msgstr "ייתכן ומתכנתים ירצו להתבונן בתוכן של הקובץ frontend.php."
+
+#: admin_instructions.php:51
+msgid "Templates"
+msgstr "תבניות"
+
+#: admin_instructions.php:52
+msgid "If you want to modify the templates it's probably best to create a new profile. Take the subdir of your favorite language and copy it. Now you can modify the templates. This way it is also assured, that your modifications are not overwritten when updating."
+msgstr "אם אתם רוצים לשנות את התבניות, אז כנראה עדיף ליצור פרופיל חדש. בחרו בתת-הספריה של השפה המועדפת עליך והעתיקו אותה. כעת ניתן לשנות את התבניות. דרך זו גם מבטיחה שהשינויים שאתם מבצעים לא נדרסים בזמן עדכון."
+
+#: admin_instructions.php:53
+msgid "Vars used in the templates"
+msgstr "משתנים בהם נעשה שימוש בתבניות (שני סימני ה-@ צריכים להיות מצד שמאל של המילה האנגלית):"
+
+#: admin_instructions.php:55
+msgid "The title of the post"
+msgstr "כותרת הפוסט"
+
+#: admin_instructions.php:56
+msgid "The author of the post"
+msgstr "מחבר הפוסט"
+
+#: admin_instructions.php:57
+msgid "The content of the post"
+msgstr "תוכן הפוסט"
+
+#: admin_instructions.php:58
+msgid "The link to the post."
+msgstr "הקישור לפוסט"
+
+#: admin_instructions.php:59
+msgid "The Name of the blog"
+msgstr "שם הבלוג"
+
+#: admin_instructions.php:60
+msgid "Date of the post being published"
+msgstr "התאריך בו התפרסם הפוסט"
+
+#: admin_instructions.php:61
+msgid "Time of the post being published"
+msgstr "הזמן בו התפרסם הפוסט"
+
+#: admin_instructions.php:62
+msgid "The email the mail is sent to."
+msgstr "כתובת הדוא\"ל אליה נשלח הדוא\"ל."
+
+#: admin_instructions.php:63
+msgid "The URL that has to be visited to verify the subscription."
+msgstr "הקישור לדף אליו יש להגיע בכדי לאשר את הפעלת המנוי."
+
+#: admin_instructions.php:66
+msgid "The different templates"
+msgstr "התבניות השונות:"
+
+#: admin_instructions.php:67
+msgid "I know the names are not the best, but I'm to lazy too change them."
+msgstr "(אני יודע שהשמות הם לא הטובים ביותר, אבל אני עצלן מדי לשנות אותם)"
+
+#: admin_instructions.php:69
+msgid "This is the subscription page."
+msgstr "זה דף המנוי."
+
+#: admin_instructions.php:70
+msgid "This is the page you see after subscribing."
+msgstr "זה הדף שאתם רואים לאחר רישום מנוי."
+
+#: admin_instructions.php:71
+msgid "This email is sent with the activation-link in it."
+msgstr "דוא\"ל זה נשלח עם קישור הפעלת מנוי בתוכו."
+
+#: admin_instructions.php:72
+msgid "The page you see to select your categories."
+msgstr "הדף שאתם רואים לצורך בחירת קטגוריות."
+
+#: admin_instructions.php:73
+msgid "This email is sent in case someone unsubscribes."
+msgstr "זה הדוא\"ל שנשלח במקרה ומנוי מבטל את המנוי שלו."
+
+#: admin_instructions.php:74
+msgid "In this file all the other strings needed are saved."
+msgstr "בקובץ זה צריכים להישמר כל המשתנים האחרים."
+
+#: admin_instructions.php:80
+msgid "Bugs"
+msgstr "באגים"
+
+#: admin_instructions.php:81
+msgid "Please report bugs. Finding bugs is much more difficult then fixing them."
+msgstr "בבקשה דווחו על באגים. "
+
+#: admin_instructions.php:83
+msgid "Report a bug in English or German (Forum)."
+msgstr "דווחו על באג באנגלית או גרמנית (פורום)."
+
+#: admin_instructions.php:89
+msgid "History"
+msgstr "היסטוריה"
+
+#: admin_instructions.php:90
+msgid "The Plugin on which this plugin originally is based was written by <a href=\"http://watershedstudio.com/portfolio/software/wp-email-notification.html\">Brian Groce</a>. <a href=\"http://bueltge.de\">Frank B&uuml;ltge</a> translated it to german and maintained it for a while. Major parts were rewritten and it is now maintained by <a href=\"http://xn--strbe-mva.de\">Moritz Str&uuml;be</a>."
+msgstr "התוסף עליו מתבסס תוסף זה נכתב על ידי <a href=\"http://watershedstudio.com/portfolio/software/wp-email-notification.html\" target=\"_blank\">Brian Groce</a> . <a href=\"http://bueltge.de\" target=\"_blank\">Frank B&uuml;ltge</a> תירגם אותו לגרמנית ותיחזק אותו במשך זמן מה. חלקים נרחבים מהתוסף נכתבו מחדש וכעת מתוחזקים על ידי <a href=\"http://xn--strbe-mva.de\" target=\"_blank\">Moritz Str&uuml;be</a>. התוסף תורגם לעברית במלואו (ממשק ניהול, ממשק מנוי ודוא\"ל) על ידי <a href=\"http://caspi.org.il\" target=\"_blank\">איתן כספי</a>."
+
+#: admin_instructions.php:93
+msgid "Donations"
+msgstr "תרומות"
+
+#: admin_instructions.php:94
+msgid "There are several ways to donate:"
+msgstr "קיימות מספר דרכים לתרום:"
+
+#: admin_instructions.php:96
+msgid "Donate time: Find and report bugs. If you know php: fix them and mail the fix to me. If you are interested you can also get svn-access."
+msgstr "תרמו זמן: מצאו באגים ודווחו עליהם. אם אתם יודעים לכתוב בשפת PHP אז תקנו את הבאגים שמצאתם ושלחו אותם אלי בדוא\"ל. אם אתם מעוניינים, תוכלו גם לקבל גישת SVN."
+
+#: admin_instructions.php:97
+msgid "Donate motivation: Send me a postcard (with snailmail), make a comment on my page how cool the plugin is, or anything else that might motivate me."
+msgstr "תרומו מוטיבציה: שלחו לי גלויה (בדואר רגיל), רשמו תגובה באתר שלי - עד כמה התוסף הזה מגניב, או כל דבר אחר שיתרום למוטיבציה שלי."
+
+#: admin_instructions.php:98
+msgid "Donate money:"
+msgstr "תרמו כסף:"
+
+#: admin_instructions.php:101
+msgid "Supporters"
+msgstr "אנשים שסייעו בפיתוח ותחזוקת תוסף זה"
+
+#: admin_instructions.php:103
+msgid "French translation"
+msgstr "תרגום לצרפתית"
+
+#: admin_instructions.php:104
+msgid "Hebrew translation"
+msgstr "תרגום לעברית"
+
+#: admin_instructions.php:105
+msgid "Dutch translation"
+msgstr "תרגום להולנדית"
+
+#: admin_instructions.php:106
+msgid "Testing and bugs"
+msgstr "בדיקות ואיתור באגים"
+
+#: admin_list_email.php:38
+msgid "List of addresses:"
+msgstr "פירוט כתובות דוא\"ל:"
+
+#: admin_list_email.php:43
+msgid "No address checked!"
+msgstr "לא נבחרו כתובות!"
+
+#: admin_list_email.php:45
+msgid "The following addresses were deleted:"
+msgstr "הכתובות הבאות נמחקו:"
+
+#: admin_list_email.php:110
+#: admin_test.php:28
+#: post_notification.php:312
+msgid "Email:"
+msgstr "כתובת הדוא\"ל של הנמען:"
+
+#: admin_list_email.php:111
+msgid "Cats:"
+msgstr "קטגוריות:"
+
+#: admin_list_email.php:116
+msgid "Limit:"
+msgstr "מקסימום:"
+
+#: admin_list_email.php:117
+msgid "Start at:"
+msgstr "התחל ב:"
+
+#: admin_list_email.php:119
+msgid "Sort by:"
+msgstr "מיין לפי:"
+
+#: admin_list_email.php:120
+msgid "ID"
+msgstr "מספר מזהה"
+
+#: admin_list_email.php:121
+#: admin_list_email.php:181
+msgid "Address"
+msgstr "כתובת הדוא\"ל של המנוי"
+
+#: admin_list_email.php:122
+#: admin_list_email.php:183
+msgid "Date accepted"
+msgstr "תאריך ביצוע הפעולה"
+
+#: admin_list_email.php:123
+#: admin_list_email.php:185
+msgid "IP"
+msgstr "כתובת ה-IP ממנה בוצע הרישום"
+
+#: admin_list_email.php:126
+msgid "Ascending"
+msgstr "סדר עולה"
+
+#: admin_list_email.php:127
+msgid "Descending"
+msgstr "סדר יורד"
+
+#: admin_list_email.php:131
+msgid "Show unconfirmed mails:"
+msgstr "הצג דוא\"ל שטרם אושר ידנית על ידי המנוי:"
+
+#: admin_list_email.php:134
+msgid "Only show cat ids:"
+msgstr "הצג את מספר הקטגוריה במקום את שמה:"
+
+#: admin_list_email.php:137
+msgid "Show as list:"
+msgstr "הצג כרשימה בסיסית:"
+
+#: admin_list_email.php:142
+msgid "Update"
+msgstr "עדכן"
+
+#: admin_list_email.php:167
+msgid "No entries found!"
+msgstr "לא נמצאו רשומות!"
+
+#: admin_list_email.php:174
+msgid "Showing entry @@start to @@end of @@total entries."
+msgstr "מציג רשומות @@start עד @@end מתוך @@total רשומות."
+
+#: admin_list_email.php:182
+msgid "Accepted"
+msgstr "אושר ע\"י המנוי"
+
+#: admin_list_email.php:184
+msgid "Subscribed categories"
+msgstr "קטגוריות המנוי"
+
+#: admin_list_email.php:201
+#: admin_settings.php:67
+#: admin_settings.php:321
+#: admin_settings.php:330
+#: admin_settings.php:340
+#: admin_settings.php:374
+#: admin_settings.php:625
+#: admin_settings.php:636
+#: admin_settings.php:698
+#: admin_settings.php:707
+#: post_notification.php:111
+msgid "Yes"
+msgstr "כן"
+
+#: admin_list_email.php:203
+#: admin_settings.php:66
+#: admin_settings.php:320
+#: admin_settings.php:329
+#: admin_settings.php:339
+#: admin_settings.php:373
+#: admin_settings.php:624
+#: admin_settings.php:635
+#: admin_settings.php:697
+#: admin_settings.php:706
+#: post_notification.php:150
+msgid "No"
+msgstr "לא"
+
+#: admin_list_email.php:217
+#: admin_list_email.php:219
+#: functions.php:298
+msgid "All"
+msgstr "הכל"
+
+#: admin_list_email.php:263
+msgid "Check all"
+msgstr "בחר הכל"
+
+#: admin_list_email.php:264
+msgid "Uncheck all"
+msgstr "הסר סימון מהכל"
+
+#: admin_list_email.php:266
+msgid "Delete"
+msgstr "מחק"
+
+#: admin_manage.php:25
+#: admin.php:50
+msgid "Manage addresses"
+msgstr "יבוא וניהול כתובות דוא\"ל"
+
+#: admin_manage.php:28
+msgid "The Emails may be seprated by newline, space, comma, semi colon, tabs, [, ], &lt; or &gt;."
+msgstr "דף זה מאפשר לבצע שתי פעולות מרכזיות: יבוא כתובות דוא\"ל של מנויים וניהול מאפיינים מסוימים של הכתובות (שיוך לקטגוריות פוסטים ומחיקת כתובות).<br><br>א. יבוא כתובות דוא\"ל ניתן לבצע בשתי דרכים:<br>1. טעינה של קובץ LDIF. עזבו, זו לא הדרך המעודפת ואין טעם להיכנס לנושא. המפתח קיבל תרומת קוד שמאפשרת את שיטת היבוא הזו.<br>2. הכינו קובץ טקסט נקי ובו כל הכתובות שאתם רוצים לייבא (ניתן לרוב להכין קובץ כזה על ידי ניהול הכתובות באופן נוח בתוך גיליון נתונים אלקטרוני (כמו Excel) או מסד נתונים ואז לבצע יצוא של הכתובות לקובץ בתבנית‏ ‏CSV או TAB Delimited‏).<br>הכתובות יופרדו זו מזו באמצעות *רק אחד* מסימני ההפרדה הבאים *בלבד*: שורה חדשה , רווח , פסיק , פסיק-נקודה , טאב , [ , ] , < , > .‏<br>כאשר הקובץ מוכן העתיקו את כל תכולתו והדביקו אותה בתוך חלון הרשימה המופיע בדף זה, בחרו למטה את הפעולה בה אתם מעוניינים ולחצו על כפתור \"בצע\".<br><br>אפשרות נוספת הגלומה בדף זה היא שינוי גורף של שיוך מנויים לקטגוריות. יש כמובן צורך לבצע מעין \"יבוא\" של הכתובות שכבר למעשה קיימות במסד הנתונים של התוסף (תוכלו לקבל את כל הכתובות כרשימה בדף \"יצוא כתובות דוא\"ל\" לעיל), ואז לבצע עליהן את השינוי המבוקש.<br><br>ב. מחיקת כתובות מתבצעת באופן רגיל מהדף \"מחיקת כתובות דוא\"ל\" של התוסף (ראו בקישור למעלה), ועדיף להשתמש בו בדרך כלל. אולם, כאשר קיים צורך למחוק כמות מאוד גדולה של כתובות בבת-אחת ייתכן וקיימת עדיפות לבצע את המחיקה באמצעות דף זה (ניתן לייצא את כל הכתובות הקיימות במסד הנתונים של התוסף על ידי דף \"יצוא כתובות דוא\"ל\" המצוי למעלה).<br>כרגיל בפעולות מחיקה, כדאי להיות מאוד זהירים.<br>"
+
+#: admin_manage.php:29
+msgid "Watch out! There is only simple checking whether the email address is valid."
+msgstr "זהירות! מתבצת רק בדיקה בסיסית האם כתובת הדוא\"ל תקינה."
+
+#: admin_manage.php:33
+msgid "Load LDIF-File:"
+msgstr "טענו קובץ LDIF:"
+
+#: admin_manage.php:35
+msgid "Load"
+msgstr "טען"
+
+#: admin_manage.php:39
+msgid "Emails"
+msgstr "כתובות הדוא\"ל שעליהן תבוצע הפעולה שתבחרו בתחתית דף זה"
+
+#: admin_manage.php:47
+msgid "What should be done?"
+msgstr "מה ברצונכם לעשות עם כתובות הדוא\"ל הרשומות לעיל?"
+
+#: admin_manage.php:48
+msgid "Add selected categories"
+msgstr "שיוך הקטגוריות המסומנות לכתובות הדוא\"ל"
+
+#: admin_manage.php:49
+msgid "Remove selected categories"
+msgstr "הסרת הקטגוריות המסומנות מכתובות הדוא\"ל"
+
+#: admin_manage.php:50
+msgid "Replace with selected categories"
+msgstr "החלפת הקטגוריות הקיימות בקטגוריות המסומנות"
+
+#: admin_manage.php:51
+msgid "Delete the listed emails"
+msgstr "מחיקה *כל* כתובות הדוא\"ל הרשומות לעיל מהבלוג שלכם (זהירות! אתם בטוחים?)"
+
+#: admin_manage.php:57
+msgid "Manage"
+msgstr "בצע"
+
+#: admin_manage.php:58
+msgid "Reset"
+msgstr "נקה רשימה"
+
+#: admin_manage.php:77
+msgid "Email is not valid:"
+msgstr "כתובת הדואל אינה תקינה:"
+
+#: admin_manage.php:91
+msgid "Removed email:"
+msgstr "כתובת דוא\"ל הוסרה:"
+
+#: admin_manage.php:93
+msgid "Email is not in DB:"
+msgstr "כתובת הדוא\"ל אינה קיימת במסד הנתונים:"
+
+#: admin_manage.php:106
+msgid "Added Email:"
+msgstr "כתובת הדוא\"ל שנוספה:"
+
+#: admin_manage.php:112
+msgid "Something went wrong with the Email:"
+msgstr "משהו השתבש בדבר הדוא\"ל:"
+
+#: admin_manage.php:139
+msgid "Updated Email:"
+msgstr "הדוא\"ל שהתעדכן:"
+
+#: admin_settings.php:13
+msgid "File missing in profile folder."
+msgstr "קובץ חסר בספרית הפרופיל."
+
+#: admin_settings.php:14
+msgid "Folder"
+msgstr "ספריה"
+
+#: admin_settings.php:15
+#: admin_settings.php:25
+#: admin_settings.php:493
+msgid "File"
+msgstr "קובץ"
+
+#: admin_settings.php:24
+msgid "Missing string in string file."
+msgstr "משתנה חסר בקובץ המשתנים."
+
+#: admin_settings.php:26
+msgid "String"
+msgstr "משתנה"
+
+#: admin_settings.php:72
+#: admin.php:54
+msgid "Settings"
+msgstr "הגדרות"
+
+#: admin_settings.php:104
+msgid "Number of captcha-chars must be 0 or greater."
+msgstr "הערך של מספר תווי ה-Captcha חייב להיות אפס או גדול יותר."
+
+#: admin_settings.php:107
+msgid "Number of captcha-chars must be a number."
+msgstr "הערך של מספר תווי ה-Captcha חייב להיות מספר."
+
+#: admin_settings.php:117
+msgid "Pause must be zero or greater."
+msgstr "הערך של משך זמן ההמתנה בין משלוחי דוא\"ל חייב להיות אפס או גדול יותר."
+
+#: admin_settings.php:120
+msgid "Pause must be a number."
+msgstr "הערך של משך זמן ההמתנה בין משלוחי דוא\"ל חייב להיות מספר."
+
+#: admin_settings.php:128
+msgid "Nervous Finger must be zero or greater."
+msgstr "הערך של אצבע פזיזה חייב להיות אפס או גדול יותר."
+
+#: admin_settings.php:131
+msgid "Nervous Finger must be a number."
+msgstr "הערך של אצבע פזיזה חייב להיות מספר."
+
+#: admin_settings.php:141
+msgid "Number of mails must be greater then zero."
+msgstr "הערך של מספר דברי הדוא\"ל חייב להיות גדול מאפס."
+
+#: admin_settings.php:144
+msgid "Number of mails must be a number"
+msgstr "הערך של מספר דברי הדוא\"ל חייב להיות מספר."
+
+#: admin_settings.php:164
+msgid "Could not find the template in this profile. Please select a template and save again."
+msgstr "לא ניתן למצוא את התבנית לפרופיל זה. בבקשה בחרו תבנית ושמרו שוב."
+
+#: admin_settings.php:201
+msgid "If you can read this, something went wrong. :-("
+msgstr "אם אתם קוראים טקסט זה אז סימן שמשהו השתבש. :-("
+
+#: admin_settings.php:220
+msgid "Data was updated."
+msgstr "המידע התעדכן."
+
+#: admin_settings.php:310
+msgid "When to send"
+msgstr "סוגי הפרסומים עבורם יתבצע משלוח"
+
+#: admin_settings.php:317
+msgid "Send normal posts by default:"
+msgstr "שלחו פוסטים רגילים כברירת מחדל:"
+
+#: admin_settings.php:327
+msgid "Send private posts by default:"
+msgstr "שלחו פוסטים פרטיים כברירת מחדל:"
+
+#: admin_settings.php:336
+msgid "Send pages by default:"
+msgstr "שלחו דפים כברירת מחדל:"
+
+#: admin_settings.php:346
+msgid "Note:"
+msgstr "הערה:"
+
+#: admin_settings.php:348
+msgid "You can always override the settings above when writing a post. There is a Post Notification box somewhere near the upload box when writing or editing a post."
+msgstr "תמיד ניתן לשנות את ההגדרות שלעיל כאשר כותבים פוסט. בתוך טופס כתיבת הפוסט קיים שדה של תוסף זה אשר מאפשר לכם להחליט באופן ייחודי, עבור הפוסט המדובר בלבד, האם לשלוח עדכון דוא\"ל או לא."
+
+#: admin_settings.php:353
+msgid "Nervous finger wait:"
+msgstr "זמן המתנה בגלל אצבע פזיזה:"
+
+#: admin_settings.php:355
+#: admin_settings.php:464
+msgid "seconds."
+msgstr "שניות."
+
+#: admin_settings.php:361
+msgid "This option sets the time to wait before sending an Email. So if you have an nervous finger you can unpublish your post quickly and no mails are sent."
+msgstr "אפשרות זו מגדירה את כמות הזמן שהתוסף ימתין לפני שיבצע בפועל את משלוח הדוא\"ל למנויים. אפשרות זו נועדה למקרה שבו בגלל אצבע פזיזה (או \"ירייה מהמותן\", אם תעדיפו) פרסמתם פוסט ומייד אחרי הפרסום אתם מתחרטים על הפרסום ורוצים לבטל אותו. אפשרות זו מעניקה לכם מרווח זמן בשביל לבצע ביטול של פרסום הפוסט (על ידי ממשק ניהול הפוסטים של וורדפרס, ללא קשר לתוסף זה). ביטול הפרסום של הפוסט גם יבטל את משלוח הדוא\"ל אודות פוסט זה. ערך של 0 (אפס) פירושו שהמשלוח מתבצע מיידית, ללא כל המתנה - לא כדאי. מומלץ ערך מינימום של 300 (שניות, שזה 5 דקות)."
+
+#: admin_settings.php:366
+msgid "Look"
+msgstr "מראה ומבנה הדוא\"ל שיישלח למנויים"
+
+#: admin_settings.php:370
+msgid "Copy complete post in to the mail:"
+msgstr "הפוסט יישלח בשלמותו אל המנויים בדוא\"ל (בחירה ב-\"לא\" תגרום למשלוח שכולל רק קישור ישיר לפוסט המלא בבלוג):"
+
+#: admin_settings.php:375
+msgid "Up to the more-tag."
+msgstr "המשך על ידי תג more"
+
+#: admin_settings.php:376
+msgid "The excerpt"
+msgstr "התקציר"
+
+#: admin_settings.php:382
+msgid "Read-more-text:"
+msgstr "טקסט \"קרא עוד\":"
+
+#: admin_settings.php:387
+msgid "This text is put behind the content in case the mail is truncated. E.g. because of the more-tag."
+msgstr "טקסט זה מוכנס לאחר התוכן במידה והדוא\"ל נקטע, לדוגמא, בגלל תג more (אם נבחר באפשרות \"הפוסט יישלח בשלמותו אל המנויים בדוא\"ל\")."
+
+#: admin_settings.php:393
+msgid "Profile:"
+msgstr "פרופיל (שפת תוכן הדוא\"ל שיישלח למנויים. לעברית בחרו he_IL):"
+
+#: admin_settings.php:403
+#: admin_test.php:47
+msgid "Template:"
+msgstr "תבנית:"
+
+#: admin_settings.php:413
+msgid "Templates with the extension .txt are sent as text-mails. Templates with the extension .html are sent as HTML-mails"
+msgstr "תבנית עם סיומת של txt נשלחת כדוא\"ל בתבנית טקסט. תבנית עם סיומת של html נשלחת כדוא\"ל בתבנית HTML."
+
+#: admin_settings.php:418
+msgid "Subject:"
+msgstr "שורת הנושא של הדוא\"ל:"
+
+#: admin_settings.php:423
+#: admin_settings.php:436
+msgid "Use @@blogname as placeholder for the blog name."
+msgstr "השתמשו ב- blogname@@ כמשתנה עבור שם הבלוג."
+
+#: admin_settings.php:424
+msgid "Use @@title as placeholder for the title of the post."
+msgstr "השתמשו ב- ‏title@@ כמשתנה עבור כותרת הפוסט. שני סימני ה-@ צריכים להיות משמאל למילה."
+
+#: admin_settings.php:431
+msgid "Sender-Name:"
+msgstr "שם השולח:"
+
+#: admin_settings.php:441
+msgid "Sender-Email:"
+msgstr "כתובת הדוא\"ל של השולח:"
+
+#: admin_settings.php:453
+msgid "Technical"
+msgstr "הגדרות טכניות"
+
+#: admin_settings.php:457
+msgid "Number of mails to be sent in a burst:"
+msgstr "מספר דברי הדוא\"ל שיש לשלוח בכל משלוח (מומלץ שמשלוח לכמות נמענים גדולה (מספר עשרות ומעלה) יחולק למספר משלוחים קטנים באופן אוטומטי, בכדי שמערכות סינון דוא\"ל לא יסווגו את המשלוח שלכם בתור ספאם):"
+
+#: admin_settings.php:463
+msgid "Pause between transmission:"
+msgstr "משך זמן ההמתנה בין משלוחי דוא\"ל:"
+
+#: admin_settings.php:468
+msgid "Type of header line break:"
+msgstr "סוג שבירת השורה ב-header של הדוא\"ל:"
+
+#: admin_settings.php:479
+msgid ""
+"According to the PHP-specification \\r\\n"
+" must be used. Never the less quite a few servers have trouble if they get a \\r\\n"
+" instead of \\n"
+". You'll see part of the header in your mail if you have the wrong selection."
+msgstr ""
+"על פי הגדרות התקן של PHP קיימת חובה להשתמש ב- r\\n"
+"\\ . למרות זאת, יש שרתים שיש להם בעיה לקבל ערך זה במקום n\\ . במידה ובחרתם ערך שמתגלה כבעייתי - יופיע רק חלק מה-header של הדוא\"ל. במידה ואין לכם בעיות - אל תשנו ערך זה."
+
+#: admin_settings.php:484
+msgid "Locking:"
+msgstr "נעילה:"
+
+#: admin_settings.php:494
+msgid "Database"
+msgstr "מסד נתונים"
+
+#: admin_settings.php:501
+msgid "Try using database locking if you are geting duplicate messages."
+msgstr "אם מתקבלים אצל המנוי דברי דוא\"ל כפולים - נסו להשתמש במנגון הנעילה של \"מסד נתונים\". אם אין בעיות - יש להשאיר שדה זה עם הערך \"קובץ\"."
+
+#: admin_settings.php:512
+msgid "Filters to exclude from filtering \"the_content\":"
+msgstr "מסננים לביצוע exclude מסינון של \"the_content\":"
+
+#: admin_settings.php:541
+msgid "Some plugins use filters to modify the content of a post. You might not want some of them modifying your mails. Finding the right filters might need some playing around."
+msgstr "תוספים מסוימים עושים שימוש במסננים לשינוי תוכן של פוסט. ייתכן ולא תרצו שתוספים אלו ישנו את הדוא\"ל שאתם שולחים באמצעות תוסף זה. מציאת המסננים הנכונים יכולה לדרוש קצת ניסוי וטעיה. זו אפשרות מתקדמת למדי - ואם הכל עובד כמו שצריך אז בבקשה לא לגעת ולא לסמן שום ערך כאן."
+
+#: admin_settings.php:557
+msgid "Frontend"
+msgstr "ממשק עבור הגולשים בבלוג"
+
+#: admin_settings.php:564
+msgid "Name of the Post Notification page:"
+msgstr "שם דף ה-Post Notification:"
+
+#: admin_settings.php:569
+msgid "Allow selection of categories:"
+msgstr "ניתן לבחור קטגוריות:"
+
+#: admin_settings.php:577
+msgid "Show empty categories:"
+msgstr "הצג קטגוריות ריקות:"
+
+#: admin_settings.php:593
+msgid "Default categories:"
+msgstr "קטגוריות ברירת מחדל:"
+
+#: admin_settings.php:598
+msgid "The categories which will be automatically selected when a user subscribes, and which is also default for the Manage Addresses dialog. Choosing a category includes all subcategories."
+msgstr "הקטגוריות שלעיל הן הקטגוריות שייבחרו באופן אוטומטי כאשר משתמש נרשם כמנוי, וגם יהיו ברירת המחדל בהגדרות הדף \"יבוא וניהול כתובות דוא\"ל\". בחירה בקטגוריה כוללת גם את כל תת-הקטגוריות הנובעות ממנה. חשוב לזכור שרק בחירה בקטגורית הבסיס (\"הכל\") היא זו שתאפשר למנויים לקבל דוא\"ל גם במקרה שהוקמה קטגוריה חדשה שלא היתה קיימת בזמן שהם בחרו את הגדרות הקטגוריה במנוי שלהם."
+
+#: admin_settings.php:607
+msgid "http://en.wikipedia.org/wiki/Captcha"
+msgstr "http://de.wikipedia.org/wiki/Captcha"
+
+#: admin_settings.php:607
+msgid "Captcha-chars:"
+msgstr "מספר סימני ה-Captcha הנדרשים:"
+
+#: admin_settings.php:613
+msgid "Number of Captcha-chars. 0 is no Captcha"
+msgstr "מספר סימני ה-Captcha שיידרש המנוי להקליד בעת הרישום הראשוני. ערך של 0 (אפס) פירושו שלא ייעשה כלל שימוש במנגנון ה-Captcha."
+
+#: admin_settings.php:614
+msgid "Warning:"
+msgstr "אזהרה:"
+
+#: admin_settings.php:615
+msgid "Your template must support Captchas."
+msgstr "התבנית בה אתם עושים שימוש חייבת לתמוך ב-Captcha."
+
+#: admin_settings.php:621
+msgid "Post Notification link in the meta-section:"
+msgstr "קישור Post Notification ב-meta-section:"
+
+#: admin_settings.php:632
+msgid "Replacement in Posts:"
+msgstr "משתנים בפוסטים:"
+
+#: admin_settings.php:643
+msgid "The Stings @@post_notification_header and @@post_notification_body will be replaced in your post."
+msgstr "המשתנים post_notification_header@@ ו- post_notification_body@@ יוחלפו בתוכן הממשי הרלוונטי בתוך תוכן הפוסט."
+
+#: admin_settings.php:644
+#: admin_settings.php:662
+#: admin_settings.php:677
+msgid "Also see the Instructions for this."
+msgstr "כמו כן ראו את ההוראות הרלוונטיות בדף ה\"הוראות\" למעלה."
+
+#: admin_settings.php:651
+msgid "Add Post Notification page:"
+msgstr "הוסף דף Post Notification:"
+
+#: admin_settings.php:659
+msgid "Adds a Post Notification page to your pages."
+msgstr "תיבת סימון זו היא הדרך המומלצת והקלה להקים את דף הרישום למנוי, עבור הגולשים בבלוג שלכם. סימון זה מוסיף באופן אוטומטי וחד-פעמי דף רישום מנוי של Post Notification לבלוג (אין צורך ביותר מפעם אחת. הדף נשאר לאחר מכן כחלק מהבלוג). "
+
+#: admin_settings.php:660
+msgid "The file \"post_notification_template.php\" has been copied into the active theme. You may want to edit this file to fit your needs.  "
+msgstr "הקובץ \"post_notification_template.php\" יועתק לתבנית העיצוב הפעילה. ייתכן ותרצו לערוך קובץ זה בכדי להתאים אותו למטרותיכם."
+
+#: admin_settings.php:661
+msgid "This checkbox is cleared after execution."
+msgstr "תיבת סימון זו חוזרת להיות ריקה לאחר יצירת הדף."
+
+#: admin_settings.php:669
+msgid "Link to the Post Notification page:"
+msgstr "קישור לדף ה-Post Notification:"
+
+#: admin_settings.php:675
+msgid "This must be the URL or the ID of the page on which you subscribe."
+msgstr "ערך זה חייב להיות כתובת האינטרנט המלאה או הקוד המספרי של הדף בו המנויים מבצעים את רישום המנוי שלהם. אתם צריכים להקים דף זה מראש (בממשק הניהול הרגיל של וורדפרס), לפני שאתם מקלידים את מספר הדף בשדה זה. "
+
+#: admin_settings.php:676
+msgid "If you pick \"Add Post Notification page\" this will be compleated automaticly."
+msgstr "מומלץ שלא להשתמש באפשרות ידנית זו בעת הקמת דף המנוי עבור הגולשים בבלוג, אלא באפשרות האוטומטית \"הוסף דף Post Notification\", אשר גם תמלא את מספר הדף המתאים בשדה זה באופן אוטומטי. "
+
+#: admin_settings.php:683
+msgid "Miscellaneous"
+msgstr "שונות"
+
+#: admin_settings.php:688
+msgid "Debug:"
+msgstr "איתור תקלות (Debug):"
+
+#: admin_settings.php:703
+msgid "Uninstall:"
+msgstr "הסרת התוסף מממשק הניהול (Uninstall):"
+
+#: admin_settings.php:714
+msgid "WARNING: If this option is set, all database entries are deleted upon deactivation. Of course all data is lost."
+msgstr "*אזהרה חמורה*: אם מפעילים אפשרות זו - כל הרשומות במסד הנתונים של התוסף יימחקו ברגע שתבוצע ההסרה ולאחריה פעולת \"כיבוי\" של תוסף זה. כל המידע הקשור לתוסף (הגדרות, כתובות דוא\"ל, העדפות משתמשים ועוד) - יימחק ללא יכולת שחזור!"
+
+#: admin_settings.php:720
+msgid "save"
+msgstr "שמור"
+
+#: admin_test.php:6
+#: admin.php:59
+msgid "Test"
+msgstr "משלוח ניסוי"
+
+#: admin_test.php:12
+msgid "Post id:"
+msgstr "מספר פוסט:"
+
+#: admin_test.php:20
+msgid "This must be the ID of the post you want to send. You can find the ID under Manage->Posts."
+msgstr "הערך בשדה זה חייב להיות מספר הפוסט הקיים שברצונכם לשלוח. ניתן למצוא מספר זה בממשק הניהול של וורדפרס, \"עריכה וניהול\" -> \"פוסטים\"."
+
+#: admin_test.php:55
+msgid "Do not send mail:"
+msgstr "אל תשלח דוא\"ל (בדיקה לוגית ללא ביצוע משלוח דוא\"ל בפועל):"
+
+#: admin_test.php:68
+msgid "Send test mail."
+msgstr "שלח"
+
+#: admin_test.php:77
+msgid "Email"
+msgstr "דוא\"ל"
+
+#: admin_test.php:85
+msgid "Error:"
+msgstr "שגיאה:"
+
+#: admin_test.php:85
+msgid "Email has to be in the database."
+msgstr "כתובת הדוא\"ל צריכה להיות רשומה במסד הנתונים."
+
+#: admin.php:35
+msgid "You need at least Userlevel 8 to modify the settings."
+msgstr "נדרשת רמת-משתמש 8 לפחות בכדי לשנות את ההגדרות."
+
+#: admin.php:41
+msgid "You need to be administrator to modify the settings."
+msgstr "נדרשת הרשאת מנהל לפחות בכדי לשנות את ההגדרות."
+
+#: admin.php:49
+msgid "Info"
+msgstr "מידע כללי"
+
+#: admin.php:51
+msgid "Export addresses"
+msgstr "יצוא כתובות דוא\"ל"
+
+#: admin.php:52
+msgid "List addresses"
+msgstr "פירוט כתובות דוא\"ל"
+
+#: admin.php:53
+msgid "Delete addresses"
+msgstr "מחיקת כתובות דוא\"ל"
+
+#: admin.php:56
+#: admin_templates.php:5
+msgid "Edit templates"
+msgstr "עריכת תבניות"
+
+#: install.php:124
+msgid "Subscribe to Posts"
+msgstr "רישום מנוי לפוסטים"
+
+#: sendmail.php:189
+msgid "New post"
+msgstr "פוסט חדש"
+
+#: post_notification.php:112
+msgid "Default"
+msgstr "ברירת מחדל"
+
+#: post_notification.php:121
+msgid "Send Mails in queue."
+msgstr "שלח דברי דוא\"ל הממתינים בתור המשלוח"
+
+#: post_notification.php:125
+msgid "Resend"
+msgstr "שלח מחדש"
+
+#: post_notification.php:144
+msgid "Send notification when publishing?"
+msgstr "האם לשלוח עדכון למנויי דוא\"ל בזמן הפרסום?"
+
+#: post_notification.php:314
+msgid "Submit"
+msgstr "שמור"
+
+#: post_notification.php:337
+msgid "Title:"
+msgstr "לוג שינוי גרסאות התוסף (באנגלית)"
+
+#: post_notification.php:340
+#, fuzzy
+msgid "Subtext:"
+msgstr "שורת הנושא של הדוא\"ל:"
+
+#: post_notification.php:344
+#, fuzzy
+msgid "Size:"
+msgstr "גודל"
+
+#: post_notification.php:347
+#, fuzzy
+msgid "Submit:"
+msgstr "שמור"
+

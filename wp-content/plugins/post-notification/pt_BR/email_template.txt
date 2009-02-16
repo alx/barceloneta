@@ -1,0 +1,12 @@
+Um novo Post "@@title" foi escrito em @@date às @@time no "@@blogname".
+
+@@content 
+
+@@permalink
+
+________________________________________________________
+
+Você se inscreveu para receber estes Emails.
+Se quiser alterar suas configurações ou se desinscrever, visite:
+
+@@conf_url

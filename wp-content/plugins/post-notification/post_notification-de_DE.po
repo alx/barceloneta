@@ -1,0 +1,1072 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Post Notification\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-04 16:54+0100\n"
+"PO-Revision-Date: 2009-01-04 16:56+0100\n"
+"Last-Translator: Moritz 'Morty' Strübe <morty@gmx.net>\n"
+"Language-Team: Morty\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ./\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin_settings.php:13
+msgid "File missing in profile folder."
+msgstr "Es fehlt eine Datei im Profilordner."
+
+#: admin_settings.php:14
+msgid "Folder"
+msgstr "Ordner"
+
+#: admin_settings.php:15
+#: admin_settings.php:25
+#: admin_settings.php:535
+msgid "File"
+msgstr "Datei"
+
+#: admin_settings.php:24
+msgid "Missing string in string file."
+msgstr "Es fehlt eine Zeichenkette in der Zeichenkettendatei."
+
+#: admin_settings.php:26
+msgid "String"
+msgstr "Zeichenkette"
+
+#: admin_settings.php:66
+#: admin_settings.php:345
+#: admin_settings.php:354
+#: admin_settings.php:364
+#: admin_settings.php:398
+#: admin_settings.php:481
+#: admin_settings.php:716
+#: admin_settings.php:727
+#: admin_settings.php:789
+#: admin_settings.php:798
+#: admin_list_email.php:203
+#: post_notification.php:152
+msgid "No"
+msgstr "Nein"
+
+#: admin_settings.php:67
+#: admin_settings.php:346
+#: admin_settings.php:355
+#: admin_settings.php:365
+#: admin_settings.php:399
+#: admin_settings.php:482
+#: admin_settings.php:717
+#: admin_settings.php:728
+#: admin_settings.php:790
+#: admin_settings.php:799
+#: admin_list_email.php:201
+#: post_notification.php:113
+msgid "Yes"
+msgstr "Ja"
+
+#: admin_settings.php:72
+#: admin.php:54
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: admin_settings.php:106
+msgid "Number of captcha-chars must be 0 or greater."
+msgstr "Die Anzahl der Captcha-Zeichen muss Null oder größer sein."
+
+#: admin_settings.php:109
+msgid "Number of captcha-chars must be a number."
+msgstr "Die Anzahl der Captcha-Zeichen muss eine Zahl sein."
+
+#: admin_settings.php:119
+msgid "Pause must be zero or greater."
+msgstr "Pause muss größer als Null sein."
+
+#: admin_settings.php:122
+msgid "Pause must be a number."
+msgstr "Pause muss eine Zahl sein."
+
+#: admin_settings.php:130
+msgid "Nervous Finger must be zero or greater."
+msgstr "Nervöser Finger muss Null oder größer sein."
+
+#: admin_settings.php:133
+msgid "Nervous Finger must be a number."
+msgstr "Nervöser Finger muss eine Zahl sein."
+
+#: admin_settings.php:143
+msgid "Number of mails must be greater then zero."
+msgstr "Die Anzahl der Mails muss größer sein als Null."
+
+#: admin_settings.php:146
+msgid "Number of mails must be a number"
+msgstr "Die Anzahl der Emails muss eine Nummer sein."
+
+#: admin_settings.php:167
+msgid "Could not find the template in this profile. Please select a template and save again."
+msgstr "Konnte die ausgewählte Vorlage in dem Verzeichnis nicht finden. Bitte wähle eine Vorlage aus und speichere noch einmal."
+
+#: admin_settings.php:204
+msgid "If you can read this, something went wrong. :-("
+msgstr "Wenn Du das lesen kannst, ist irgendwas schief gegangen! :-("
+
+#: admin_settings.php:223
+msgid "Data was updated."
+msgstr "Die Daten wurden aktualisiert."
+
+#: admin_settings.php:300
+msgid "Please save own Profiles in: "
+msgstr "Bitte eigene Profile im folgenden Ordner speichern"
+
+#: admin_settings.php:301
+msgid "Otherwise they may be deleted using autoupdate. "
+msgstr "Anderenfalls werden sie nach einem Autoupdate gelöscht."
+
+#: admin_settings.php:335
+msgid "When to send"
+msgstr "Wann senden"
+
+#: admin_settings.php:342
+msgid "Send normal posts by default:"
+msgstr "Normale Beiträge standardmäßig senden:"
+
+#: admin_settings.php:352
+msgid "Send private posts by default:"
+msgstr "Private Beiträge standardmäßig senden:"
+
+#: admin_settings.php:361
+msgid "Send pages by default:"
+msgstr "Seiten standardmäßig senden:"
+
+#: admin_settings.php:371
+msgid "Note:"
+msgstr "Hinweis:"
+
+#: admin_settings.php:373
+msgid "You can always override the settings above when writing a post. There is a Post Notification box somewhere near the upload box when writing or editing a post."
+msgstr "Du kannst die Obigen Einstellungen beim Schreiben eines Beitrags immer außer Kraft setzen. Da ist eine Post Notification box irgendwo in der Nähe der upload Box."
+
+#: admin_settings.php:378
+msgid "Nervous finger wait:"
+msgstr "Nervöser Finger:"
+
+#: admin_settings.php:380
+#: admin_settings.php:506
+msgid "seconds."
+msgstr "Sekunden."
+
+#: admin_settings.php:386
+msgid "This option sets the time to wait before sending an Email. So if you have an nervous finger you can unpublish your post quickly and no mails are sent."
+msgstr "Mit dieser Option kann man die Wartezeit einstellen, bevor Emails versendet werden. Wenn Du also einen nervösen Finger hast, kannst Du Dein Post damit zurückziehen und es wird keine Email versandt."
+
+#: admin_settings.php:391
+msgid "Look"
+msgstr "Aussehen"
+
+#: admin_settings.php:395
+msgid "Copy complete post in to the mail:"
+msgstr "Den kompletten Beitrag in die Mail kopieren:"
+
+#: admin_settings.php:400
+msgid "Up to the more-tag."
+msgstr "Bis zum more-Tag."
+
+#: admin_settings.php:401
+msgid "The excerpt"
+msgstr "Kurzfassung"
+
+#: admin_settings.php:407
+msgid "Read-more-text:"
+msgstr "Mehr-lesen-text:"
+
+#: admin_settings.php:412
+msgid "This text is put behind the content in case the mail is truncated. E.g. because of the more-tag."
+msgstr "Dieser Text wird an den Inhalt angehängt, falls die Mail gekürzt wird. Z.B wegen dem more-tag."
+
+#: admin_settings.php:418
+msgid "Profile:"
+msgstr "Profil:"
+
+#: admin_settings.php:428
+#: admin_test.php:47
+msgid "Template:"
+msgstr "Vorlage:"
+
+#: admin_settings.php:438
+msgid "Templates with the extension .txt are sent as text-mails. Templates with the extension .html are sent as HTML-mails"
+msgstr "Vorlagen mit der Endung .txt werden als Text-Mails verschickt. Vorlagen mit der Endung .html werden als HTML-Mails versendet."
+
+#: admin_settings.php:443
+msgid "Subject:"
+msgstr "Betreff:"
+
+#: admin_settings.php:448
+#: admin_settings.php:461
+msgid "Use @@blogname as placeholder for the blog name."
+msgstr "Benutze @@blogname als Platzhalter für den Namen des Blogs."
+
+#: admin_settings.php:449
+msgid "Use @@title as placeholder for the title of the post."
+msgstr "Benutze @@title als Platzhalter für den Titel des Beitrags."
+
+#: admin_settings.php:456
+msgid "Sender-Name:"
+msgstr "Name des Absenders:"
+
+#: admin_settings.php:466
+msgid "Sender-Email:"
+msgstr "Absender-Email:"
+
+#: admin_settings.php:471
+msgid "Show \"saved.tmpl\" when saving frontend settings."
+msgstr "Zeige die  \"saved.tmpl\" wenn die Einstellungen im Frontend gespeichert werden."
+
+#: admin_settings.php:495
+msgid "Technical"
+msgstr "Technisches"
+
+#: admin_settings.php:499
+msgid "Number of mails to be sent in a burst:"
+msgstr "Anzahl der Emails, die auf einmal versandt werden sollen."
+
+#: admin_settings.php:505
+msgid "Pause between transmission:"
+msgstr "Pause zwischen den Übertragungen:"
+
+#: admin_settings.php:510
+msgid "Type of header line break:"
+msgstr "Art des Zeilenumbruchs im header:"
+
+#: admin_settings.php:521
+msgid ""
+"According to the PHP-specification \\r\\n"
+" must be used. Never the less quite a few servers have trouble if they get a \\r\\n"
+" instead of \\n"
+". You'll see part of the header in your mail if you have the wrong selection."
+msgstr ""
+"Nach der PHP-Spezifikation muss \\r\\n"
+" verwendet werden. Allerdings gibt es einige Server die Probleme damit haben, wenn \\r\\n"
+" anstatt \\n"
+" verwendet wird. Wenn Du Teile des Headers in der Email siehst, hast Du die falsche Option ausgewählt."
+
+#: admin_settings.php:526
+msgid "Locking:"
+msgstr "Verriegelungs-Verfahren:"
+
+#: admin_settings.php:536
+msgid "Database"
+msgstr "Datenbank"
+
+#: admin_settings.php:543
+msgid "Try using database locking if you are geting duplicate messages."
+msgstr "Probiere Datenbankverriegellung wenn Nachrichten doppelt verschickt werden."
+
+#: admin_settings.php:544
+#: admin_info.php:43
+#: admin_info.php:49
+#: admin_info.php:79
+msgid "More information."
+msgstr "Mehr Informationen."
+
+#: admin_settings.php:554
+msgid "Filters to exclude from filtering \"the_content\":"
+msgstr "Filter die von der Filterung des Inhalts (\"the_content\") ausgeschlossen werden sollen:"
+
+#: admin_settings.php:595
+msgid "Some plugins use filters to modify the content of a post. You might not want some of them modifying your mails. Finding the right filters might need some playing around."
+msgstr "Einige Plugins benutzen Filter um den Inhalt des Beitrags zu verändern. Möglicherweise möchtest Du vermeiden, dass einige deine Emails verändern. Evtl. musst du ein wenig rumspielen um den richtigen zu finden."
+
+#: admin_settings.php:605
+msgid "When to send:"
+msgstr "Wann senden:"
+
+#: admin_settings.php:617
+msgid "Header"
+msgstr "Kopfzeilen"
+
+#: admin_settings.php:618
+msgid "Footer"
+msgstr "Fußzeilen"
+
+#: admin_settings.php:619
+msgid "Shutdown"
+msgstr "Vor dem Beenden"
+
+#: admin_settings.php:626
+msgid "By default PN sends mails after the page has been rendered and sent to the user (shutdown)."
+msgstr "Standardmäßig senden PN die Mail nachdem die Seite aufgebaut und zum Benutzer geschickt wurde (Vor dem Beenden)."
+
+#: admin_settings.php:649
+msgid "Frontend"
+msgstr "Benutzerschnittstelle"
+
+#: admin_settings.php:656
+msgid "Name of the Post Notification page:"
+msgstr "Name der Post Notification-Seite:"
+
+#: admin_settings.php:661
+msgid "Allow selection of categories:"
+msgstr "Erlaube es die Kategorien zu wählen:"
+
+#: admin_settings.php:669
+msgid "Show empty categories:"
+msgstr "Zeige leere Kategorien:"
+
+#: admin_settings.php:685
+msgid "Default categories:"
+msgstr "Standardkategorien:"
+
+#: admin_settings.php:690
+msgid "The categories which will be automatically selected when a user subscribes, and which is also default for the Manage Addresses dialog. Choosing a category includes all subcategories."
+msgstr "Die Kategorien werden automatisch vorausgewählt wenn ein Benutzer sich anmeldet und auch Standard auf der Adressen verwalten Seite. Das Auswählen einer Kategorie schließt alle Unterkategorien ein. "
+
+#: admin_settings.php:699
+msgid "http://en.wikipedia.org/wiki/Captcha"
+msgstr "http://de.wikipedia.org/wiki/Captcha"
+
+#: admin_settings.php:699
+msgid "Captcha-chars:"
+msgstr "Captcha-Zeichen:"
+
+#: admin_settings.php:705
+msgid "Number of Captcha-chars. 0 is no Captcha"
+msgstr "Anzahl der Captcha-Zeichen. 0 Schaltet das Capcha aus."
+
+#: admin_settings.php:706
+msgid "Warning:"
+msgstr "Warnung:"
+
+#: admin_settings.php:707
+msgid "Your template must support Captchas."
+msgstr "Das Template muss Captchas unterstützen."
+
+#: admin_settings.php:713
+msgid "Post Notification link in the meta-section:"
+msgstr "Einen Post Notification Link in der Meta-Sektion:"
+
+#: admin_settings.php:724
+msgid "Replacement in Posts:"
+msgstr "Ersetzungen in Beiträgen:"
+
+#: admin_settings.php:735
+msgid "The Stings @@post_notification_header and @@post_notification_body will be replaced in your post."
+msgstr "Die Zeichenketten  @@post_notification_header und @@post_notification_body werden in deinem Post ersetzt."
+
+#: admin_settings.php:736
+#: admin_settings.php:754
+#: admin_settings.php:769
+msgid "Also see the Instructions for this."
+msgstr "Diesbezüglich schaue bitte auch in die Anleitung."
+
+#: admin_settings.php:743
+msgid "Add Post Notification page:"
+msgstr "Post Notification-Seite hinzufügen:"
+
+#: admin_settings.php:751
+msgid "Adds a Post Notification page to your pages."
+msgstr "Fügt eine Post Notification-Seite zu Deinen Seiten hinzu."
+
+#: admin_settings.php:752
+msgid "The file \"post_notification_template.php\" has been copied into the active theme. You may want to edit this file to fit your needs.  "
+msgstr "Die Datei \"post_notification_template.php\" wurde in Dein aktives Theme kopiert. Evtl möchtest Du diese anpassen damit sie zu Deinem Theme passt."
+
+#: admin_settings.php:753
+msgid "This checkbox is cleared after execution."
+msgstr "Diese Checkbox wird nach der Installation gelöscht."
+
+#: admin_settings.php:761
+msgid "Link to the Post Notification page:"
+msgstr "Link zur Post Notification-Seite:"
+
+#: admin_settings.php:767
+msgid "This must be the URL or the ID of the page on which you subscribe."
+msgstr "Hier muss die ID oder URL der Seite stehen, auf der man sich eintragen kann."
+
+#: admin_settings.php:768
+msgid "If you pick \"Add Post Notification page\" this will be compleated automaticly."
+msgstr "Wenn \"Post Notification Seite hinzufügen\" ausgewählt ist, wird dies automatisch ausgefüllt."
+
+#: admin_settings.php:775
+msgid "Miscellaneous"
+msgstr "Verschiedenes"
+
+#: admin_settings.php:780
+msgid "Debug:"
+msgstr "Debug:"
+
+#: admin_settings.php:795
+msgid "Uninstall:"
+msgstr "Deinstallieren:"
+
+#: admin_settings.php:806
+msgid "WARNING: If this option is set, all database entries are deleted upon deactivation. Of course all data is lost."
+msgstr "WARNUNG: Wenn diese Option gesetzt ist, werden bei der Deaktivierung alle Datenbankeinträge gelöscht. Es gehen alle Daten verloren."
+
+#: admin_settings.php:812
+msgid "save"
+msgstr "Speichern"
+
+#: admin_changelog.php:12
+#: admin.php:57
+msgid "Change log"
+msgstr "Änderungen"
+
+#: admin_changelog.php:14
+msgid "Latest change log from the server."
+msgstr "Aktuelle Änderungen vom Server anzeigen"
+
+#: admin_export.php:14
+msgid "Export Emails"
+msgstr "Exportiere Emails"
+
+#: admin_export.php:20
+msgid "No entries found."
+msgstr "Keine Einträge gefunden"
+
+#: admin_info.php:31
+#: admin_info.php:60
+msgid "Couldn't create File:"
+msgstr "Fehler beim Erzeugen der Datei:"
+
+#: admin_info.php:33
+#: admin_info.php:61
+msgid "Please assure the the path is writeable."
+msgstr "Stelle sicher, dass der Pfad beschreibbar ist."
+
+#: admin_info.php:33
+msgid "This is an error!"
+msgstr "Dies ist ein Fehler!"
+
+#: admin_info.php:41
+msgid "PHP was compiled without iconv-libs. This might cause severe trouble using UTF-8 with special chars or umlauts."
+msgstr "PHP wurde ohne die iconv-Biliotheken compiliert. Dies kann bei der Verwendung von UTF-8 schwere Probleme mit Sonderzeichen und Umlauten verursachen."
+
+#: admin_info.php:42
+#: admin_info.php:48
+msgid "Most hosters support this, as it is a sensible php-extension."
+msgstr "Die meisten Hoster unterstützen dies, da es eine Sinnvolle Erweiterung ist."
+
+#: admin_info.php:47
+msgid "This version of PHP does not support the function mb_detect_encoding. You might experience some trouble with non-ASCII characters."
+msgstr "Diese Version von PHP unterstützt die Funktion mb_check_encoding nicht. Eventuell gibt's Probleme mit Nicht-US-ASCII-Zeichen im Betreff."
+
+#: admin_info.php:54
+msgid "This version of PHP does not support the function html_entity_decode. Sending out text mails will not be possible."
+msgstr "Diese Version von PHP unterstützt die Funktion html_entity_decode nicht. Das Versenden von Text-Mails ist daher nicht möglich."
+
+#: admin_info.php:55
+msgid "Please contact your hoster."
+msgstr "Bitte kontaktiere deinen Hoster."
+
+#: admin_info.php:62
+msgid "You can also copy the file from the plugin directory manually."
+msgstr "Du kannst die Datei auch manuell aus dem Plugin-Verzeichnis kopieren."
+
+#: admin_info.php:68
+msgid "PN is in debugging mode. This should only be on, if something isn't working correctly."
+msgstr "PN ist im Fehlersuchemodus. Dies sollte nur aktiviert sein, wenn etwas nicht ordentlich funktioniert."
+
+#: admin_info.php:72
+msgid "It seems like you want to uninstall this Plugin. Please deactivate it or change the setting the options. "
+msgstr "Es sieht so aus, als wenn Du dieses Plugin deinstallieren will. Bitte deaktiviere es oder ändere die Einstellung in den Optionen."
+
+#: admin_info.php:74
+msgid "It seems like there is some trouble creating the tables in the DB. If you're lucky there should be some errormessages on this page."
+msgstr "Es sieht so aus, als gäbe es ein paar Probleme beim erstellen der Tabellen in der DB. Wenn du Glück hast sollte auf dieser Seite ein paar Fehlermeldungen sein."
+
+#: admin_info.php:78
+msgid "The maximum executiontime is very low."
+msgstr "Die Maximale Ausführungszeit ist sehr kurz."
+
+#: admin_info.php:84
+msgid "There is a bug in WP handling HTML-Mails. Please make sure a mail-plugin is installed."
+msgstr "WP 2.2 hat einen Bug bei der Behandlung von HTML-Mails. Bitte stelle sicher, dass ein email plugin installiert ist."
+
+#: admin_info.php:106
+msgid "Number of Subscribers:"
+msgstr "Anzahl der Abonnenten:"
+
+#: admin_info.php:109
+msgid "Looks like you are realy using this plugin."
+msgstr "Sieht so aus, als ob du dieses Plugin wirklich benutzen würdest."
+
+#: admin_info.php:110
+msgid "What about a donation?."
+msgstr "Wie wär's mit einer Spende?"
+
+#: admin_info.php:114
+msgid "The time is:"
+msgstr "Die Zeit ist:"
+
+#: admin_info.php:117
+msgid "Posts to be notified."
+msgstr "Posts über welche noch benachrichtigt werden muss."
+
+#: admin_info.php:124
+msgid "Post-ID"
+msgstr "Beitrags-ID"
+
+#: admin_info.php:125
+msgid "Post title"
+msgstr "Beitrags-Titel"
+
+#: admin_info.php:126
+msgid "Publish-date"
+msgstr "Veröffentlichungsdatum"
+
+#: admin_info.php:127
+msgid "Save-date"
+msgstr "Datum der Speicherung"
+
+#: admin_info.php:128
+msgid "Last email-id"
+msgstr "Letzte Email-ID"
+
+#: admin_info.php:131
+#: admin_info.php:148
+msgid "None queued"
+msgstr "Keine in der Warteschlange"
+
+#: admin_info.php:146
+msgid "The next mail will be sent:"
+msgstr "Die nächste Email wird versandt: "
+
+#: admin_info.php:154
+msgid "The last mail was sent:"
+msgstr "Die letzte Mail wurde versandt:"
+
+#: admin_info.php:157
+msgid "The last post was saved:"
+msgstr "Der letzte Beitrag wurde gespeichert:"
+
+#: admin_instructions.php:13
+#: admin.php:55
+msgid "Instructions"
+msgstr "Anleitung"
+
+#: admin_instructions.php:16
+msgid "Important"
+msgstr "Wichtig"
+
+#: admin_instructions.php:17
+msgid "I'm very bad in writing documentation. Please check the PN Forum for support! And look around whether someone else already asked that question."
+msgstr "Ich bin ganz schlecht im Schreiben von Dokumentation. Im PN Forum findest du sicher Unterstützung. Und schau bitte auch ob jemand anderes die Frage schon gestellt hat."
+
+#: admin_instructions.php:18
+msgid "To the PN Forum."
+msgstr "Zum PN forum."
+
+#: admin_instructions.php:21
+msgid "What does this plugin do?"
+msgstr "Was macht dieses Plugin?"
+
+#: admin_instructions.php:22
+msgid "With each new post an email is sent to every registered user in the database. The email can be text or HTML."
+msgstr "Bei jedem neuen Beitrag wird eine Email an jeden registrierten Benutzer in der Datenbank versandt. Die Email kann im Text- oder HTML-Format sein."
+
+#: admin_instructions.php:23
+msgid "After subscribing the user gets a opt-in email with a link he has to visit before getting any mails."
+msgstr "Nach dem Eintragen erhält der Benutzer eine opt-in Email mit einem Link, den er besuchen muss, bevor er irgendwelche Emails bekommt."
+
+#: admin_instructions.php:27
+msgid "Integration"
+msgstr "Integration"
+
+#: admin_instructions.php:28
+msgid "Post Notification always needs a special Post Notification Page. This may be a page, post enty or a special .php page.."
+msgstr "Post Notification braucht immer eine spezielle Post Notification Seite. Dies kann eine Seite,  Beitrag oder eine spezielle php-seite sein."
+
+#: admin_instructions.php:29
+msgid "There are several ways of integration:"
+msgstr "Es gibt mehrere Möglichkeiten der Integration:"
+
+#: admin_instructions.php:31
+msgid "Replacement in Posts"
+msgstr "Ersetzung in Beiträgen:"
+
+#: admin_instructions.php:31
+msgid "The strings @@post_notification_header and @@post_notification_body will be replaced in your post in case the \"@@repl\" option ist turned on in the settings."
+msgstr "Die Zeichenketten @@post_notification_header und @@post_notification_body werden in deinem Beitrag ersetzt, wenn die \"@@repl\" option in den Einstellungen aktiviert ist."
+
+#: admin_instructions.php:32
+msgid "Therefore a new page with @@post_notification_header in the title and @@post_notification_body in the Post itself must be created."
+msgstr "Daher muss eine neue Seite mit  @@post_notification_header im Titel und @@post_notification_body im Beitrag erstellt werden."
+
+#: admin_instructions.php:33
+msgid "This is done automaticly by the \"Add Post Notification page\" option. If you do not do that you have to add the post-id/page-id in the \"Link to the Post Notification page\" setting by hand."
+msgstr "Dies wird automatisch von der  \"Post Notification-Seite hinzufügen\" funktion  gemacht Wenn Du diese Funktion nicht verwendest musst du die ID der Seite von hand in die \"Link zur Post Notification-Seite\" einstellung eintragen."
+
+#: admin_instructions.php:35
+msgid "Use the Post Notification template. The Template is automaticly copied to your theme. This method might have some trouble with badly written themes. But has a little better performance."
+msgstr "Das Post Notification template verwenden. Dieses wird automatisch in dein Theme kopiert. Diese Methode hat evtl ein paar Probleme mit schlecht geschriebenen Templates, hat aber eine bessere Performance."
+
+#: admin_instructions.php:36
+msgid "If you do not use the \"Add Post Notification page\" option you have to add the post-id in the \"Link to the Post Notification page\" setting by hand."
+msgstr "Wenn du die \"Post Notification-Seite hinzufügen\" Funktion nicht verwendest musst du die ID der Seite von Hand in die \"Link zur Post Notification-Seite\" Einstellung eintragen."
+
+#: admin_instructions.php:39
+msgid "Copy the wp-post_notification.php to your WP-root. Copy&Paste the url to the \"Link to the Post Notification page\" setting"
+msgstr "Kopiere die  wp-post_notification.php in dein WP-root Verzeichnis. Copy & Paste die Url in die \"Link zur Post Notification-Seite\" Einstellung."
+
+#: admin_instructions.php:42
+msgid "You can copy the content of the subscribe_snippet.php into your theme."
+msgstr "Du kannst den Inhalt der subscribe_snippet.php in dein Theme kopieren."
+
+#: admin_instructions.php:43
+msgid "You still need a special Post Notification Page. "
+msgstr "Du brauchst immer noch eine spezielle Post Notification Seite."
+
+#: admin_instructions.php:45
+msgid "Coders might want to look at the frontend.php."
+msgstr "Coder möchten evtl einen Blick in die frontend.php werfen."
+
+#: admin_instructions.php:51
+msgid "Templates"
+msgstr "Vorlagen"
+
+#: admin_instructions.php:52
+msgid "If you want to modify the templates please copy your favorit template in to the folder &lt;wp-dir&gt;/wp-content/post_notification. Afterwards rename it to whatever you like."
+msgstr "Nach dem "
+
+#: admin_instructions.php:55
+msgid "Vars used in the templates"
+msgstr "Variablen, die in den Templates verwendet werden"
+
+#: admin_instructions.php:57
+msgid "The title of the post"
+msgstr "Der Titel des Beitrags"
+
+#: admin_instructions.php:58
+msgid "The author of the post"
+msgstr "Der Autor des Beitrags"
+
+#: admin_instructions.php:59
+msgid "The content of the post"
+msgstr "Der Inhalt des Beitrags"
+
+#: admin_instructions.php:60
+msgid "The link to the post."
+msgstr "Der Link zum Beitrag"
+
+#: admin_instructions.php:61
+msgid "The Name of the blog"
+msgstr "Der Name des Blogs"
+
+#: admin_instructions.php:62
+msgid "Date of the post being published"
+msgstr "Datum, an welchem der Beitrag veröffentlicht wurde"
+
+#: admin_instructions.php:63
+msgid "Time of the post being published"
+msgstr "Uhrzeit, an welchem der Beitrag veröffentlicht wurde"
+
+#: admin_instructions.php:64
+msgid "The email the mail is sent to."
+msgstr "Die EMailadressen, an welche die Mail geschickt wird."
+
+#: admin_instructions.php:65
+msgid "The URL that has to be visited to verify the subscription."
+msgstr "Die URL, die besucht werden muss, um sich freizuschalten."
+
+#: admin_instructions.php:68
+msgid "The different templates"
+msgstr "Die unterschiedlichen Vorlagen"
+
+#: admin_instructions.php:69
+msgid "I know the names are not the best, but I'm to lazy too change them."
+msgstr "Ich weiß, die Namen sind nicht die Besten, aber ich bin zu faul, sie zu ändern."
+
+#: admin_instructions.php:71
+msgid "This is the subscription page."
+msgstr "Dies ist die Anmeldeseite."
+
+#: admin_instructions.php:72
+msgid "This is the page you see after subscribing."
+msgstr "Dies ist die Seite, welche angezeigt wird, nachdem man sich eingeschrieben hat."
+
+#: admin_instructions.php:73
+msgid "This email is sent with the activation-link in it."
+msgstr "Diese Email wird mit dem Aktivierungs-Link verschickt."
+
+#: admin_instructions.php:74
+msgid "The page you see to select your categories."
+msgstr "Die Seite, welche angezeigt wird und die Kategorien auszuwählen."
+
+#: admin_instructions.php:75
+msgid "This email is sent in case someone unsubscribes."
+msgstr "Diese Email wird verschickt wenn man das Abo kündigt."
+
+#: admin_instructions.php:76
+msgid "In this file all the other strings needed are saved."
+msgstr "In dieser Datei werden alle anderen benötigten Zeichenketten gespeichert."
+
+#: admin_instructions.php:82
+msgid "Bugs"
+msgstr "Fehler"
+
+#: admin_instructions.php:83
+msgid "Please report bugs. Finding bugs is much more difficult then fixing them."
+msgstr "Bitte meldet Fehler. Das Finden der Fehler ist meist schwieriger, als das Beheben der Selbigen."
+
+#: admin_instructions.php:85
+msgid "Report a bug in English or German (Forum)."
+msgstr "Einen Fehler auf Deutsch oder Englisch melden (Forum)."
+
+#: admin_instructions.php:91
+msgid "History"
+msgstr "Geschichte"
+
+#: admin_instructions.php:92
+msgid "The Plugin on which this plugin originally is based was written by <a href=\"http://watershedstudio.com/portfolio/software/wp-email-notification.html\">Brian Groce</a>. <a href=\"http://bueltge.de\">Frank B&uuml;ltge</a> translated it to german and maintained it for a while. Major parts were rewritten and it is now maintained by <a href=\"http://xn--strbe-mva.de\">Moritz Str&uuml;be</a>."
+msgstr "Dieses Plugin wurde ursprünglich von <a href=\"http://watershedstudio.com/portfolio/software/wp-email-notification.html\">Brian Groce</a> geschrieben. <a href=\"http://bueltge.de\">Frank B&uuml;ltge</a> hat es ins Deutsche übersetzt und dann eine Weile gewartet. Große Teile wurden neu geschrieben und nun wird es von <a href=\"http://xn--strbe-mva.de\">Moritz Str&uuml;be</a> gewartet."
+
+#: admin_instructions.php:95
+msgid "Donations"
+msgstr "Spenden"
+
+#: admin_instructions.php:96
+msgid "There are several ways to donate:"
+msgstr "Es gibt mehrere Möglichkeiten zu spenden:"
+
+#: admin_instructions.php:98
+msgid "Donate time: Find and report bugs. If you know php: fix them and mail the fix to me. If you are interested you can also get svn-access."
+msgstr "Spende Zeit: Suche und berichte Fehler an mich. Wenn Du php kannst, behebe sie und mail sie mir. Wenn Du Interesse hast, kannst Du auch svn-Zugriff bekommen."
+
+#: admin_instructions.php:99
+msgid "Donate motivation: Send me a postcard (with snailmail), make a comment on my page how cool the plugin is, or anything else that might motivate me."
+msgstr "Spende Motivation: Schick mir einfach eine Postkarte (per Post), schreib auf meiner Seite, wie genial dieses Plugin ist oder irgendwas anderes, was mich motivieren könnte."
+
+#: admin_instructions.php:100
+msgid "Donate money:"
+msgstr "Geld Spenden:"
+
+#: admin_instructions.php:103
+msgid "Supporters"
+msgstr "Unterstützer"
+
+#: admin_instructions.php:105
+msgid "French translation"
+msgstr "Französische Übersetzung"
+
+#: admin_instructions.php:106
+msgid "Hebrew translation"
+msgstr "Hebräische Übersetzung"
+
+#: admin_instructions.php:107
+msgid "Dutch translation"
+msgstr "Niederländische Übersetzung"
+
+#: admin_instructions.php:108
+msgid "Testing and bugs"
+msgstr "Testen und Fehler"
+
+#: admin_list_email.php:38
+msgid "List of addresses:"
+msgstr "Liste der Adressen:"
+
+#: admin_list_email.php:43
+msgid "No address checked!"
+msgstr "Keine Adressen ausgewählt!"
+
+#: admin_list_email.php:45
+msgid "The following addresses were deleted:"
+msgstr "Die folgenden Adressen wurden gelöscht:"
+
+#: admin_list_email.php:110
+#: admin_test.php:28
+#: post_notification.php:320
+msgid "Email:"
+msgstr "E-Mail:"
+
+#: admin_list_email.php:111
+msgid "Cats:"
+msgstr "Kats:"
+
+#: admin_list_email.php:116
+msgid "Limit:"
+msgstr "Limit:"
+
+#: admin_list_email.php:117
+msgid "Start at:"
+msgstr "Beginne bei:"
+
+#: admin_list_email.php:119
+msgid "Sort by:"
+msgstr "Ssortieren nach"
+
+#: admin_list_email.php:120
+msgid "ID"
+msgstr "ID"
+
+#: admin_list_email.php:121
+#: admin_list_email.php:181
+msgid "Address"
+msgstr "Adresse"
+
+#: admin_list_email.php:122
+#: admin_list_email.php:183
+msgid "Date accepted"
+msgstr "Datum der Bestätigung"
+
+#: admin_list_email.php:123
+#: admin_list_email.php:185
+msgid "IP"
+msgstr "IP-Adresse"
+
+#: admin_list_email.php:126
+msgid "Ascending"
+msgstr "Aufsteigend"
+
+#: admin_list_email.php:127
+msgid "Descending"
+msgstr "Absteigend"
+
+#: admin_list_email.php:131
+msgid "Show unconfirmed mails:"
+msgstr "Zeigen Unbestätigte Mails:"
+
+#: admin_list_email.php:134
+msgid "Only show cat ids:"
+msgstr "Zeige nur Kat ids:"
+
+#: admin_list_email.php:137
+msgid "Show as list:"
+msgstr "Als Liste anzeigen:"
+
+#: admin_list_email.php:142
+msgid "Update"
+msgstr "Aktualisieren"
+
+#: admin_list_email.php:167
+msgid "No entries found!"
+msgstr "Keine Einträge gefunden!"
+
+#: admin_list_email.php:174
+msgid "Showing entry @@start to @@end of @@total entries."
+msgstr "Zeige Einträge @@start bis @@end von @@total einträgen."
+
+#: admin_list_email.php:182
+msgid "Accepted"
+msgstr "Bestätigt"
+
+#: admin_list_email.php:184
+msgid "Subscribed categories"
+msgstr "Abonnierte Kategorien"
+
+#: admin_list_email.php:217
+#: admin_list_email.php:219
+#: functions.php:310
+msgid "All"
+msgstr "Alle"
+
+#: admin_list_email.php:263
+msgid "Check all"
+msgstr "Alle auswählen"
+
+#: admin_list_email.php:264
+msgid "Uncheck all"
+msgstr "Auswahl entfernen"
+
+#: admin_list_email.php:266
+msgid "Delete"
+msgstr "Löschen"
+
+#: admin_manage.php:25
+#: admin.php:50
+msgid "Manage addresses"
+msgstr "Adressen verwalten"
+
+#: admin_manage.php:28
+msgid "The Emails may be seprated by newline, space, comma, semi colon, tabs, [, ], &lt; or &gt;."
+msgstr "Die Emails dürfen durch Zeilenumbruch, Leerzeichen, Komma, Semikolon, Tabs, [, ] , &lt; oder &gt; getrennt werden."
+
+#: admin_manage.php:29
+msgid "Watch out! There is only simple checking whether the email address is valid."
+msgstr "Achtung! Es findet nur eine einfache Überprüfung statt, ob die Emailadressen in Ordnung sind."
+
+#: admin_manage.php:33
+msgid "Load LDIF-File:"
+msgstr "LDIF-Datei laden:"
+
+#: admin_manage.php:35
+msgid "Load"
+msgstr "Laden"
+
+#: admin_manage.php:39
+msgid "Emails"
+msgstr "E-Mails"
+
+#: admin_manage.php:47
+msgid "What should be done?"
+msgstr "Was soll gemacht werden?"
+
+#: admin_manage.php:48
+msgid "Add selected categories"
+msgstr "Die ausgewählten Kategorien hinzufügen"
+
+#: admin_manage.php:49
+msgid "Remove selected categories"
+msgstr "Die Ausgewählten Kategorien entfernen"
+
+#: admin_manage.php:50
+msgid "Replace with selected categories"
+msgstr "Mit den Ausgewählten Kategorien ersetzen"
+
+#: admin_manage.php:51
+msgid "Delete the listed emails"
+msgstr "Die Aufgelisteten Emails löschen"
+
+#: admin_manage.php:57
+msgid "Manage"
+msgstr "Verwalten"
+
+#: admin_manage.php:58
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+#: admin_manage.php:77
+msgid "Email is not valid:"
+msgstr "Die Email ist nicht gültig:"
+
+#: admin_manage.php:91
+msgid "Removed email:"
+msgstr "Entfernte Email:"
+
+#: admin_manage.php:93
+msgid "Email is not in DB:"
+msgstr "Email ist nicht in der BD:"
+
+#: admin_manage.php:106
+msgid "Added Email:"
+msgstr "Email hinzugefügt:"
+
+#: admin_manage.php:112
+msgid "Something went wrong with the Email:"
+msgstr "Irgendetwas ist mit der Email schief gegangen:"
+
+#: admin_manage.php:139
+msgid "Updated Email:"
+msgstr "Aktualisierte Email:"
+
+#: admin_test.php:6
+#: admin.php:56
+msgid "Test"
+msgstr "Testen"
+
+#: admin_test.php:12
+msgid "Post id:"
+msgstr "Beitrags-ID:"
+
+#: admin_test.php:20
+msgid "This must be the ID of the post you want to send. You can find the ID under Manage->Posts."
+msgstr "Dies muss die ID des Beitrags sein, welchen du senden willst. Du kannst die ID unter Verwalten->Beiträge herausfinden."
+
+#: admin_test.php:55
+msgid "Do not send mail:"
+msgstr "Email nicht senden:"
+
+#: admin_test.php:68
+msgid "Send test mail."
+msgstr "Testmail senden."
+
+#: admin_test.php:77
+msgid "Email"
+msgstr "E-Mail"
+
+#: admin_test.php:85
+msgid "Error:"
+msgstr "Fehler: "
+
+#: admin_test.php:85
+msgid "Email has to be in the database."
+msgstr "Die Emailadresse muss in der Datenbank sein."
+
+#: admin.php:35
+msgid "You need at least Userlevel 8 to modify the settings."
+msgstr "Du brauchst mindestens Userlevel 8, um diese Einstellungen zu ändern."
+
+#: admin.php:41
+msgid "You need to be administrator to modify the settings."
+msgstr "Du musst Administrator sein, um diese Einstellungen zu ändern."
+
+#: admin.php:49
+msgid "Info"
+msgstr "Info"
+
+#: admin.php:51
+msgid "Export addresses"
+msgstr "Adressen exportieren"
+
+#: admin.php:52
+msgid "List addresses"
+msgstr "Adressen auflisten"
+
+#: admin.php:53
+msgid "Delete addresses"
+msgstr "Adressen löschen"
+
+#: install.php:124
+msgid "Subscribe to Posts"
+msgstr "Posts abonnieren"
+
+#: sendmail.php:189
+msgid "New post"
+msgstr "Neuen Beitrag erstellen"
+
+#: admin_templates.php:5
+msgid "Edit templates"
+msgstr "Templates bearbeiten"
+
+#: post_notification.php:114
+msgid "Default"
+msgstr "Standard"
+
+#: post_notification.php:123
+msgid "Send Mails in queue."
+msgstr "Sende Emails in der Sendewarteschlange."
+
+#: post_notification.php:127
+msgid "Resend"
+msgstr "Erneut senden"
+
+#: post_notification.php:146
+msgid "Send notification when publishing?"
+msgstr "Nachricht beim Veröffentlichen senden"
+
+#: post_notification.php:322
+msgid "Submit"
+msgstr "Absenden"
+
+#: post_notification.php:345
+msgid "Title:"
+msgstr "Titel:"
+
+#: post_notification.php:348
+msgid "Subtext:"
+msgstr "Untertext:"
+
+#: post_notification.php:352
+msgid "Size:"
+msgstr "Größe:"
+
+#: post_notification.php:355
+msgid "Submit:"
+msgstr "Absenden:"
+
+#~ msgid "Use \"saved.tmpl\" on save."
+#~ msgstr "Nach dem "
+#~ msgid ""
+#~ "If you want to modify the templates it's probably best to create a new "
+#~ "profile. Take the subdir of your favorite language and copy it. Now you "
+#~ "can modify the templates. This way it is also assured, that your "
+#~ "modifications are not overwritten when updating."
+#~ msgstr ""
+#~ "Wenn Du die Templates bearbeiten willst, ist es wahrscheinlich am besten, "
+#~ "ein neues Profil zu erstellen. Nimm das Unterverzeichnis Deiner "
+#~ "Lieblingssprache und kopiere es. Nun kannst Du die Templates anpassen. So "
+#~ "wird sichergestellt, dass Deine Templates nicht verändert werden, wenn Du "
+#~ "ein Update machst."
+

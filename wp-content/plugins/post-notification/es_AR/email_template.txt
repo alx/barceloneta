@@ -1,0 +1,12 @@
+Nuevo post en "@@blogname": "@@title" (escrito el @@date a las @@time).
+
+@@content 
+
+@@permalink
+
+________________________________________________________
+
+Estás subscripto a las notificaciones de los posts de este blog.
+Si querés cambiar tu configuración o desubscribir, por favor visitá:
+
+@@conf_url

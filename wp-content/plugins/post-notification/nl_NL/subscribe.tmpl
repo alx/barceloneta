@@ -1,0 +1,11 @@
+<form id="newsletter" method="post" action="@@action" style="text-align:left">
+
+	<p>email: <input type="text" name="addr" size="30" maxlength="50" value="@@addr"/> </p>
+	<p><input type="radio" name="action" value="subscribe" checked="checked" />Aanmelden &nbsp; <input type="radio" name="action" value="unsubscribe" />Afmelden</p>
+	<!--capt--><p><img alt="captcha" src="@@captchaimg" /> <br />
+	Geef alstublieft de tekens uit het plaatje in: <input type="text" name="captcha" size="30" maxlength="50" />
+	<input type="hidden" name="captchacode" value="@@captchacode" />
+	</p><!--cha-->
+	<p><input type="submit" name="submit" value="Bevestigen" /></p>
+	@@vars
+</form>

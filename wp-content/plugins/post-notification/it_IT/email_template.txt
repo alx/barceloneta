@@ -1,0 +1,12 @@
+Un nuovo post "@@title" è stato pubblicato il giorno @@date alle ore @@time all'interno di "@@blogname".
+
+@@content 
+
+@@permalink
+
+________________________________________________________
+
+Sei stato iscritto a queste notifiche tramite e-mail riguardo a nuovi post nel blog.
+Se desideri modificare le tue impostazioni o disiscriverti, visita:
+
+@@conf_url
